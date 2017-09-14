@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		div{
+			width: 730px;
+			height: 454px;
+			margin: 0 auto;
+			position: relative;
+		}
+		ul{
+			list-style: none;
+			padding: 0px;
+		}
+		ul.list{
+			position: relative;
+		}
+		ul.list>li{
+			position: absolute;
+		}
+		ul.nav{
+			position: absolute;
+			bottom: 0px;
+			left: 300px;
+			z-index: 2;
+		}
+		ul.nav>li{
+			float: left;
+			margin: 0px 2px;
+			color: #fff;
+			background: gray;
+			border-radius: 50%;
+			width: 18px;
+			height: 18px;
+			line-height: 18px;
+			text-align: center;
+			cursor: pointer;
+		}
+		ul.nav>li.selected{
+			background: #f00;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<ul class="list">
+		<li style="z-index: 1;"><a href="#"><img src="room/1.jpg"></a></li>
+		<li><a href="#"><img src="room/2.jpg"></a></li>
+		<li><a href="#"><img src="room/3.jpg"></a></li>
+		<li><a href="#"><img src="room/4.jpg"></a></li>
+		<li><a href="#"><img src="room/5.jpg"></a></li>
+	</ul>
+	<ul class="nav">
+		<li class="selected">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</div>
+	<script type="text/javascript">
+	$('.nav').on('click','li',function(){
+		// 导航条其余移除，点击当前添加
+		$('.nav>li').removeClass('selected');
+		$(this).addClass('selected');
+		// 图片变化
+		// 获取index，操作相应图片
+		var index=$('.nav>li').index(this);
+		// '+index+'变量
+		$('.list>li:eq('+index+')').fadeIn('slow').siblings().fadeOut('slow')
+	})
+	</script>
+</body>
+</html>
