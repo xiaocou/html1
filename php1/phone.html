@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>API接口调用</title>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+	<style>
+		.include{
+			width: 300px;
+			height: 160px;
+			background-color: #0ff;
+			margin: 100px auto;
+		}
+		.include input:nth-child(1){
+			width: 180px;
+			height: 30px;
+			float: left;
+			margin-left: 20px;
+			margin-top: 20px;
+			text-align: center;
+		}
+		.include input:nth-child(2){
+			width: 60px;
+			height: 36px;
+			float: left;
+			margin-top: 20px;
+		}
+		#con{
+			width: 300px;
+			background-color: #f0f;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="include">
+		<input type="text" name="num" id="num" value="" placeholder="请输入手机号"/>
+		<input type="button" name="num" id="btn" value="查询" />
+		<div id="con"></div>
+	</div>
+	
+	<script type="text/javascript">
+		 $("#btn").click(function(){
+			 $(".con").html('');	
+			
+		// API开放:阿里,百度,聚合,野狗 
+		// 注册, showapi 注册,上传身份证
+			$.ajax({
+				type:'post',
+				url:"http://route.showapi.com/6-1",
+				data:{
+					'showapi_appid':'38978',
+					'showapi_sign':'0e612e1b2bf14d2882efec7f6a80663d',
+					'num': $("#num").val()
+				},
+				success:function(result){
+					console.log(result);
+//内容数据为数组需要遍历,对象不需要遍历
+					var list = result.showapi_res_body;
+					console.log(list);
+					re = list.num+"<br>"+list.city+"<br>"+list.name+"<br>"+list.prov+"<br>"+list.areaCode;
+					document.getElementById('con').innerHTML = re;
+				}
+			});
+		})
+	</script>
+</body>
+</html>

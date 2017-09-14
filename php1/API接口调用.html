@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<script src="jquery-3.2.0.js"></script>
+		<style>
+			.table{
+				width: 60%;
+				margin: 0 auto;
+			}
+			#tb td{
+				height: 137px;
+				line-height: 137px;
+			}
+		</style>
+	</head>
+	<body>
+		<table class="table table-striped table-hover">
+			<tbody id="tb"></tbody>
+		</table>
+		<script>
+//			API开放:阿里,百度,聚合,野狗
+//			注册
+			$.ajax({
+				type:"post",
+				url:"http://route.showapi.com/9-9",
+				async:true,
+				data:{
+					'showapi_appid':'38919',
+					'showapi_sign':'71f582003a8c4defb8d418f53ed6a650',
+					'area':'贵阳'
+				},
+				success:function(result){
+					var we=result.showapi_res_body.dayList;
+//					document.write(we.area);
+//内容数据为数组需要遍历,对象不需要遍历
+					for (var i= 0; i < we.length ;i++) {
+//						document.write(we[i].area);
+						var we1 = "<tr>"+"<td>"+we[i].area+"</td>"+"<td>"+we[i].day_weather+"</td>"+"<td>"+"<img src='"+we[i].day_weather_pic+"'/>"+"</td>"+"<td>"+we[i].day_air_temperature+"</td>"+"<td>"+we[i].day_wind_direction+"</td>"+"<td>"+we[i].daytime+"</td>"+"</tr>";
+//						console.log(we);
+					document.getElementById('tb').innerHTML += we1;
+//						var oli=we[i].area+'-'+we[i].day_weather;
+//						document.getElementById('tab').innerHTML += "<li>"+oli+"</li>";
+						
+//						document.write(we);
+//						console.log(document.getElementById('ul').children);
+					}	
+					console.log(result);
+				}
+			});
+		</script>
+	</body>
+</html>

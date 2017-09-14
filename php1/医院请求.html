@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.2.0.js"></script>
+	</head>
+	<body>
+		<script>
+			$.ajax({
+				type:"post",
+				url:"http://route.showapi.com/87-59",
+				async:true,
+				data:{
+					'showapi_appid':'39574',
+					'showapi_sign':'f777b441682949e4978d14daf2f07246',
+					'id':'55c2ec58a2b7b27898fe234f'
+				},
+				success:function(result){
+					var num = result.showapi_res_body;
+					console.log(num);
+					var we = num.cityName+'<br>'+num.tsks+'<br>'+num.img;
+					document.write(we)
+				}
+			});
+		</script>
+	</body>
+</html>

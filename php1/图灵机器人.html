@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.2.0.js"></script>
+		<style>
+			.content{
+				width: 300px;
+				height: 600px;
+				border: 1px solid #f00;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" /><button>提交</button>
+		<div class="content">
+			
+		</div>
+		<script>
+			$('button').click(function(){
+				
+				$.ajax({
+					type:"post",
+					url:"http://route.showapi.com/60-27",
+					async:true,
+					data:{
+						'showapi_appid':'39574',
+						'showapi_sign':'f777b441682949e4978d14daf2f07246',
+						'info':$('input').val()
+					},
+					success:function(result){
+						$('.content').html(result.showapi_res_body.text)
+	//					for (var i = 0;i<ticket.length;i++) {
+	//						console.log(ticket[i]);
+	//					}
+					}
+				});
+			})
+		</script>
+	</body>
+</html>
