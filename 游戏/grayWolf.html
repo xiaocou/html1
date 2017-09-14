@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+*{margin: 0;padding: 0;font-family: "微软雅黑";}
+#outer{background: url(img/game_bg.jpg);height: 480px; width: 320px; position: relative}
+#scoring{position: absolute;font-weight: bold;font-size: 16px;color: white;left: 65px;top: 13px;}
+#countDown{
+	position: absolute;background: url(img/progress.png) 0 0 no-repeat;width: 180px; height: 16px; left: 63px; top: 66px;}
+#menu{position: absolute;width: 320px;text-align: center; left: 0;top: 200px;}
+#start,#handle{line-height: 50px; font-size: 30px;font-weight: bold;color: #FF6600;text-decoration: none;display: block;
+}
+#wolfs img{
+	position: absolute;
+}
+#gameOver{position: absolute;width: 320px;text-align: center;left: 0px;top: 200px; display: none}
+
+</style>
+<script type="text/javascript">
+window.onload = function(){
+//9个洞left top 
+var arrPos=[{l:"98px" ,t:"115px"},
+	{l:"17px" ,t:"160px"},
+	{l:"15px" ,t:"220px"},
+	{l:"30px" ,t:"293px"},
+	{l:"122px",t:"273px"},
+	{l:"207px",t:"295px"},
+	{l:"200px",t:"211px"},
+	{l:"187px",t:"141px"},
+	{l:"100px",t:"185px"}];
+//随机数的函数
+function rand (min ,max){
+	return parseInt(Math.random()*(max-min))+min;
+}
+//1.得到页面元素
+var start = document.getElementById('start');
+var menu = document.getElementById('menu');
+var wolfs = document.getElementById("wolfs");
+var scoring = document.getElementById("scoring");
+var countDown = document.getElementById("countDown");
+var gameOver = document.getElementById("gameOver");
+//4.1积分计算函数
+function scoringFn(obj){
+	var scoringNum = parseInt(scoring.innerHTML);
+	//4.1.1大灰太狼+10
+	if (obj.type =='h') {
+		scoring.innerHTML = scoringNum+10;
+	}else{
+		scoring.innerHTML = scoringNum -10;
+	}
+}
+
+
+start.onclick = function(){
+	//5.倒计时
+var countDownWidth = countDown.offsetWidth;
+var countDownBol = true;
+var countDownTimer = setInterval(function(){
+
+	if (countDownBol) {
+		countDownWidth -=2;
+		if (countDownWidth<=0) {
+			clearInterval(createWolfTimer);
+	
+			// 分数
+			// 延时
+			var outTimer = setTimeout(function(){
+			gameOver.style.display = 'block';
+			// gameOver.innerHTML = scoring.innerHTML; 
+			}, 1000);
+		} 
+		countDown.style.width = countDownWidth+"px";
+	}
+}, 100);
+//1.开始菜单消失
+menu.style.display = "none";
+var createWolfTimer = null;
+//2.狼出现
+createWolfTimer = setInterval(function (){
+	//2.1灰太狼和小灰太狼出现的频率
+	//<img src="img/h0.png">"img/"     ".png"h x  type 0-9 数字  index 
+	var wolf = document.createElement("img");
+	wolf.type = rand(0,100)>80?"x":"h";
+	wolf.index = 0;
+	wolf.src = "img/" + wolf.type +wolf.index + ".png";
+	//2.2保证狼在同一个洞当中, 同一周期内只有一个狼上升和下降
+	var nowWolfs = wolfs.children;
+	var  bol = true;
+	while(bol){
+	//2.2.1r是洞位置的下标
+	var r = rand(0, arrPos.length);
+	for(var i=0;i<nowWolfs.length;i++){
+		if(nowWolfs[i].offsetLeft==parseInt(arrPos[r].l)){
+			break;}
+		}
+		if (i==nowWolfs.length) {
+		bol = false;
+		}
+	}
+	//2.2.2添加新的狼到容器中
+	wolf.style.left = arrPos[r].l;
+	wolf.style.top = arrPos[r].t;
+	wolfs.appendChild(wolf);
+
+	//3.1狼升上来
+	wolf.upTimer = setInterval(function(){
+	wolf.index++;
+	if (wolf.index>4) {
+		clearInterval(wolf.upTimer);
+		wolf.downFn();
+	}
+	wolf.src="img/" + wolf.type +wolf.index + ".png";
+	},150);
+	//3.2狼的下降
+	wolf.downFn = function(){
+	wolf.downTimer =setInterval(function(){
+	wolf.index--;
+	if (wolf.index<=0) {
+		clearInterval(wolf.downTimer);
+		wolfs.removeChild(wolf);
+	}
+		wolf.src="img/" + wolf.type +wolf.index + ".png";
+	}, 150);
+	}
+	//3.3狼的打击
+	//3.3.1wolf.clickBol狼是否可以打击
+	wolf.clickBol = true;
+	wolf.onclick = function(){
+	if (wolf.clickBol==false) {
+		return
+	}
+	wolf.clickBol = false;
+	//4.2积分函数调用
+	scoringFn(wolf);
+
+	//3.3.2清空狼的上升和下降
+	clearInterval(wolf.upTimer);
+	clearInterval(wolf.downTimer);
+	//3.3.3执行被锅打的图片 5-9
+	wolf.index = 5;
+	wolf.clcikTimer = setInterval(function(){
+	wolf.index++;
+	if(wolf.index>=9){
+		clearInterval(wolf.clcikTimer);
+		wolfs.removeChild(wolf);
+	}
+	wolf.src="img/" + wolf.type +wolf.index + ".png";
+	}, 150);
+	}
+	},800);
+}
+}
+
+</script>
+</head>
+<body>
+<!-- 背景图 -->
+<div id="outer">
+	<div id="scoring">0</div>
+	<div id="countDown"></div>
+	<!-- 后期装狼 -->
+	<div id="wolfs"></div>
+	<div id="gameOver">
+		<h3>游戏结束</h3>
+		<h3>分数</h3>
+	</div>
+</div>
+<!-- 菜单 -->
+<div id="menu">
+	<a href="#" id="start">开始</a>
+	<a href="#" id="handle">游戏操作说明</a>
+</div>
+</body>
+</html>
