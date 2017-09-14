@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+	<script type="text/javascript" src="jquery.tmpl.js"></script>
+</head>
+<body>
+	<ul id="bookList"></ul>
+	<script id="myTmpl" type="text/x-jquery-tmpl">
+		<li>
+			${category} ${author} ${bookname}
+			<!-- <p>{%html Detail %}</p>显示里面的标签 -->
+		</li>
+	</script>
+	<script type="text/javascript">
+		function getXHR() {
+			if (window.XMLHttpRequest) {
+				return new XMLHttpRequest();
+			}
+			else{
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			} 
+		}
+		// 创建ajax对象
+		var xhr= getXHR();	
+		// 创建请求
+		xhr.open('GET','bookstore.json',true);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				var data = JSON.parse(xhr.responseText);
+				console.log(data.books);
+				$('#myTmpl').tmpl(data.books).appendTo('#bookList');
+			}
+		}
+		xhr.send(null);
+		
+	</script>
+</body>
+</html>

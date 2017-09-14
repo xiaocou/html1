@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.0.js"></script>
+	<script src="jquery.tmpl.js"></script>
+</head>
+<body>
+	<table id="table">
+		<thead>
+			<tr>
+				<td>time</td>
+				<td>open_price</td>
+				<td>close_price</td>
+				<td>diff</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<!-- <script id="myTmpl" type="text/x-jquery-tmpl">
+		<tr>
+			<td>${time}</td>
+			<td>${open_price}</td>
+			<td>${close_price}</td>
+			<td>${diff}</td>
+		</tr>
+	</script> -->
+	<script>
+		function formatterDateTime() {
+		    var date=new Date()
+		    var month=date.getMonth() + 1
+		        var datetime = date.getFullYear()
+		                + ""// "年"
+		                + (month >= 10 ? month : "0"+ month)
+		                + ""// "月"
+		                + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate())
+		                + ""
+		                + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours())
+		                + ""
+		                + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
+		                + ""
+		                + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds());
+		        return datetime;
+		}
+		$.ajax({
+		    type: 'post',
+		    url: 'http://route.showapi.com/1108-2',
+		    dataType: 'jsonp',
+		    data: {
+		        "showapi_timestamp": formatterDateTime(),
+		         "showapi_appid": '38934', //这里需要改成自己的appid
+		         "showapi_sign": 'ec12dec8a6a74446af6d88ba7f2bf79c',  //这里需要改成自己的应用的密钥secret，
+		 		"code":"wti",
+		 		"begin":"20160501",
+		 		"end":"20160531"
+		    },
+		    jsonp: 'jsonpcallback', //这个方法名很重要,不能改变
+		    error: function(XmlHttpRequest, textStatus, errorThrown) {
+		        alert("操作失败!");
+		    },
+		    success: function(result) {
+		        // 6tconsole.log(result) //console变量在ie低版本下不能用
+		        var arr1=new Array();
+		        arr1 = result.showapi_res_body.list.slice();
+		        console.log(arr1);
+//		        for (var i = 0;i<result.showapi_res_body.list.length;i++) {
+//		        	// arr1.unshift(result.showapi_res_body.list[i].close_price/1);
+//		        	var data=JSON.stringify({
+//						"time":result.showapi_res_body.list[i].time,
+//						"open_price":result.showapi_res_body.list[i].open_price,
+//						"close_price":result.showapi_res_body.list[i].close_price,
+//						"diff":result.showapi_res_body.list[i].diff
+//					});
+//					var obj = JSON.parse(data);//字符串改为JSON
+//		        	arr1.unshift(obj);
+//		        }
+//		        console.log(arr1);
+//		        console.log(typeof(arr1));
+//		        console.log(typeof(arr1[0]));
+		        // console.log(arr1)
+		        //$('#myTmpl').tmpl(arr1).appendTo('#table>tbody');
+		        //创建字符串模版
+				var tmpl='<tr><td>${time}</td><td>${open_price}</td><td>${close_price}</td><td>${diff}</td></tr>';
+				//使用字符串模版
+				$.tmpl(tmpl,arr1).appendTo('#table>tbody');
+		    }
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.0.js"></script>
+	<script src="jquery.tmpl.js"></script>
+</head>
+<body>
+	<table id="table">
+		<thead>
+			<tr>
+				<td>time</td>
+				<td>open_price</td>
+				<td>close_price</td>
+				<td>diff</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<script>
+		var data=[{time:'1001',open_price:'LiLei',close_price:20,diff:'ds'},
+					  {time:'1002',open_price:'HanMeiMei',close_price:19,diff:'ds'},
+					  {time:'1003',open_price:'LiSi',close_price:21,diff:'ds'},
+					  {time:'1004',open_price:'ZhangSan',close_price:23,diff:'ds'},
+					  {time:'1005',open_price:'LaoWang',close_price:40,diff:'ds'}
+					 ];
+			console.log(typeof(data));
+			console.log(typeof(data[0]));
+			//使用格式模板
+//			$('#myTmpl').tmpl(data).appendTo('#table>tbody');
+
+		
+			//创建字符串模版
+			var tmpl='<tr><td>${time}</td><td>${open_price}</td><td>${close_price}</td><td>${diff}</td></tr>';
+			//使用字符串模版
+			$.tmpl(tmpl,data).appendTo('#table>tbody');
+	</script>
+</body>
+</html>
