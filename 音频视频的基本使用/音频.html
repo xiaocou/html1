@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音频使用</title>
+	<style type="text/css">
+		.first{
+			width: 400px;
+			height: 300px;
+			border: 2px solid #6495ed;
+			margin-bottom: 25px;
+		}
+		.first>audio{
+			margin: 33px auto;
+		}
+		.second{
+			width: 400px;
+			height: 300px;
+			border: 2px solid #6495ed;
+			margin-bottom: 25px;
+		}
+		.third{
+			width: 400px;
+			height: 300px;
+			border: 2px solid #6495ed;
+			margin-bottom: 25px;
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- 音频的一些常用属性：
+	1：autoplay设置页面加载完成后加载音频，
+	2：controls设置音频是否显示控件(播放/暂停/进度/音量)
+	3：autobuffer如果指定这个布尔值属性，即使没有设置自动播放，音频也会自动开始缓冲。
+	4：loop  如果指定这个布尔值属性，表示允许音频播放结束后自动回放。也可以说当音频结束时可以自动回放   --> 
+	<!-- 5、如果你设置了muted这个属性，则表示这个音频在页面加载时默认静音 -->
+	<!-- 6、preload这个属性则代表着在页面加载时音频也开始加载，并准备播放，但是如果我们已经添加了autoplay这个属性就可以忽略这个属性了 -->
+	<!-- 7、音频的播放和暂停 播放play  暂停pause 后面加上括号是方法，不加括号是属性 -->
+	<div class="first">
+		<!-- 一、直接在文档中放置音频 -->
+		<audio src="audio/try.mp3" autoplay
+		controls></audio>
+	</div> 
+	<div class="second">
+		<audio controls   >
+			<source src="audio/try.mp3" type="audio/mpeg">
+			<source src="audio/try.ogg" type="audio/ogg">
+		</audio>
+	</div>
+	<!-- 还可以用js写出来 -->
+	<div class="third" >
+	<button id="play">播放</button>
+	<button id="stop">暂停</button>
+		<audio id="myaudio" controls >
+			<source src="audio/MulliganStark Sands - Five.mp3" type="audio/mpeg">
+			<source src="audio/MulliganStark Sands - Five.ogg" type="audio/ogg">
+		</audio>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		// 播放
+		$('#play').click(function() {
+			$('#myaudio').get(0).play();
+			
+		});
+		//暂停
+		$('#stop').click(function() {
+			$('#myaudio').get(0).pause();
+		});
+	})
+</script>
+	
+</body>
+</html>

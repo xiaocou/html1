@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频的基本使用</title>
+	<style type="text/css">
+		.myfirst {
+			height: 400px;
+			width: 700px;
+			background-color: skyblue;
+			margin-bottom: 20px;
+
+		}
+		.myfirst>video{
+			margin-left: 15px;
+			margin-top: 30px;
+		}
+		.mythird{
+			margin-top: -837px;
+			margin-left:900px; 
+		}
+		button{
+			margin: 20px;
+			height: 30px;
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<!-- video的属性：
+	1、controls显示播放控件
+	2、autoplay控制自动播放
+	3、loop循环播放视频
+	4、muted设置视频静音
+	5、poster视频下载时显示的图像或是用户点击播放按钮时显示的图像
+	6、preload src height width -->
+	<!-- 第一种使用方法，最简单的方法 -->
+	<!-- 直接放置，里面加入的controls显示播放器控件 -->
+	<!-- 在这里autoplay的用法和audio中的不同，在audio中放入此值是让
+	音频在文档加载完毕后直接播放，而在video中则是有值可选的，一个为false，一个为true，其中false为它的，默认值 -->
+	<!-- 还可以直接在元素中设置width和height因为在这里它们也是video中的属性 -->
+	<div class="myfirst">
+	<video src="video/2.mp4" controls autoplay></video>
+	</div>
+	<!-- 和音频一样，因为浏览器读取的原因所以我们会放置多个格式吧的视频文件，浏览器将会播放所识别到的第一个文件 -->
+	<div class="mysecond myfirst"> 
+		<video controls="controls" loop="loop">
+			<source src="video/2.mp4" type="video/mp4">
+			<source src="video/2.ogg" type="video/ogg">
+		</video>
+	</div>
+	<div class="mythird myfirst">
+		<video  id="control" src="video/2.mp4"></video>
+		<button id="play">播放</button>
+		
+		<button id="stop">暂停</button>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
+	<!-- 通过js语句控制简单的播放暂停 -->
+	<script type="text/javascript">
+		$(function(){
+			$('#play').click(function() {
+				$('#control').get(0).play();
+			});
+			$('#stop').click(function() {
+				$('#control').get(0).pause();
+			});
+		})
+	</script>
+</body>
+</html>
