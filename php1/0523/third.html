@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id = "booklist" class="books"></ul>
+		<script type="text/javascript">
+//			获取对象
+			function getXhr(){
+				if (window.XMLHttpRequest) {
+					return new XMLHttpRequest();
+				} else{
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+			var xhr=getXhr();
+//			创建请求
+			xhr.open('GET','bookstore.json');
+//			设置回调函数
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+//					console.log(xhr.responseText)
+//					解析json :xhr.responseText
+//					把json转变为对象
+					var data = JSON.parse(xhr.responseText);
+					console.log(data);
+//					for (var i=data.books.length-1;i>=0;i--) {
+//						var book = data.books[i];
+//					    for(var a in book){
+//					    	var oli=document.createElement('li');
+//							oli.innerHTML=book[a];
+//							document.getElementById('booklist').appendChild(oli);
+//					    }
+//						console.log(book);
+////						创建li,li放内容,ul添加文本						
+//					}
+					for (var i=data.books.length-1;i>=0;i--) {
+						var book = data.books[i];
+					    	var oli=document.createElement('li');
+							oli.innerHTML=(book.category+'-'+book.author+'-'+book.bookname);
+							document.getElementById('booklist').appendChild(oli);
+						console.log(book);
+//						创建li,li放内容,ul添加文本
+						
+					}
+				}
+			}
+//			发送请求
+			xhr.send(null);
+
+		</script>
+	</body>
+</html>

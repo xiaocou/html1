@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="写XML" onclick="getXMLContent()" />
+		<script type="text/javascript">
+//			获取对象
+			function getXhr(){
+				if (window.XMLHttpRequest) {
+					return new XMLHttpRequest();
+				} else{
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+			var xhr=getXhr();
+			
+			
+//			创建请求
+			xhr.open('GET','bookstore.xml');
+			
+			
+//			设置回调函数
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var doc=xhr.responseXML;
+					console.log(doc);
+					console.log(doc.children[0].children[0].innerHTML);
+				}
+			}
+//			发送请求
+			xhr.send(null);
+			
+			
+//			写XML
+			function getXMLDoc(xml){
+				var docu;
+//				创建xml的dom对象
+				if(window.DOMParser){
+					var parser = new DOMParser();
+					docu = parser.parseFromString(xml,'application/xml');
+				}else{
+//					IE老版本
+					docu = new ActiveXObject('Microsoft.XMLDOM');
+					docu.load(xml);
+				}
+				return docu;
+			}
+			
+			
+			function getXMLContent(){
+//				传入XML语句
+				var xmlDoc=getXMLDoc('<bookstore><book>白雪公主</book></bookstore>');
+				var value = xmlDoc.getElementsByTagName('book')[0];
+				console.log(value.innerHTML);
+			}
+		</script>
+	</body>
+</html>

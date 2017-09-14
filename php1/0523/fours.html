@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form name="myform">
+			<input type="text" name="user" />
+			<input type="password" name="pwd" />
+			<input type="submit" name="submit"  onclick="test()"/>
+		</form>
+		<script type="text/javascript">
+			function test(){
+				alert(document.myform.user.value);				
+				alert(document.myform.pwd.value);				
+			}
+//			获取对象
+			function getXhr(){
+				if (window.XMLHttpRequest) {
+					return new XMLHttpRequest();
+				} else{
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+			var xhr=getXhr();
+//			创建请求
+			xhr.open('POST','url');
+//			设置回调函数
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+//					console.log(xhr.responseText)
+//					解析json :xhr.responseText
+//					把json转变为对象
+					var data = JSON.parse(xhr.responseText);
+					console.log(data);
+					for (var i=data.books.length-1;i>=0;i--) {
+						var book = data.books[i];
+						console.log(book.bookname);
+					}
+				}
+			}
+//			字符串转变json,键:后台确定
+			var data = JSON.stringify({
+				"user":document.myform.user.value,
+				"pwd":document.myform.pwd.value
+			});
+//			发送请求
+			xhr.send(data);
+
+		</script>
+	</body>
+</html>

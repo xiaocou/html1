@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.2.0.js"></script>
+	</head>
+	<body>
+		<form id="myform" action="url" method="post">
+			<input type="text" id="uname" name="uname" />
+			<input type="password" id="pwd" name="pwd" />
+			<input type="button" value="注册" id="btn" />
+		</form>
+		<script>
+			$("#btn").click(function(){
+////				将表单内容序列化成为一个json字符串
+////	{key:value}
+//				var userInfo = $("myform").serialize();
+////				将表单内容序列化成为一个数组
+////	{val1,val2}
+//				var userInfo = $("myform").serializeArray();
+				var userInfo = {};
+				userInfo.uname = $("#uname").val();
+				userInfo.pwd = $("#pwd").val();
+				$.post('jq-ajax2.php',userInfo,function(data){
+					console.log(data);
+				},'json');
+			})
+		</script>
+	</body>
+</html>
