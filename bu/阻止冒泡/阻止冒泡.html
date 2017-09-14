@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='div' onclick='alert("div");'>
+			<ul onclick='alert("ul");'>
+				<li onclick='alert("li");'>test</li>
+			</ul>
+		</div>
+		<script>
+//			function myfn(e){
+//			window.event? window.event.cancelBubble = true : e.stopPropagation();
+//			}
+			
+			function myfn(e){
+			window.event? window.event.returnValue = false : e.preventDefault();
+			}
+			
+//			function myfn(e){
+//				window.event? window.event.cancelBubble = true : e.stopPropagation();
+//			}
+		</script>
+	</body>
+</html>
