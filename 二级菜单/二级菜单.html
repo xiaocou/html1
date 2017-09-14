@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul{
+			list-style: none;			
+		}
+		li span{
+			cursor: pointer;
+			padding-left: 20px;
+		}
+		.open{
+			background:url(minus.png) no-repeat;
+		}
+		.closed{
+			background:url(add.png) no-repeat;
+		}
+		.show{
+			display: block;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+  	<li>
+		<span class="open" onclick="toggle(this)">考勤管理</span>
+		<ul class="show">
+			<li>日常考勤</li>
+			<li>请假申请</li>
+			<li>加班/出差</li>
+		</ul>
+	</li>
+  	<li>
+		<span class="closed" onclick="toggle(this)">信息中心</span>
+		<ul class="hide">
+			<li>通知公告</li>
+			<li>公司新闻</li>
+			<li>规章制度</li>
+		</ul>
+	</li>
+  	<li><span class="closed" onclick="toggle(this)">协同办公</span>
+		<ul class="hide">
+			<li>公文流转</li>
+			<li>文件中心</li>
+			<li>内部邮件</li>
+		</ul>
+	</li>
+  	</ul>
+	<script type="text/javascript">
+	function toggle(listObj){
+		var ulObj=listObj.nextElementSibling;
+		if (listObj.className=='open') {
+			listObj.className='closed';
+			ulObj.className='hide';
+		}else{
+//			var openedSpan=document.querySelector('.open');
+//			if (openedSpan) {
+//				openedSpan.className='closed';
+//				openedSpan.nextElementSibling.className='hide';
+//			}
+			listObj.className='open';
+			ulObj.className='show';
+		}
+	}
+	</script>
+</body>
+</html>
