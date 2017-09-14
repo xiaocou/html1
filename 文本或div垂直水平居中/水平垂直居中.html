@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--&lt;!&ndash;[if lt IE 8]>-->
+		<!--<style>-->
+			<!--.middle-inner { position: absolute; top:50%;}-->
+			<!--.middle-inner p {position: relative; top: -50%}-->
+		<!--</style>-->
+		<!--<![endif]&ndash;&gt;-->
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			/*.c1{
+				width: 100px;
+				height: 100px;
+				border: 1px solid #f00;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}*/
+			.c1{
+				width: 100px;
+				height: 100px;
+				border: 1px solid #f00;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -50px;
+				margin-left: -50px;
+			}
+			/*.c1{
+				width: 100px;
+				height: 100px;
+				border: 1px solid #f00;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}*/
+			/*实现水平垂直居中*/
+			/*.c1{*/
+				/*display: table-cell;*/
+				/*vertical-align: middle;*/
+				/*!*line-height: 50px;*!!*多行文本水平垂直居中，如果有*{}则需要设计这项*!*/
+				/*border: 1px solid #f00;*/
+			/*}*/
+			p{
+				display: inline-block;
+				vertical-align: middle;
+				text-align: center;
+				/*line-height: 22px;*/
+			}
+
+
+			.middle-box{display: table; height: 300px;
+				border: 1px solid #f00;}
+			.middle-inner{display: table-cell; vertical-align:middle; text-align:center;}
+
+
+			/*.middle-box{display: table; height: 300px; border:1px solid #ff0000; width:400px; margin:0 auto; position:relative;}*/
+			/*.middle-inner{display: table-cell; vertical-align:middle; *position:absolute; *top:50%; *left:50%; width:100%; text-align:center;}*/
+			/*.middle-inner p{position:relative; *top:-50%; *left:-50%;}*/
+
+			.contain{height:300px; border: 1px solid #f00; width: 400px; margin: 0 auto; text-align: center; }
+			.contain p{vertical-align: middle; display: inline-block; *display: inline; *zoom: 1;}
+			.visible{height: 100%; vertical-align: middle; width: 0; display: inline-block;}
+
+		</style>
+	</head>
+	<body>
+		<div class="c1">
+			<p>我是p1</p>
+			<p>我是p2</p>
+		</div>
+
+		<div class="middle-box">
+			<div class="middle-inner">
+				<p><span class="suc-tip">前端开发博客，专注前端开发和web教程</span><br/><span class="suc-link">快捷入口：<a href="http://caibaojian.com">http://caibaojian.com</a></span></p>
+				<p style="display:none;"><span class="suc-tip">5年的老博客，一直致力于WEB开发</span></p>
+			</div>
+		</div>
+
+		<div class="contain">
+			<p><span class="suc-tip">前端开发博客，专注前端开发和web教程</span><br/><span class="suc-link">快捷入口：<a href="http://caibaojian.com">http://caibaojian.com</a></span></p>
+			<i class="visible"></i>
+			<p style="display:none;"><span class="suc-tip">5年的老博客，一直致力于WEB开发</span></p>
+		</div>
+	</body>
+</html>
