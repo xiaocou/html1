@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// function 以对象形式存在，每个函数就是function对象的实例
+	// arguments对象，每个函数对象都会有一个arguments属性，这个属性只能在函数体内使用
+	function add(){
+		for(var i=0,sum=0;i<arguments.length;i++){
+			sum+=parseInt(arguments[i]);
+			console.log(arguments[i])
+		}
+		return sum;
+	}
+	var a=add(1,2,3,4);
+	console.log(a);
+
+	</script>
+</body>
+</html>

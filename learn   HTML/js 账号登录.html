@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form name="loginForm">
+		用户名：<input type="text" name="username"><br>
+		密码：<input type="password" name="pwd"><br>
+		<input type="checkbox" name="remember">记住我
+		<input type="button" value="登录" onclick="login()">
+	</form>
+	<button onclick="document.forms.loginForm.remember.click()">click me</button>
+	<script type="text/javascript">
+	function login(){
+		var form=document.forms.loginForm;
+		// 去掉字符序列左边和右边的空格
+		var username=form.username.value.trim();
+		if (username=='') {
+			alert('请输入用户名');
+			form.username.focus();
+			return;
+		}
+		form.submit();
+	}
+
+	</script>
+</body>
+</html>

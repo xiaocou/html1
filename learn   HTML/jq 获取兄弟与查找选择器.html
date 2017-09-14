@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		// siblings()获取其他兄弟
+		$('div:nth-child(3)').siblings().css('background','red');
+		// $('div:nth-child(3)').siblings(':gt(1)').css('background','red');
+		// find()查找满足选择器所有元素
+		// $('body>div').find(':gt(2)').css('background','red')
+		
+	})
+	</script>
+</head>
+<body>
+	<div>div
+		<div>child div1</div>
+		<div>child div2</div>
+		<div>child div3</div>
+		<div>child div4</div>
+		<div>child div5</div>
+		<div>child div6</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#msg{
+			width: 200px;
+			height: 200px;
+			position: fixed;
+			right: 30px;
+			bottom: -200px;
+			background-color: #ccc;
+		}
+		#msg>a{
+			float: right;
+			padding: 0 5px;
+			border: 1px solid #000;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="msg">
+		<a>X</a>
+	</div>
+	<script type="text/javascript">
+	// 创建广告动画
+	var timer=null;
+	timer=setInterval(function(){
+		var msg=document.getElementById('msg');
+		// 获取元素中所有可用的css属性列表
+		var mystyle=getComputedStyle(msg);
+		var bottom=parseInt(mystyle.bottom.slice(0,-2));
+		console.log(bottom)
+		if (bottom<0) {
+			bottom+=10;
+			msg.style.bottom=bottom+'px';
+		}else{
+			clearInterval(timer);
+			timer=null;
+		}
+	},30);
+	// 添加关闭处理
+	var a=document.querySelector('#msg>a');
+	a.onclick=function(){
+		if (!timer) {
+			timer=setInterval(function(){
+				var msg=document.getElementById('msg');
+				var mystyle=getComputedStyle(msg);
+				var bottom=parseInt(mystyle.bottom.slice(0,-2));
+				if (bottom>-200) {
+					bottom-=10;
+					msg.style.bottom=bottom+'px';
+				}else{
+					clearInterval(timer);
+					timer=null;
+				}
+			},30)
+		}
+	}
+	</script>
+	<div id="d1" style="width: 100px;height: 100px;position: absolute;top: 100px;left:100px;background:red;"></div>
+	<!-- 创建轮播 -->
+	<script type="text/javascript">
+	var speed=2;
+	setInterval(function(){
+		var left=parseInt(document.getElementById('d1').style.left.slice(0,-2))+speed;
+	if (left>innerWidth) {
+		left=-100;
+	}
+	document.getElementById('d1').style.left=left+'px';
+},40);	
+	</script>
+</body>
+</html>

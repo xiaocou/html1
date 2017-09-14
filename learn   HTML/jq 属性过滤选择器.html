@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>属性过滤选择器</title>
+  <script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+  <style type="text/css">
+	div{
+		float:left;
+		border:1px solid black;
+		width:140px;
+		height:140px;
+		background:skyblue;
+		margin:5px;
+		font-size:18px;
+	}
+	div.mini{
+		width:55px;
+		height:55px;
+		font-size:12px;
+	}
+	div.none{
+		display:none;
+	}
+  </style>
+ </head>
+ <body>
+  
+  <h2>选择器</h2>
+  <hr />
+
+  <div id="one" class="one">
+	id为one，class为one的div
+	<div class="mini">class为mini</div>
+  </div>
+
+  <div id="two" class="one" title="test">
+	id为two，class为one，title是test的div
+	<div class="mini" title="other">class为mini,title为other</div>
+	<div class="mini" title="test">class为mini,title为test</div>
+  </div>
+
+  <div class="one">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini"></div>
+  </div>
+  <span class="onen">aaa</span>
+  <span class="onone">bbb</span>
+  <span class="ononeon" id="ccc">ccc</span>
+  <div class="none"></div>
+
+  <div>
+	包含type为hidden的input的div
+	<input type="hidden" name="userid"/>
+  </div>
+	<script type="text/javascript">
+	// 获取具有title属性的元素
+	// $('[title]').css('background','pink');
+	// 获取具有title属性的div
+	// $('div[title]').css('background','pink');
+	// 获取具有title属性one类中的div
+	$('div.one[title]').css('background','pink');
+	// 获取title为other的元素
+	// $('title=title').css('background','pink');
+	// 获取title不为other的元素
+	// $('title!=title').css('background','pink');
+	// $('div.min[title!=title]').css('background','pink');
+	// 获取class值为one开头
+	// $('span[class^=one]').css('background','pink');
+	// 获取class值为one结尾
+	// $('span[class$=one]').css('background','pink');
+	// 只要包含one的
+	// $('span[class*=one]').css('background','pink');
+	// 同时包含
+	// $('span[class*=one][id*=cc]').css('background','pink');
+
+
+
+	</script>
+ </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+</head>		
+<body>
+	<ul id="studentList">
+		<li id="name">小明</li>
+	</ul>
+	<script type="text/javascript">
+	// append()作为最后元素添加
+	$('#studentList').append('<li>小红</li>');
+	// 添加jq对象
+	// $('#studentList').append($('<li>小红</li>'));
+	var s=document.createElement('li');
+	s.innerHTML='小强';
+	$('#studentList').append(s);
+	// prepend()作为第一个子节点添加
+	// $('#studentList').prepend('<li>小李</li>');
+	// 作为下一个兄弟节点添加
+	$('#name').after('<li>大李</li>');
+	// 作为上一个兄弟节点添加
+	// $('#name').before('<li>大李</li>');
+	$('<li>大鸭梨</li>').appendTo('#studentList')
+	$('<li>小鸭梨</li>').appendTo($('#studentList'))
+	$('<li>烤鸭</li>').appendTo($('#studentList')[0])
+	$('<li>苹果</li>').insertAfter('li:first-child')
+	$('<li>香蕉</li>').insertBefore('li:first-child');
+	// $('li').remove(':last');
+//	$('li:last').remove();
+//	$('ul').empty();
+
+	</script>
+</body>
+</html>

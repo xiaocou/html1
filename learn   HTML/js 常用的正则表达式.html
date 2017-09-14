@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 匹配数字
+		var regexp1=/^[0-9]*$/;
+		// 匹配n为数字
+		var regexp2=/^[0-9]{5}$/;
+		// 匹配邮政编码550002，且第一位不为0
+		var regexp3=/^[1-9]\d{5}$/;
+		// 电话号码
+		var regexp4=/(0\d{2,3}-)[1-9]\d{6,7}/;
+		// 匹配手机号130 145 147 150 177 18
+		var regexp5=/^(13[0-9]|14[5|7]|15[0-9]|177|18[0-9])\d{8}$/;
+		// 匹配qq号5位 9位 11位
+		var regexp6=/[1-9]\d{4,10}/;
+		// 匹配身份证号18位最后有x，7位1|2,11位0|1,13位、14位01-31,13位0-3
+		var regexp71=/[1-9]\d{5}/;//前6位
+		var regexp72=////年份
+
+		
+	</script>
+</body>
+</html>

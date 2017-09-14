@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="createTable()">添加表格</button>
+	<button onclick="fillData()">添加数据</button>
+	<script type="text/javascript">
+		var data = [
+		{"id":1001,"name":"可口可乐","price":2.5,"count":3000}
+		];
+		// 默认为空,table房表哥
+		var table=null;
+		// 创建表格
+		function createTable(){
+			if (table) {
+				return;
+			}
+			table=document.createElement('table');
+			// 添加tr
+			var tr0=table.insertRow();
+			tr0.insertCell().innerHTML='id';
+			tr0.insertCell().innerHTML='name';
+			tr0.insertCell().innerHTML='price';
+			tr0.insertCell().innerHTML='count';
+			tr0.insertCell().innerHTML='operate';
+			// body前添加表格
+			document.body.appendChild(table);
+		}
+		function fillData(){
+			// 表格必须纯在
+			if (table) {
+				for(var i=0;i<data.length;i++){
+					var tr=table.insertRow();
+					for(var key in data[i]){
+						tr.insertCell().innerHTML=data[i][key];
+					}
+					var td4=tr.insertCell();
+					td4.innerHTML='<button onclick="deleteRow(this.parentNode.parentNode)">删除</button>';
+				}
+			}
+		}
+		function deleteRow(row){
+			if (confirm('是否确认删除？')) {
+			alert('你不要我了吗？');
+			table.deleteRow(row.rowIndex);
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 递归方法,js递归API，Nodelterator对象，
+		// 迭代器，从指定对象开始，一深度优先原则，依次遍历每个子对象，自动判断要遍历的下一个节点
+		// 1、创建一个迭代器  ,root开始；whattoShow：NodeFilter.SHOW_ALL或者NodeFilter.SHOW_ELEMENT		
+		// var iterator=document.createNodelterator(root,whattoShow,null,false)
+		var iterator=document.createNodeIterator(document,NodeFilter.SHOW_ALL,null,false);
+		// 2、调用迭代器 
+		// nextNode（）返回下一个节点对象
+		// 循环遍历每个节点
+		// 2.1执行nextNode，找到节点
+		// 2.2循环，直到nextNode返回null
+		var bankArr=[];
+		var currNode=null;		
+		while(currNode=iterator.nextNode()){
+			console.log(bankArr.join('')+'|-'+(currNode.nodeType!=1?currNode.nodeValue:currNode.nodeName));
+			if (currNode.children.length) {
+				bankArr.push('\t');
+			}else{
+				var next=iterator.nextNode();
+				if (next) {
+					while((currNode=currNode.parentNode)!=next.parentNode){
+						bankArr.pop();
+					}
+				}else{
+					break;
+				}
+				iterator.previousNode();
+			}
+		}
+	</script>
+</head>
+<body>
+	<span>hello world</span>
+	<ul>
+		<li>电影
+			<ul>
+				<li>美女</li>
+				<li>生化</li>
+				<li>一条狗</li>
+			</ul>
+		</li>
+		<li>综艺</li>
+		<li>电视剧</li>
+	</ul>
+</body>
+</html>

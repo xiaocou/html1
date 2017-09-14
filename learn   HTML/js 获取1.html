@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img id='img1' src="../壁纸/5787611e4dd0d.jpg" alt="">
+	<div id='d1'>45154513</div>
+	<img src="../壁纸/ntk-1416-13097.jpg" alt="jia">
+	<script type="text/javascript">
+	var img1=document.querySelector('img');
+	console.log(img1.getAttribute('src'));
+	img1.setAttribute('src','../壁纸/ntk-1416-13097.jpg');
+	// 获img1里所有东西
+	console.log(img1.attributes);
+	console.log(img1.hasAttribute('src'));
+	// 移除
+	img1.removeAttribute('alt');
+	console.log(img1.attributes);
+	var div1=document.getElementById('d1');
+	div1.innerHTML='<span>abc</span>';
+	console.log(div1);
+	div1.textContent='<span>abc</span>';
+	</script>
+</body>
+</html>

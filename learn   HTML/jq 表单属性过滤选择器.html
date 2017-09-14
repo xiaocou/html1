@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> </title>
+	<script src="中兴财富/plugins/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<form>
+		<input type="text" name="username" value="fangCEO">
+		<input type="password" name="password" value="123456">
+		<input type="checkbox" name="city" value="北京">北京
+		<input type="checkbox" name="city" value="上海">上海
+		<input type="radio" name="sex" value="0">女
+		<input type="radio" name="sex" value="1">男
+		<select name="department" id="department">
+			<option value="0">选择部门</option>
+			<option value="1">宣传</option>
+			<option value="2">组织</option>
+			<option value="3">实践</option>
+			<option value="4">文艺</option>
+			<option value="5">体育</option>
+		</select>
+		<select name="hobby" id="hobby">
+			<option value="0">选择爱好</option>
+			<option value="1">lol</option>
+			<option value="2">王者</option>
+			<option value="3">抽烟</option>
+			<option value="4">喝酒</option>
+			<option value="5">运动</option>
+		</select>
+		<textarea name="content" id="" cols="30" rows="30"></textarea>
+		<input type="button" value="点">
+	</form>
+	<script type="text/javascript">
+		// 启用表单元素
+		console.dir($(':enabled'));
+		// 启用
+		// console.log($(':disabled').val());
+		// 选中按钮，添加方法
+		$('input[type=button]').click(function(){
+			// console.log($(':checked'));
+			// val()方法只能拿出多个方法中的第一个结果
+			// console.log($(':checked').val());
+			// 遍历
+			// for(var i=0;i<$(':checked').length;i++){
+			// 	console.log($(':checked').get(i))
+			// }
+			// each方法规定为每个元素规定运行的方法或者函数
+			// index 索引
+			// element元素
+			$(':checked').each(function(index,el){
+				// console.log(el.value)
+				// this代表刚才el
+				console.log(this.value);
+			});
+		});
+		console.log($(':input').length);
+		console.log($(':radio').length);
+		console.log($(':text'));
+	</script>
+</body>
+</html>

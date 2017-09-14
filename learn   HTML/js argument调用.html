@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var tabs=[];
+		function getChildren(parent){
+			console.log(tabs.join('')+'|-'+parent.nodeName);
+			var tabsChildren=parent.children;
+			if (tabsChildren) {
+				// tabs.push('\t');
+				for (var i = 0; i <tabsChildren.length; i++) {
+					// 以当前元素为父元素，再次调用getChildren函数
+					// arguments在呗调用时，会自动在该函数内生成名为arguments的隐藏对象，类似于数组，可以使用[]获取函数调用时传递实参
+					arguments.callee(tabsChildren[i]);
+				}
+				tabs.pop();
+			}
+		}
+		getChildren(document);
+	}
+	</script>
+</head>
+<body>
+	<span>hello videos</span>
+	<ul>
+		<li>电影</li>
+		<li>综艺
+			<ul id="myid">
+				<li>王牌</li>
+				<li>欢乐</li>
+				<li>最强</li>
+			</ul>
+		</li>
+		<li>三生三世</li>
+	</ul>
+</body>
+</html>

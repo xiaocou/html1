@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" name="msgForm">
+		姓名：<input type="text" name="userName" placeholder="请输入姓名（6位以内）">
+		<br>
+		内容: <textarea name="content" id="" cols="30" rows="10"></textarea>
+		<br>
+		<label>
+		<input type="checkbox" name="" onclick="readOrnot(this)">我已阅读
+		</label>
+		<br>
+	</form>
+	<input type="button" name="" value="提交" id="button">
+	<script>
+		var a = prompt('请输入数字');
+		function formatNumberRgx(num) {
+		  var parts = num.toString().split(".");
+		  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		  return parts.join(".");
+		};
+		console.log(formatNumberRgx(a));
+//		function readOrNot(checkbox){
+//			var form=document.forms.msgForm;
+//			var btnSubmit=form.elements[form.length-1];
+//			btnSubmit.disabled=!checkbox.checked;
+//		}
+		var oBtn=document.getElementById('button');
+		oBtn.onclick=function(){
+			var form=document.forms.msgForm;
+			var userName=form.userName.value.trim();
+			if(userName==''){
+				alert('请输入姓名');
+				form.userName.focus();
+				return;
+			}
+			var regExp=/^[u4E00-\u9FA5]{1,6}$/;
+			if(!regExp.test(userName)){
+				alert('请输入姓名!');
+				form.userName.focus();
+				return;
+			}
+			var content=form.content.value.trim();
+			if(content==''&&userName!=''){
+				alert('输入内容');
+				form.content.focus();
+				return;
+			}
+			form.submit();
+		}
+	</script>
+</body>
+</html>

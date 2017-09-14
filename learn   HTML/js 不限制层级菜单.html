@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="categories"></div>
+	<script type="text/javascript">
+		var categories = [
+		{"id":10,"name":"男装","children":[
+			{"id":101,"name":"正装"},
+			{"id":102,"name":"T恤"},
+			{"id":103,"name":"裤衩"}
+		]},
+		{"id":20,"name":"女装","children":[
+			{"id":201,"name":"短裙"},
+			{"id":202,"name":"连衣裙"},
+			{"id":203,"name":"裤子","children":[
+				{"id":2031,"name":"长裤"},
+				{"id":2032,"name":"九分裤"},
+				{"id":2033,"name":"七分裤"}
+			]}
+		]}
+	];
+	function loadData(data){
+		// 第一级
+		var select=document.createElement('select');
+		select.add(new Option('---请选择1---',0));
+		for(var i=0;i<data.length;i++){
+			select.add(new Option(data[i].name,data[i].id))
+		}
+		// 第二级
+		select.onchange=function(){
+			var parent=this.parentNode;
+			// 只要最后一个子节点不是当前的select就删除
+			while(parent.lastElementChild!=this){
+				parent.removeChild(parent.lastChild);
+			}
+			var children =data[this.selectedIndex-1].children;
+			if (children) {
+				loadData(children)
+			}
+		}
+		document.getElementById('categories').appendChild(select);
+	}
+	loadData(categories);
+	</script>
+</body>
+</html>

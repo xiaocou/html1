@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1=new Number(5);
+		console.log(num1);
+		var num2=new Number(1.68);
+		console.log(num2);
+		// JS可以表示的做大值
+		console.log(Number.MAX_VALUE);
+		console.log(Number.MIN_VALUE);
+		console.log(Number.NaN);
+		// 超过负数范围
+		console.log(Number.NEGATIVE_INFINITY);
+		// 超过正数范围
+		console.log(Number.POSITIVE_INFINITY);
+		// 将数字转为指数形式，参数决定小数字位数0-20
+		console.log(num2.toExponential(5));
+		// 把数字转变为字符串，参数决定小数位数
+		console.log(num2.toFixed(2));
+		// 将数字变为字符串，参数决定整个数字有效位数
+		console.log(num2.toPrecision(2));
+		console.log(num2.toString());
+	</script>
+</body>
+</html>

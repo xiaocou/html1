@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="news">
+		<p class="mainTitle">标题1</p>
+		<p class="subTitle">标题2</p>
+		<p class="mainTitle">标题3</p>
+	</div>
+	<a href="http\\www.baidu.com">百度</a>
+	<a href="www.qiandu.com">千度</a>
+	<a href="www.wandu.com">万度</a>
+	<form>
+		用户名：<input type="radio" name="user" class="input" placeholder="请输入用户名">
+	</form>
+	<script type="text/javascript">
+		// var divNode=document.getElementById('news');
+		// console.log(divNode);
+		// 通过css选择器选择元素，参数‘（所属类名的符号）类型’
+		// var ps2=divNode.querySelectorAll('.mainTitle');
+		// console.log(ps2);
+		// 只返回第一个匹配的
+		// var ps3=divNode.querySelector('.mainTitle');
+		// console.log(ps3);
+		
+		// var ps1=document.lastChild;
+		// console.log(ps1);
+		var ps2=document.lastChild.firstChild;
+		console.log(ps2);
+		// var ps3=document.head;
+		// console.log(ps3);
+		// var ps4=document.body;
+		// console.log(ps4);
+		// // 只能获取整个html标签内容
+		// var ps5=document.documentElement;
+		// // console.log(ps5);
+		// // var ps6=ps4.childNodes[3];	
+		// // console.log(ps6);
+		// console.log(document.forms);
+		// console.log(document.anchors);
+		// 获取id名
+		// // console.log(document.all['news']);
+		// console.log(document.all.news);
+		
+		var abc=document.getElementsByName('user')
+		console.log(abc);
+		var abc=document.querySelector('.input')
+		console.log(abc.getAttribute('type'));
+	</script>
+</body>
+</html>
+<!-- 这是注释 -->

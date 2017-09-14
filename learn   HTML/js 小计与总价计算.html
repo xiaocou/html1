@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<table id="data">
+	<thead>
+		<tr>
+			<th>商品名称</th>
+			<th>单价</th>
+			<th>数量</th>
+			<th>小计</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>iPhone10</td>
+			<td>&yen;4488</td>
+			<td>
+			<!-- this是js里面的关键字，函数运行时，自动生成一个内部对象，只能在函数中使用，出了函数，this值就变了，this一般是调用函数的那个对象 -->
+				<button onclick="calc(this)">-</button>
+				<span>1</span>
+				<button onclick="calc(this)">+</button>
+			</td>
+			<td id="littleSun1">&yen;4488</td>
+		</tr>
+		<tr>
+			<td>iPhone10 plus</td>
+			<td>&yen;5288</td>
+			<td>
+				<button onclick="calc(this)">-</button>
+				<span>1</span>
+				<button onclick="calc(this)">+</button>
+			</td>
+			<td id="littleSun2">&yen;5288</td>
+		</tr>
+		<tr>
+			<td>iPad air 50</td>
+			<td>&yen;4288</td>
+			<td>
+				<button onclick="calc(this)">-</button>
+				<span>1</span>
+				<button onclick="calc(this)">+</button>
+			</td>
+			<td id="littleSun3">&yen;4288</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+		<td colspan="3" align="right">total:</td>
+		<td>&yen;14064</td>
+		</tr>
+	</tfoot>
+</table>
+<script type="text/javascript">
+function calc(btn){
+	// 获取有td
+	var tdP=btn.parentNode;
+	// 获取有span元素
+	var span=tdP.getElementsByTagName('span')[0];
+	// 判断按钮‘+’还是‘-’执行
+	if (btn.innerHTML=='+') {
+		span.innerHTML=parseInt(span.innerHTML)+1;
+	}else{
+		span.innerHTML=parseInt(span.innerHTML)-1;
+		if (span.innerHTML=='0') {
+			span.innerHTML='1';
+		}
+	}
+	// 获取单价
+	var onePrice=tdP.previousElementSibling;
+	;
+	console.log(onePrice.innerHTML.slice(1));
+	// 获取小计
+	var littleSunPrice=tdP.nextElementSibling;
+	var allPrice=onePrice.innerHTML.slice(1)*parseInt(span.innerHTML);
+	littleSunPrice.innerHTML='&yen;'+allPrice;
+	// 获取第一个小计
+	var littleSun1=document.getElementById('littleSun1');
+	// 获取第二个小计
+	var littleSun2=document.getElementById('littleSun2');
+	// 获取第三个小计
+	var littleSun3=document.getElementById('littleSun3');
+	// 获取tfoot
+	var tfoot=document.getElementById('data').lastElementChild;
+	// 获取tfoot中tr
+	var tr=tfoot.lastElementChild;
+	// 获取total
+	var total=tr.lastElementChild;
+	// total计算
+	var totalPrice=parseInt(littleSun1.innerHTML.slice(1))+parseInt(littleSun2.innerHTML.slice(1))+parseInt(littleSun3.innerHTML.slice(1));
+	total.innerHTML='&yen;'+totalPrice;
+}
+</script>
+</body>
+</html>

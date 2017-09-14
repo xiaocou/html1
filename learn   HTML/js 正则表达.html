@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		 var data="ALIBABA is a big Company,alibaba's color is orange and has ALIBABA logo is like Taobao and alibaba";
+		// 将alibaba换成baidu，替换功能
+		// console.log(data.replace('alibaba','baidu'));
+
+		// 字符串的正则表达式相关方法,字符串正则表达式写法
+		// console.log(data.replace(/alibaba/,'baidu'));
+		// i 忽略大小写(ignoreCase)
+		// console.log(data.replace(/alibaba/i,'baidu'));
+
+		// g 全局作用(global)，匹配所有字符串,
+		// console.log(data.replace(/alibaba/g,'baidu'));
+		 console.log(data.replace(/alibaba/ig,'baidu'));
+
+		// 查找字符串中包含几个字符串
+		// console.log(data.match('alibaba'));
+		// console.log(data.match(/alibaba/ig));
+
+		// 搜索,返回结果为下标，不支持全局匹配，g忽略
+		 console.log(data.search('alibaba'));
+		// console.log(data.search(/alibaba/g));
+		
+		var string1='hello';
+		// 创建正则表达式 直接量
+		var pattern=/hello/igm;
+		// 创建正则表达式 使用new关键字
+		var pattern1=new RegExp('hello');
+		// test()验证相关正则表达式的函数
+		console.log(pattern.test('hello'));
+		console.log(pattern.test('abhelloc'));
+		console.log(pattern.test('heabcllo'));
+		console.log(pattern.test('hellO'));
+		console.log('全局global：'+pattern.global);
+		console.log('忽略大小写ignoreCase:'+pattern.ignoreCase);
+		console.log('多行multiline:'+pattern.multiline);
+		pattern.ignoreCase=false;
+		// ignoreCase,global,multiline，source只读方式
+		console.log('忽略大小写ignoreCase:'+pattern.ignoreCase);
+		console.log('source:'+pattern.source);
+		// lastIndex:上次匹配的索引,不是只读的可以进行赋值
+		pattern.lastIndex=10;
+		console.log('lastIndex:'+pattern.lastIndex);
+		// $1...$9（全局属性）代表最近一次搜索某个子表达式匹配的文本
+		console.log('$1:'+pattern.$1);
+		
+		// // 定义正则表达式 1、普通字符a-z A-Z 0-9
+		 var regexp1=/2/;
+		 var data='Apple iphone is No:1';
+		 console.log(regexp1.test(data));
+		// // 2、需要使用的转移字符(.\ /*?+()[]^$|)
+//		 var regexp2=/\?/;
+//		 console.log(regexp2.test('i am a teacher?'));
+		// // 3、字符集 匹配字符串abc中任意两个字符
+		// var regexp3=/[abc]{3}/;
+		// console.log(regexp3.test('abc'));
+		// // 匹配数字
+		// var regexp4=/123/;
+		// console.log(regexp4.test('47854123'));
+		// // 匹配abc之外的n个字符
+		// var regexp5=/[^abc]{2}/;
+		// console.log(regexp5.test('abc'));
+		// // 匹配数字[0-5]
+		// var regexp6=/[0-5]/;
+		// console.log(regexp6.test('abc'));
+		// console.log(regexp6.test('1'));
+		// // 4、预定义字符集，\d匹配0-9任意数字  \D匹配非数字  \w匹配数字字母下划线   \W匹配飞数字字母下划线  \s匹配空白字符\n\r\t\v\f  \S匹配非空白字符
+		 var regexp7=/\d/;
+		 console.log(regexp7.test('abc123'));
+		// console.log(regexp7.test('abc'));
+		// // 5、数量词 n？匹配0次或者1次
+		// // n*匹配0次或者多次  n+匹配一次以上  n{}匹配{}里的字符  n{x，y}匹配出现次数x-y次  n{x，}匹配出现n>=x次
+		// var regexp8=/a?bbcc/;
+		// console.log(regexp8.test('aaabbcc'));
+		// console.log(regexp8.test('bbcc'));
+		// console.log(regexp8.test('ddeeff'));
+		// // 6、选择和分组
+		// var regexp9=/ex|Ex/;
+		// console.log(regexp9.test('extend'));
+		// console.log(regexp9.test('Extend'));
+		// var regexp10=/test(\d+)/;
+		// console.log(regexp10.test('now test001 test002'));
+		// console.log(regexp10.test('test001test'));
+		// // 7、指定匹配位置
+		// // ^匹配字符串的开头
+		// var regexp11=/^a/;
+		// console.log(regexp11.test('bbcc'));
+		// console.log(regexp11.test('abbcc'));
+		// // $匹配以字符串结尾
+		// // \b匹配单词的边界  \B匹配单词的费边界  ？=x匹配其后紧跟的字符串
+		// var regexp12=/do (?=not)/
+		// console.log(regexp12.test('do not leave me'));
+		// console.log(regexp12.test("don't leave me"));
+		// // ?!x匹配其后没有紧跟x的字符串
+	</script>
+</body>
+</html>

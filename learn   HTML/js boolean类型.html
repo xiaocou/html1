@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var b1=new Boolean();
+		console.log(b1);
+		var b2=new Boolean(false);
+		console.log(b2);
+		var b3=new Boolean(0);
+		console.log(b3);
+		var b4=new Boolean(0.0);
+		console.log(b4);
+		var b5=new Boolean(undefined);
+		console.log(b5);		
+		var b6=new Boolean(null);
+		console.log(b6);		
+		var b7=new Boolean(NaN);
+		console.log(b7);		
+		var b8=new Boolean(' ');
+		console.log(b8);		
+		var b9=new Boolean('0');
+		console.log(b9);
+		var b10=new Boolean('null');
+		console.log(b10);
+		var b11=new Boolean('[]');
+		console.log(b10);
+		var b12=new Boolean('{}');
+		console.log(b12);
+
+		
+		try{
+			// 查找可能存在的错误
+			var m=new Math();
+			console.log(m);
+		}catch(error){
+			// 处理错误
+			console.log(error.name,error.message);
+		}finally{
+			// 出口语句，无论正确错误。一些清扫、收尾工作语句
+			// 可以不写
+			var num1=10;
+			console.log(num1);
+		}
+	</script>
+</body>
+</html>

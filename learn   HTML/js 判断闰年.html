@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断闰年</title>
+	<style>
+		p{
+			width: 200px;
+			margin: 0 auto;
+			font-size: xx-large;
+			font-weight: bold;
+			color: #fff;
+			background-color: #000;
+			text-align: center;
+			animation: ad 2s ease infinite;
+			transform: skewX(30deg); 
+		}
+		@keyframes ad{
+			
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">	
+		var year=prompt('请输入年份');
+		var isNum=(year%4==0&&year%100!=0)||year%400==0;
+		if(isNum==1){
+			document.write('<p>此年为闰年</p>');
+		}
+		else{
+			document.write('<p>不为闰年</p>');
+		}
+
+	</script>
+</body>
+</html>

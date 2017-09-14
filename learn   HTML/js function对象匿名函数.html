@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 匿名函数，字面量创建
+	var add=function(n1,n2){
+		return n1+n2;
+	}
+	// 匿名函数直接创建
+	// function(n1,n2){
+	// 	return n1+n2;
+	// }
+	var sum=(function(n1,n2){
+		return n1+n2;
+	})(50,20);
+	console.log(sum);
+	</script>
+</body>
+</html>

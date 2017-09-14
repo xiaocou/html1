@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#d1{
+			width: 100px;
+			height: 100px;
+		}
+		button{
+			width: 50px;
+			height: 50px;
+		}
+		div{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1" style="background-color: #f00">我是div</div>
+	<button onclick="change()">按钮</button>
+	<script type="text/javascript">
+		function change(){
+			var div1=document.getElementById('d1');
+			// 修改内部样式
+			// div1.style.width='200px';
+			div1.style.backgroundColor='#0f0';
+			// 获取样式表
+			console.log(document.styleSheets);
+			// 获取到style样式表
+			var sheet=document.styleSheets[0];
+			// 获取规则集合
+			var rules=sheet.cssRules||sheet.rules;
+			// 获取某个规则的cssrule
+			var d1_rule=rules[0];
+			var d1_rule1=rules[1];
+			// 获取相应值
+			console.log(d1_rule);
+			d1_rule.style.width='200px';
+			d1_rule.style.height='200px';
+			d1_rule1.style.width='200px';
+			d1_rule1.style.height='200px';
+		}
+		
+	</script>
+</body>
+</html>

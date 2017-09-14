@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="background: yellow">
+	<div style="background: #f00">
+	<button style="background: #0f0">按钮</button></div>
+	<script type="text/javascript">
+	// 一个事件绑定多个监听函数
+	document.body.addEventListener('click',clickfun,false);
+	document.querySelector('div').addEventListener('click',clickfun,false);
+	document.querySelector('button').addEventListener('click',clickfun,false);
+	function clickfun(event){
+		console.log(event.currentTarget.nodeName);
+	}
+
+	</script>
+</body>
+</html>

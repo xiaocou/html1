@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="中兴财富/plugins/jquery-3.1.1.js"></script>
+</head>
+<body>
+	<p>文本</p>
+	<button>克隆</button>
+	<script type="text/javascript">
+	$('button').click(function(){
+		$('body').append($('p:first').clone(true));
+	});
+	$('p').click(function(){
+		$(this).stop(true,true).animate({
+			fontSize:'+=1px'
+		});
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- multiple倍数 -->
+	<select id="unsel" multiple>
+		<option>任欢</option>
+		<option>徐艳顺</option>
+		<option>宋玲</option>
+		<option>王远雨</option>
+	</select>
+	<button onclick="move(this)">&gt;</button>
+	<button onclick="move(this)">&lt;</button>
+	<select multiple id="sel"></select>
+	<script type="text/javascript">
+	function move(btn){
+		var unsel=document.getElementById('unsel');
+		var sel=document.getElementById('sel');
+		var opts;
+		// 向右添加
+		if (btn.innerHTML=='&gt;') {
+			opts=unsel.getElementsByTagName('option');
+			for(var i=0;i<opts.length;i++){
+				if (opts[i].selected) {
+					sel.appendChild(opts[i]);
+				}
+			}
+		}
+		// 向左添加
+		if (btn.innerHTML=='&lt;') {
+			opts=sel.getElementsByTagName('option');
+			for(var i=0;i<opts.length;i++){
+				if (opts[i].selected) {
+					unsel.appendChild(opts[i]);
+				}
+			}
+		}
+	}
+	</script>
+</body>
+</html>

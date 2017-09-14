@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" placeholder="charCode" onkeyup="console.log(event.charCode">
+	<input type="text" placeholder="charCode" onkeyup="console.log(event.which">
+	<input type="text" placeholder="keyCode" onkeyup="console.log(event.keyCode">
+	<div onclick="onClick(event)">按ctrl管用</div>
+	<script type="text/javascript">
+	function onClick(event){
+		if (event.ctrlKey) {
+			console.log('clickme');
+		}
+	}
+	</script>
+</body>
+</html>

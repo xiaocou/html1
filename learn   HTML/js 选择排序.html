@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function selectionSort(arr){
+		var min;
+		var temp;
+		for(var i=0;i<arr.length-1;i++){
+			// 1、把数组的第一项看做最小
+			min=i;
+			// 2、除了起始比较向，后面的元素一一比较
+			// 这里是arr.length，不是arr.length-1，后者右边末尾2项无法参加排序
+			for(var j=i+1;j<arr.length;j++){
+				if (arr[j]<arr[min]) {
+					min=j;
+				}
+				// 将最小项移动到最左边				
+			}
+			temp=arr[i];
+			arr[i]=arr[min];
+			arr[min]=temp;
+		}
+		alert(arr);
+	}
+	var arr1=[99,33,26,47,52,69]
+	selectionSort(arr1);
+	</script>
+</body>
+</html>

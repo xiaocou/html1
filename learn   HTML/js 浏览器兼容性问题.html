@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- IE浏览器，只能在html或者js使用event关键字 -->
+	<button onclick="alert(event.clientX)">点击</button>
+	<div onclick="func()">div点击</div>
+	<script type="text/javascript">
+//	alert(event.clientX);
+	// Firefox 只能在html使用event关键字
+	</script>
+	<!-- 兼容性问题 -->
+	<div onclick="function(event)">div点击事件</div>
+	<script type="text/javascript">
+	function func(event){
+		var targetObj=event.srcElement||event.target;
+	}
+	</script>
+</body>
+</html>

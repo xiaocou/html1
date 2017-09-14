@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+	<style type="text/css">
+	div{
+		float:left;
+		border:1px solid black;
+		width:140px;
+		height:140px;
+		background:skyblue;
+		margin:5px;
+		font-size:18px;
+	}
+	div.mini{
+		width:55px;
+		height:55px;
+		font-size:12px;
+	}
+	div.none{
+		display:none;
+	}
+  	</style>
+</head>
+<body>
+  
+  <h2>选择器</h2>
+  <hr />
+
+  <div id="one" class="one">
+	id为one，class为one的div
+	<div class="mini">class为mini</div>
+  </div>
+
+  <div id="two" class="one" title="test">
+	id为two，class为one，title是test的div
+	<div class="mini" title="other">class为mini,title为other</div>
+	<div class="mini" title="test">class为mini,title为test</div>
+  </div>
+
+  <div class="one">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini"></div>
+  </div>
+
+  <div id="four">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div style="width:50px;height:50px"></div>
+  </div>
+
+  <div class="none"></div>
+
+  <div>
+	包含type为hidden的input的div
+	<input type="hidden" name="userid"/>
+  </div>
+  <script type="text/javascript">
+  // 过滤选择器
+  // 通过过滤规则用来筛选所需的元素
+  // 过滤选择器都以“：”开头
+  // 第一个
+  // $('div:first').css('background','#aaa');
+  // 最后一个
+  // $('div:last').css('background','#aaa');
+  // 奇数（odd）、even（偶数）
+  // $('#two+div>div:odd').css('background','#aaa')
+  // eq(index)选择第index个元素
+  // $('#two+div>div:eq(2)').css('background','#aaa')
+  // gt(index)取大于index的元素；lt(index)取小于index的元素
+  // $('#two+div>div:gt(0)').css('background','#aaa')
+  // not(selector)排除selector之外
+  $('#four>div:not(.mini)').css('background','#aaa')
+  </script>
+</body>
+</html>

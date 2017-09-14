@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 面向对象语言，封装、继承、多态
+	// 继承
+	var emp1={ename:'Tom'};
+	console.log(emp1.toString());
+	console.log(emp1.toLocaleString());
+	console.log(emp1.valueOf());
+	// 多态 重写继承父类的方法
+	var emp2={
+		ename:'CEO',
+		toString:function(){
+			return 'I am '+this.ename
+		}
+	};
+	console.log(emp2.toString());
+	// 对象模板
+	function Emp(ename,age,hiredate){
+		// 定义私有属性
+		var salary=0;
+		this.ename=ename;
+		this.age=age;
+		this.toString=function(){
+			return this.ename+'-'+this.age+'-'+salary+'-'+'入职日期'+hiredate;
+		}
+	}
+	// 使用模板对象创建对象
+	var emp3=new Emp();
+	emp3.ename='jerry';
+	emp3.age=20;
+	console.log(emp3.toString());
+	var emp4=new Emp('Mike',25,'2005/10/27');
+	console.log(emp4.toString());
+
+	// 遍历对象
+	for(var i in emp2){
+		console.log(emp2[i]);
+	}
+	</script>
+</body>
+</html>

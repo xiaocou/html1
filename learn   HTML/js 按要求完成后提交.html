@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form name="msgForm">
+	姓名：<input type="text" name="username" placeholder="输入姓名（6位以内）"><br>
+	内容：<textarea name="content" cols="30" rows="10"></textarea><br>
+	<label>
+	<input type="checkbox" name="" onclick="readOrNot(this)">已经阅读
+	</label><br>
+	<input type="button" name="" value="提交">
+</form>
+<script type="text/javascript">
+function readOrNot(checkbox){
+	var form=document.forms.msgForm;
+	var btnSubmit=form.elements[form.length-1];
+	btnSubmit.disabled=!checkbox.checked;
+}
+
+</script>
+</body>
+</html>

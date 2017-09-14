@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// console.log(Math.PI);
+	// console.log(Math.random()*11);
+	// //随机数
+	// console.log(Math.LN2);
+	// console.log(Math.LN10);
+	// console.log(Math.LOG2E);	
+	// // 根号二
+	// console.log(Math.SQRT2);	
+	// // 二分之根号二
+	// console.log(Math.SQRT1_2);	
+	// // 绝对值
+	// // Math对象的方法	
+	// console.log(Math.abs(10));	
+	// // 向上取整
+	// console.log(Math.ceil(5.1));
+	// 	// 向下取整
+	// console.log(Math.floor(5.1));
+	// 	// 四舍五入
+	// console.log(Math.round(5.1));
+	// 	// e的指数
+	// console.log(Math.exp(10));	
+	// //返回100的自然对数
+	// console.log(Math.log(100));	
+	// //返回最大值（min）最小值
+	// console.log(Math.max(100,101));
+	// //二的三次方
+	// console.log(Math.pow(2,3));
+	// //返回9的平方根
+	// console.log(Math.sqrt(9));
+	// //三角函数 弧度tan(PI/4)
+	// console.log(Math.round(Math.tan(Math.PI/4)));
+	// // 返回从x轴到点（x，y）的角度（-90到90）
+	// console.log(Math.atan2(45,90));
+	// // 反正弦
+	// console.log(Math.asin(Math.PI/4));
+	// 
+	
+	// 0-1之间随机数
+	console.log(Math.random()*2);
+	// 生成1-11之间随机数{（max-min）+min}
+	console.log(Math.random()*(11-1)+1);
+	console.log(Math.floor(Math.random()*(11-1)+1));
+	
+	// 返回80-40随机数
+	function num(max,min){
+		var max,min;
+		console.log(Math.random()*(max-min)+min);
+	}
+	num(80,40);
+	// 意愿四舍五入
+	// var numx=prompt('请输入：');
+	var num1=prompt('请输入剩余的小数位数：');	
+	function num0(numx,num1){		
+		return (Math.round(numx*Math.pow(10,num1))/Math.pow(10,num1));		
+	}
+	console.log(num0(555.55555,num1));
+	</script>
+</body>
+</html>

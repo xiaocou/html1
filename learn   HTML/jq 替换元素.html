@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+</head>
+<body>
+	<div id="d1">d1</div>
+	<div id="d4">da4</div>
+	<script type="text/javascript">
+	// 替换
+	$('#d1').replaceWith('<div id="d2">d2</div>');
+	$('<div id="d3">d3</div>').replaceAll('#d2');
+	</script>
+</body>
+</html>

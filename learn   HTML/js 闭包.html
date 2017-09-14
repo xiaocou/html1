@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// js 链式作用域
+	// 子对象可以一级一级的向上寻找所有的父对象，父对象的所有变量对子对象都是可见的，反之不成立
+	// 既然f2可以拿到f1的局部变量，通过f2来拿到f1的值
+	function f1(){
+		var n=99;
+		// 闭包：能够直接读取其他函数内部变量的函数
+		// js只有函数内部的子函数才能读取局部变量，闭包理解为：定义一个在函数内部的函数，将函数内部和函数外部链接起来的桥梁
+		function f2(){
+			// 返回n的值
+			alert(n);
+		}
+		// f2返回值
+		return f2();
+//		return f2;
+	}
+	f1()
+	console.log(n)
+//	 var result=f1();
+	// 执行f2里面的代码
+//	 result();
+	// 直接打印f2
+//	 console.log(result);
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	for(var key in navigator){
+		console.log(navigator[key]);
+	}
+	// navigator 浏览器信息
+	// 浏览器代码名
+	console.log(navigator.appCodeName);
+	// 浏览器名称
+	console.log(navigator.appName);
+	// 浏览器的次级版本
+	console.log(navigator.appMinorVersion);
+	// 浏览平台和版本信息
+	console.log(navigator.appVersion);
+	// 浏览器语言
+	console.log(navigator.browserLanguage);
+	// 浏览器是否启用cookie布尔值（常用）
+	console.log(navigator.cookieEnabled);
+	// 浏览器cpu等级
+	console.log(navigator.cpuClass);
+	// 系统是否处于脱机模式（true：联网）
+	console.log(navigator.onLine);
+	// 运行浏览器的操作系统平台
+	console.log(navigator.platform);
+	// 使用默认语言
+	console.log(navigator.systemLanguage);
+	// 浏览器用于HTTP请求的用户代理头的值(有点常用)
+	console.log(navigator.userAgent);
+	// 自然语言设置
+	console.log(navigator.userLanguage);
+	// console.log(navigator.plugins[i].name);
+
+	for(var i=0;i<navigator.plugins.length;i++){
+		var reg=/flash/i;
+		if(navigator.plugins[i].name.search(reg)){
+			document.write('支持flash'+'<br>')
+		};
+	}
+	// 对于详细信息，一般来说都是属性
+	console.dir(document);
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+</head>
+<body>
+	<div>
+		<span>gege</span>
+		<p>didi</p>
+		<div>didi2</div>
+		<p>didi3</p>
+		<p>didi4</p>
+	</div>
+	<button>变色</button>
+	<script type="text/javascript">
+	$('button').click(function(){
+		// $('html div').css('background','#bfa')
+		// $('body>div').css('background','#bfa')
+		// 相邻兄弟选择器
+		// $('div>span+p').css('background','#bfa')
+		// span后所有p元素
+		$('div>span~p').css('background','#bfa')
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="../lib/jquery-tmpl/jquery.tmpl.js"></script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>id</td>
+				<td>姓名</td>
+				<td>年龄</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<!-- 创建摸板 -->
+	<!-- <script id="myTmpl" type="text/x-jquery-tmpl">
+	<tr>
+		<td>${id}</td>
+		<td>${sname}</td>
+		<td>${age}</td>
+	</tr>
+	</script> -->
+	<script type="text/javascript">
+	// 放入data中的sname和age
+	var data=[{id:'101',sname:'LiLei',age:20},
+	{id:'102',sname:'hanmeimei',age:19},
+	{id:'103',sname:'lisi',age:21},
+	{id:'104',sname:'zangsan',age:22},
+	{id:'105',sname:'laowang',age:18}];
+	// 创建模板
+	var tmpl='<tr><td>${id}</td><td>${sname}</td><td>${age}</td></tr>';
+	// 使用模板
+	// $('#myTmpl').tmpl(data).appendTo('table>tbody')
+	// 使用字符模板
+	$.tmpl(tmpl,data).appendTo('table>tbody')
+	</script>
+</body>
+</html>

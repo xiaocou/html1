@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="myUrl">
+	<button onclick="goto()">跳转</button>
+	<button onclick="goto2()">assign</button>
+	<button onclick="goto3()">replace</button>
+	<script type="text/javascript">
+	// hash：从#开始的URL，host：主机名和当前URL的端口号，hostname：当前URL的主机名，href：完整的URL，pathname：当前URL路径部分，port：端口号，protocol：当前URL协议，search：从？开始的URL
+		var Url=location;
+		console.log(Url);
+		function goto(){
+		 	var myurlString=document.getElementById('myUrl');
+		 	location.href=myurlString.value;
+		 }
+		 function goto2(){
+		 	var myurlString=document.getElementById('myUrl');
+		 	// 加载新的文档,reload:重新脚在文档
+		 	location.assign(myurlString.value);
+		 	console.log(myurlString);
+		 }
+		 function goto3(){
+		 	var myurlString=document.getElementById('myUrl');
+		 	// 新的页面替换原来的页面，不能后退
+		 	location.replace(myurlString.value);
+		 	console.log(myurlString);
+		 }
+	</script>
+	<a href="target.html?username=cj1027">target</a>
+</body>
+</html>

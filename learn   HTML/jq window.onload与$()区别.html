@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+	// window.onload网页中所有的元素（包含所有关联文件），完全健在到浏览器后才可以执行，如果出现多个，执行最后一个
+	// window.onload=function(){
+	// 	console.log('aaa')
+	// }
+	// $(document).ready()方法注册的时间处理程序，在DOM加载全部后就可以调用，操作网页元素中元素时候，可能关联文件还没有加载完全，如果出现多个，都会执行
+	// $(document).ready()执行要优于window.onload
+	// $(document).ready()基于document元素构建而成的jq对象
+	// $()工厂函数
+	// $(function(){
+	// 	console.log('ccc')
+	// })
+	// $(document).ready(function(){
+	// 	console.log('ddd')
+	// })
+	
+	</script>
+</head>
+<body>
+	<button id="d1">按钮1</button>
+	<button id="d2">按钮2</button>
+	<script type="text/javascript">
+	// on（event，childselector，data，function，map）
+	// event必选，规定要从元素中，绑定事件，可绑定多个
+	// childselector规定只能添加到指定的子元素上的事件处理（可选）
+	// data规定传递到函数额外的数据（可选）
+	// function运行的函数（可选）
+	// map规定事件的映射，包含要添加到元素的一个或多个事件以及当时间发生时的运行函数
+	// bind（） live（） delegate（）/one（）方法等
+	// 事件监听
+	$('#d1').on('click',function(){
+		console.log('点我');
+	});
+	// 取消监听、
+	$('#d1').off('click');
+	$('#d2').on('click',{foo:'bar',context:this},function(event){
+		// 参数会封装到自定义的event对象data属性值
+		console.log(event.data.foo);
+	})
+	// 简化事件
+	// $('#d2').click();
+	// $('#d2').on('mouseover mouseout',function(e){
+	// 	if (e.type=='mouseover') {
+	// 		$(this).css('background','red');
+	// 	}else{
+	// 		$(this).css('background','#0f0');
+	// 	}
+	// })
+	
+	$('#d2').on({
+		// 映射
+		mouseover:function(){
+			$(this).css('background','red');
+		},
+		mouseout:function(){
+			$(this).css('background','#0f0');
+		}
+	});
+	</script>
+</body>
+</html>

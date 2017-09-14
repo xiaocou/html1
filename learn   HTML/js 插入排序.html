@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function insertSort(arr){
+		// 第一部分有序100，第二部分无序67、29、11、20
+		for(var i=1;i<arr.length;i++){
+			if(arr[i]<arr[i-1]){
+				var temp=arr[i];
+				var j=i-1;
+				arr[i]=arr[j];
+				// arr[j]=temp;
+				while(j>=0&&temp<arr[j]){
+					arr[j+1]=arr[j];
+					j--;
+				}
+				arr[j+1]=temp;
+			}
+		}
+	}
+	var arr1=[100,67,29,11,20];
+	insertSort(arr1);
+	// 倒序排序
+	arr1.reverse();
+	console.log(arr1)
+	</script>
+</body>
+</html>

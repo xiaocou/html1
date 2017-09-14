@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>距离放学还有<span></span></h1>
+	<button onclick="clickMe(this)">停止倒计时</button>
+	<script type="text/javascript">
+	// 倒计时
+	function timeCalc(){
+		// 当前时间
+		var now=new Date();
+		// 放学时间
+		var tag=new Date(now.getFullYear(),now.getMonth(),now.getDate(),15,00);
+		// 页面span位置
+		console.log(now)
+		var span=document.querySelector('h1 span');
+		// 计算时间
+		if (tag>now) {
+			// 相差秒数
+			var s=parseInt((tag-now)/1000);
+			// 相差小时
+			var h=parseInt(s/3600);
+			// 补零
+			h<10&&(h='0'+h);
+			// 相差分钟
+			var m=parseInt((s-h*3600)/60);
+			m<10&&(m='0'+m);
+			// 相差秒数
+			s=s-h*3600-m*60;
+			s<10&&(s='0'+s);
+			var timestring=h+':'+m+':'+s;
+			span.innerHTML=timestring;
+		}else{
+			span.innerHTML='放学了';
+			// 17:30后，定时器失效
+			if (timer) {
+				clearInterval(timer);
+			}
+		}		
+	}
+	// 停止倒计时
+	function clickMe(){
+		if (timer) {
+				clearInterval(timer);
+			}
+	}
+	// 定时器执行方法
+		var timer=setInterval(timeCalc,500);
+	</script>
+</body>
+</html>

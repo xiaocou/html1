@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="background: yellow" onclick="console.log('body clicked')">
+	<div style="background: #f00" onclick="console.log('div clicked')">
+		<button style="background: #0f0" onclick="console.log('button clicked')"></button>
+	</div>
+	<!-- 解释器创建event对象 按照一定周期执行，html元素键进行传播 
+	三个阶段：1）事件捕获，实践对象沿着DOM树向下传播
+			 2）目标触发，运行事件监听函数
+			 3）事件冒泡，事件沿着DOM树向上传播
+		注意：IE没有事件捕获阶段-->
+</body>
+</html>

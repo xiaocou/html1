@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.text{
+			background-color: #00f;
+			width: 500px;
+			height: 40px;
+			line-height: 40px;
+		}
+	</style>
+	<script type="text/javascript">
+		function changeValue(){
+			var myP1=document.getElementById('myp');
+			myP1.innerHTML='测试';
+			myP1.style.color='#f00';
+			myP1.setAttribute('class','text')
+		}
+	</script>
+	<button onclick="changeValue()">change</button>
+	<p id="myp">text</p>
+</body>
+</html>

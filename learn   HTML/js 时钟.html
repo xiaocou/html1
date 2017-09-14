@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#clock{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			border: 4px solid #f00;
+			position: relative;
+		}
+		div[id^='a']{
+			position: absolute;
+			font-size: 14px;
+			top: 0px;
+			left: 50px;
+			transform-origin: 0px 50px;
+		}
+		#a1{
+			transform: rotate(30deg);
+		}
+		#a2{
+			transform: rotate(60deg);
+		}
+		#a3{
+			transform: rotate(90deg);
+		}
+		#a4{
+			transform: rotate(120deg);
+		}
+		#a5{
+			transform: rotate(150deg);
+		}
+		#a6{
+			transform: rotate(180deg);
+		}
+		#a7{
+			transform: rotate(210deg);
+		}
+		#a8{
+			transform: rotate(240deg);
+		}
+		#a9{
+			transform: rotate(270deg);
+		}
+		#a10{
+			transform: rotate(300deg);
+		}
+		#a11{
+			transform: rotate(330deg);
+		}
+		#a12{
+			left:46px;
+		}
+		/*造针*/
+		#h{
+			width: 6px;
+			height: 45px;
+			position: absolute;
+			background-color: #000;
+			top: 15px;
+			left: 47px;
+			transform-origin:50% 35px;
+
+		}
+		#m{
+			width: 4px;
+			height: 50px;
+			position: absolute;
+			background-color: #0f0;
+			top: 10px;
+			left: 48px;
+			transform-origin: 50% 40px;
+		}
+		#s{
+			width: 2px;
+			height: 55px;
+			position: absolute;
+			background-color: #00f;
+			top:5px;
+			left: 49px;
+			transform-origin: 50% 45px;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<div id="h"></div>
+		<div id="m"></div>
+		<div id="s"></div>
+		<div id="a1">1</div>
+		<div id="a2">2</div>
+		<div id="a3">3</div>
+		<div id="a4">4</div>
+		<div id="a5">5</div>
+		<div id="a6">6</div>
+		<div id="a7">7</div>
+		<div id="a8">8</div>
+		<div id="a9">9</div>
+		<div id="a10">10</div>
+		<div id="a11">11</div>
+		<div id="a12">12</div>
+	</div>
+	<script type="text/javascript">
+	function timeAuto(){
+		// 获取当地时间
+		var now=new Date();
+		// 取出时分秒
+		var h=now.getHours();
+		h>12&&(h-=12);
+		var m=now.getMinutes();
+		var s=now.getSeconds();
+		// 计算当前时间时分秒各自对应旋转角度
+		var rs=s*6;
+		var rm=(s/60+m)*6;
+		// var rm=m*6+s/10;
+		var rh=(m/60+h*30);
+		// 设置样式
+		// 小时
+		document.querySelector('#h').style.transform='rotate('+rh+'deg)';
+		document.querySelector('#m').style.transform='rotate('+rm+'deg)';
+		document.querySelector('#s').style.transform='rotate('+rs+'deg)';
+
+	}
+	timeAuto();
+	setInterval(timeAuto,1000)
+	</script>
+</body>
+</html>

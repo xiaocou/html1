@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select id="provs" onchange="loadCities(this.selectedIndex)">
+		<option value="00">---请选择---</option>
+		<option value="10">北京</option>
+		<option value="20">天津</option>
+	</select>
+	<select id="area"></select>
+	<script type="text/javascript">
+		var cities = [[],/*0号下标没有元素*/
+		[
+			{"name":"东城区","value":101},
+			{"name":"西城区","value":102},
+			{"name":"朝阳区","value":103},
+			{"name":"海淀区","value":104}
+		],
+		[
+			{"name":"河东区","value":201},
+			{"name":"河西区","value":202},
+			{"name":"南开区","value":203}
+		]
+	];
+	function loadCities(selectedindex){
+		var qusel=document.getElementById('area');
+		qusel.innerHTML='';
+		var opt;
+		for(var i=0;i<cities[selectedindex].length;i++){
+			var qu=cities[selectedindex][i];
+			console.log(cities[selectedindex][i])
+			opt=document.createElement('option');
+			opt.value=qu.value;
+			opt.innerHTML=qu.name;
+			qusel.appendChild(opt);
+		}
+	}
+	</script>
+</body>
+</html>

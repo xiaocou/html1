@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">		
+		var input;
+		var studentNum=[];
+		do{
+			input=prompt('请输入学号');
+			if(input!='exit'){
+			studentNum[studentNum.length]=input;
+		    }
+		}while(input!='exit');
+		for(var i in studentNum){
+			console.log(studentNum[i]);
+		}
+		for(var i=studentNum.length-1;i>=0;i--){
+			console.log(studentNum[i]);
+		}
+	</script>
+</body>
+</html>

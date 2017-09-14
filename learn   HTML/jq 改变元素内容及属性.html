@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+</head>
+<body>
+	<div id="d1"></div>
+	<select name="namecity" id="city">
+		<option value="1">北京</option>
+		<option value="2">上海</option>
+	</select>
+	<script type="text/javascript">
+	var $d1=$('#d1');
+	// innerHTML
+	// $d1.html('<span>abc</spam>');
+	// textContent
+	// $d1.text('<a>cdef</a>');
+	// val()读取或修改节点value的属性值
+	// $('option:eq(0)').val('贵阳');
+	// console.log($('#city').val());
+	// 读取或修改节点的属性
+	// console.log($('#city').attr('name'));
+	// $('#city').attr('name','sdnajkfwkn')
+	// console.log($('#city').attr('name'));
+	// 删除节点所有属性
+	$('#city').removeAttr('name');
+	console.log($('#city').attr('name'));
+	console.log($('#city').attr('id'));
+	</script>
+</body>
+</html>

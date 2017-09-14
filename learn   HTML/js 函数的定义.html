@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	// 形式参数 形参
+	// function printHello(){
+	// 	console.log('hello');
+	// 	console.log('world');
+	// 	return true;
+	// }
+	// console.log(printHello());
+
+	// function login(username,password){
+	// 	console.log('用户名：'+username);
+	// 	console.log('密码：'+password);
+	// }
+	// 调用函数
+	// 实际参数 实参
+	// 实际调用时，实参的顺序要和形参顺序相对应
+	// login('tom','123');
+
+	// 构造只有一个参数的函数
+	// function print(msg){
+	// 	console.log(msg);
+	// 	console.log(msg);
+	// 	console.log(msg);
+	// 	console.log(msg);
+	// 	console.log(msg);
+	// }
+	// 调用函数
+	// print('hello');
+	
+	// function num1(a,b,c){
+	// 	var d=a+b+c;
+	// 	console.log(d);
+	// 	return d;
+	// }
+	// num1(1,2,3);
+	
+	// 比较大小
+	// function maxCompare(n1,n2,n3){
+	// 	var max;
+	// 	max=n1>n2?n1:n2;
+	// 	max=n3>max?n3:max;
+	// 	return max;
+	// }
+	// console.log(maxCompare(2,5,9));
+	
+	// 函数调用
+	// function getData(){
+	// 	console.log('getData begin');
+	// 	printData();
+	// 	console.log('getData end');
+	// }
+	// function processData(){
+	// 	console.log('processData begin');
+	// 	getData();
+	// 	console.log('processData end');
+	// }	
+	// function printData(){
+	// 	console.log('printData begin');
+	// 	console.log('printData end');
+	// }
+	// function run(){
+	// 	processData();
+	// }
+	// run();
+	
+	// 局部与全局变量
+	// var cha;
+	// function addNum(a,b){
+	// 	// 函数里不定义变量，该变量为全局变量
+	// 	var sum=a+b;
+	// 	cha=a-b
+	// 	console.log(sum);
+	// }
+	// addNum(4,2);
+	// // console.log('函数外'+sum);//没定义
+	// console.log('函数外'+cha);
+	 
+	// function addNum(a,b){
+	// 	// 函数作用域，仅仅在函数里面使用
+	// 	function cha(b,c){
+	// 		var cha1=b-c;
+	// 		console.log(cha1);
+	// 	}
+	// 	var b1=10;
+	// 	var c1=5;
+	// 	cha(b1,c1);
+	// }
+	// addNum(1,2);
+	
+	var n=100;//全局变量
+	function fun(num1){
+		num1-=10;
+		console.log('函数里：'+num1);
+	}
+	fun(n);
+	console.log('函数外：'+n);
+	
+	
+</script>
+</body>
+</html>

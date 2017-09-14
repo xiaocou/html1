@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	var jsonArr=[
+		{"ename":"Tom","salary":3500,"age":25},
+		{"ename":"Jerry","salary":3500,"age":25},
+		{"ename":"Mike","salary":3500,"age":25}
+	];
+	var table=document.createElement('table');
+	document.body.appendChild(table);
+	var thead=document.createElement('thead');
+	table.appendChild(thead);
+	var tr=document.createElement('tr');
+	thead.appendChild(tr);
+	for(var key in jsonArr[0]){
+		var th=document.createElement('th');
+		tr.appendChild(th);
+		th.innerHTML=key;
+	}
+	var tbody=document.createElement('tbody');
+	table.appendChild(tbody);
+	for(var i=0;i<jsonArr.length;i++){
+		var btr=document.createElement('tr');
+		tbody.appendChild(btr);
+		for(key in jsonArr[i]){
+			var td=document.createElement('td');
+			btr.appendChild(td);
+			td.innerHTML=jsonArr[i][key];
+		}
+	}
+</script>
+</body>
+</html>

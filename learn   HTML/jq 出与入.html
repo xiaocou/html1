@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">aaa</div>
+	<button>hide</button>
+	<button>show</button>
+	<button>toggle</button>
+	<script type="text/javascript">
+	$('button').click(function(){
+		if(this.innerHTML=='hide'){
+			$('#d1').hide('fast',function(){
+				alert('走了');
+			})
+		}else if (this.innerHTML=='show') {
+			$('#d1').show('fast',function(){
+				alert('来了');
+			})
+		}else{
+			$('#d1').toggle('fast');
+		}
+	})
+	</script>
+	<div id="d2">bbb</div>
+	<button>slideDown</button>
+	<button>slideUp</button>
+	<button>toggle</button>
+	<script type="text/javascript">
+	$('button').click(function(){
+		if(this.innerHTML=='slideDown'){
+			$('#d2').slideDown('fast');
+		}else if (this.innerHTML=='slideUp') {
+			$('#d2').slideUp('fast')
+		}else{
+			$('#d2').toggle('fast');
+		}
+	})
+	</script>
+	<div id="d3">ccc</div>
+	<button>fadeIn</button>
+	<button>fadeOut</button>
+	<button>toggle</button>
+	<button>fadeTo</button>
+	<input type="number" min="0" max="1" step="0.1">
+	<script type="text/javascript">
+	$('button').click(function(){
+		if(this.innerHTML=='fadeIn'){
+			$('#d3').fadeIn('fast');
+		}else if (this.innerHTML=='fadeOut') {
+			$('#d3').fadeOut('fast')
+		}else if(this.innerHTML=='toggle'){
+			$('#d3').toggle('fast');
+		}else if(this.innerHTML=='fadeTo'){
+			// fadeTo('速度'，'透明度')
+			$('#d3').fadeTo('fast',$('input').val());
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="d1">aaa</div>
+	<span id="s1">hello</span>
+	<!-- 这是注释 -->
+	<script type="text/javascript">
+	function printProto(obj){
+		while(obj=Object.getPrototypeOf(obj)){
+			console.log(obj);
+		}
+		console.log('...............')
+	}
+	// printProto(document);
+	printProto(document.getElementById('d1'))
+	</script>
+</body>
+</html>

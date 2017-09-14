@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form name="myForm" onsubmit="onsubmint(event)">
+		用户名：<input type="text" name="username">
+		密码：<input type="password" name="pwd">
+		<input type="submit" value="提交" >
+	</form>
+	<script type="text/javascript">
+	function onsubmint(event){
+		var input1=document.forms.myForm.username;
+		var input2=document.forms.myForm.pwd;
+		if (input1.value==''||input2.value=='') {
+			// 用户不输入，event事件不能让他执行
+			// preventDefault阻止元素去发生默认的行为
+			// 当点击提交时。阻止表单的提交
+			if (event.preventDefault) {
+				event.preventDefault();
+				alert('请重新输入用户名和密码');
+			}else{
+				event.returnValue=false;
+			}
+		}
+	}
+	</script>
+</body>
+</html>

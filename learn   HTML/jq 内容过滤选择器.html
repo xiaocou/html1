@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>内容过滤选择器</title>
+  <script type="text/javascript" src="中兴财富/plugins/jquery-3.1.1.js"></script>
+  <style type="text/css">
+	div{
+		float:left;
+		border:1px solid black;
+		width:140px;
+		height:140px;
+		background:skyblue;
+		margin:5px;
+		font-size:18px;
+	}
+	div.mini{
+		width:55px;
+		height:55px;
+		font-size:12px;
+	}
+	div.none{
+		display:none;
+	}
+  </style>
+ </head>
+ <body>
+  
+  <h2>选择器</h2>
+  <hr />
+
+  <div id="one" class="one">
+	id为one，class为one的div
+	<div class="mini">class为mini</div>
+  </div>
+
+  <div id="two" class="one" title="test">
+	id为two，class为one，title是test的div
+	<div class="mini" title="other">class为mini,title为other</div>
+	<div class="mini" title="test">class为mini,title为test</div>
+  </div>
+
+  <div class="one">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">a</div>
+  </div>
+
+  <div id="four">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div style="width:50px;height:50px"></div>
+  </div>
+
+  <div class="none"></div>
+  <div style="visibility:hidden;"></div>
+  <div style="opacity:0;"></div>
+
+  <div>
+	包含type为hidden的input的div
+	<input type="hidden" name="userid"/>
+  </div>
+  <script type="text/javascript">
+  // 选择包含文本‘class为mini’的元素
+  // $('div:contains(class为mini)').css('background','green');
+  // 查询空的div
+  // $('div:empty').css('background','green');
+  // 匹配含有子元素或者文本的元素
+  // $('div:parent').css('background','green');
+  // 含有选择器所匹配的元素
+  // $('div:has(.mini)').css('background','green');
+  // 匹配不可见元素
+  // console.dir($('div:hidden'));
+  // 匹配可见元素
+  console.log($('div:visible'));
+  </script>
+ </body>
+</html>

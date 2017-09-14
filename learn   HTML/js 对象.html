@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 创建原始类型字符串变量
+		// var studentName='Smith';
+		// var gender='man';
+		// 创建应用类型的字符串对象
+		// var string1=new String('hello'); 
+
+		// 将字符串变为大写
+		// var string2=string1.toUpperCase();
+		// console.log(string1);
+		// console.log(string2);
+
+		// var string3=new String('BENZ');
+		// 将字符串变为小写
+		// var string4=string3.toLowerCase();
+		// console.log(string3);
+		// console.log(string4);
+
+		// 字符串长度
+		// var string7=new String('abc一二三');
+		// console.log(string7.length);
+
+		// 模拟输入验证码
+		// var code='9Fa5';
+		// var input='';
+		// do{
+		// 	input=prompt('请输入验证码');
+		// }while(input.toLowerCase()!=code.toLowerCase());
+		// alert('登录成功');
+
+		var msg='hello 贵阳学院';
+		console.log(msg.length);
+		console.log(msg.charAt(0));
+		console.log(msg.charAt(6));
+		
+		// 万国码
+		// var msg='CEO方';
+		// console.log(msg.charCodeAt(2));
+		// console.log("++++++++++");
+
+		// 检索字符串
+		// indexOf()返回第一回出现指定字符串的下标
+		var email='123456789@qq.com@baidu.com';
+		console.log(email.indexOf('qq'));
+		console.log(email.indexOf('@'));
+		console.log(email.lastIndexOf('@'));
+		console.log(email.indexOf('@',10));
+		console.log(email.lastIndexOf('@',3));//在16前，反着找
+
+		// 截取子字符串
+		// var msg3='abc一二三';
+		// console.log(msg3.slice(0,3));
+		// console.log(msg3.slice(3,5));
+		// console.log(msg3.slice(3));
+		// console.log(msg3.substring(3,5));
+
+		// 分割字符串
+		var data1='Tom-Smith-Chuan';
+		var arr1=data1.split('-');
+		for(var i=0;i<arr1.length;i++){
+			console.log(arr1[i]);
+		}
+		// 链接字符串
+		// var string1='AA';
+		// var string2='BB';
+		// var string3=string1.concat(string2);
+		// console.log(string3);
+		// var string4=string1+string2;
+	</script>
+</body>
+</html>

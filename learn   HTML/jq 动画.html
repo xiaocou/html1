@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<button id="btn1">stop()</button>
+	<button id="btn2">stop(true)</button>
+	<button id="btn3">stop(false,true)</button>
+	<button id="btn4">play</button>
+	<script type="text/javascript">
+	$('#d1').animate({
+		marginLeft:'+=500',
+	},5000).animate({
+		marginTop:'+=50',
+	},4000).animate({
+		marginLeft:'-=500',
+	},3000)
+	$('#btn1').click(function(){
+		// 停止当前动画，直接下一个执行动画
+		$('#d1').stop();
+	})
+	$('#btn2').click(function(){
+		// 传递true，忽略剩余动画
+		$('#d1').stop(true);
+	})
+	$('#btn3').click(function(){
+		// 动画跳过过程，直接到结果
+		$('#d1').stop(false,true);
+	})
+	$('#btn4').click(function(){
+		// 动画跳过过程，直接到结果
+		$('#d1').animate({
+			width:'200px',
+
+		});
+	})
+	</script>
+</body>
+</html>

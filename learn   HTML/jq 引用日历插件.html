@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- 引入日历插件 -->
+	<script type="text/javascript" src="../库/datepicker/WdatePicker.js"></script>
+</head>
+<body>
+	<h2>日历插件使用</h2>
+	<hr>
+	<fieldset>
+		<legend>默认日历</legend>
+		<input type="text" id="d1" class="Wdate">
+	</fieldset>
+	<fieldset>
+		<legend>日历属性</legend>
+		<input type="text" id="d2" class="Wdate">
+	</fieldset>
+	<fieldset>
+		<legend>日历限制范围</legend>
+		<input type="text" id="d3" class="Wdate">
+	</fieldset>
+	<fieldset>
+		<legend>测试</legend>
+		<input type="text" id="d4" class="Wdate">
+		<input type="text" id="d5" class="Wdate">
+	</fieldset>
+	<script type="text/javascript">
+	// 引入默认日历
+	$('#d1').focus(function(){
+		WdatePicker();
+	});
+	// 日历属性
+	$('#d2').focus(function(){
+		WdatePicker({
+			// 指定控件的id，存储日期显示值
+			el:'d2',
+			// 日期显示格式
+			dateFmt:'yyy-MM-dd HH:mm:ss',
+			// 双日历
+			doubleCalendar:true,
+			// 显示周
+			isShowWeek:true
+		})
+	})
+
+	$('#d3').focus(function(){
+		// 传递配置对象
+		WdatePicker({
+			doubleCalendar:true,
+			minDate:new Date(),
+			maxDate:'%y-%M-{%d+59}'
+		})
+	})
+	$('#d4').focus(function(){
+		WdatePicker({
+			doubleCalendar:true,
+			// 选则日期时激发的事件
+			// dp时减速浮想
+			onpicking:function(dp){
+				if(confirm('确认输入'+dp.cal.getNewDateStr()+'?')){
+					return false;
+				}
+				return true;
+			}
+		});
+	});
+	$('#d5').focus(function(){
+		WdatePicker({
+			doubleCalendar:true,
+			minDate:"#F{$dp.$D('d4',{d:3})}"
+		});
+	});
+	</script>
+</body>
+</html>

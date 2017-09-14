@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.validate.js"></script>
+	<script src="./lib/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
+	<!--<script src="../lib/jquery-validation-1.16.0/dist/localization/messages_zh.js"></script>-->
+	<style type="text/css">
+		input.error,textarea.error{
+			border: 1px solid red;
+		}
+		label.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form id="signupForm">
+	<fieldset>
+		<legend>验证完整的表单</legend>
+		<p>
+			<label for="firstname">名字</label>
+			<input type="text" name="firstname" id="firstname"  />
+		</p>
+		<p>
+			<label for="lastname">姓氏</label>
+			<input type="text" name="lastname" id="lastname"/>
+		</p>
+		<p>
+			<label for="username">用户名</label>
+			<input type="text" name="username" id="username"/>
+		</p>
+		<p>
+			<label for="password">密码</label>
+			<input type="password" name="password" id="password"/>
+		</p>
+		<p>
+			<label for="confirm_password">确认密码</label>
+			<input type="password" name="confirm_password" id="confirm_password"/>
+		</p>
+		<p>
+			<label for="email">邮箱</label>
+			<input type="email" name="email" id="email"/>
+		</p>
+		<p>
+			<label for="agree">
+				请同意我们的声明
+				<input type="checkbox" name="agree" id="agree"/>
+			</label>			
+		</p>
+		<p>
+			<label for="newsletter">
+				我乐意接受消息
+				<input type="checkbox" name="newsletter" id="newsletter"/>
+			</label>			
+		</p>
+		<fieldset>
+			<legend>主题(至少选两个)</legend>
+			<label for="topic_marketflash">	
+				<input type="checkbox" 
+				id="topic_marketflash" name="topic" value="marketflash"/>
+				市场快报
+			</label>
+			<label for="topic_fuzz">	
+				<input type="checkbox" 
+				id="topic_fuzz" name="topic" value="fuzz"/>
+				最新行情
+			</label>
+			<label for="topic_digester">	
+				<input type="checkbox" 
+				id="topic_digester" name="topic" value="digester"/>
+				分发
+			</label>
+			<label for="topic" class="error">请选择至少两个话题</label>
+		</fieldset>
+		<input type="submit" />
+	</fieldset>
+
+  </form>
+<script type="text/javascript">
+//	$('#signupForm').validate({
+//		rules:{
+//			firstname:'required',
+//			lastname:'required',
+//			username:{
+//				'required':true,
+//				'minlength':5,
+//				checkUserName:true
+//			},
+//			password:{
+//				'required':true,
+//				'minlength':5
+//			},
+//			confirm_password:{
+//				'required':true,
+//				'minlength':5,
+//				//验证函数, 等于#password的值
+//				'equalTo':'#password'
+//			},
+//			email:{
+//				'required':true,
+//				'email':true
+//			},
+//			topic:{
+//				'required':true,
+//				'minlength':2
+//			}
+//		},
+//		//自定义验证消息
+//		//messages 
+//		messages:{
+//			confirm_password:{
+//				required:'请输入密码确认',
+//				minlength:'密码长度不能小于5',
+//				equalTo:'徐延顺提醒您:两次输入的密码不一致'
+//			}
+//		}
+//	});
+//	$.validator.addMethod('checkUserName',function(value,element,params){
+//		//添加自定正则表达式
+//		var checkUserName=/^[1-9][0-9]{4,9}$/;
+//		return this.optional(element)||checkUserName.test(value);
+//	},"*请输入正确的用户名");
+	
+	
+	$(function(){
+			$('#signupForm').validate({
+			    rules:{
+			        firstname: "required",
+			        lastname: "required",
+			        username: {
+				        required: true,
+				        minlength: 2,
+				        checkUserName: true
+				    },
+				    password: {
+				        required: true,
+				        minlength: 5
+				    },
+				    confirm_password: {
+				        required: true,
+				        minlength: 5,
+				        equalTo: "#password"
+				    },
+				    email: {
+				        required: true,
+				        email: true
+				    },
+				    topic: {
+				        required: "#newsletter:checked",
+				        minlength: 2
+				    },
+				    agree: "required"
+			    },
+			    messages: {
+				    firstname: "请输入您的名字",
+				    lastname: "请输入您的姓氏",
+				    username: {
+				      required: "用户名必需五位数字以上组成",
+				      minlength: "用户名必需五位数字以上组成"
+				    },
+				    password: {
+				      required: "请输入密码",
+				      minlength: "密码长度不能小于 5 个字母"
+				    },
+				    confirm_password: {
+				      required: "请输入密码",
+				      minlength: "密码长度不能小于 5 个字母",
+				      equalTo: "两次密码输入不一致"
+				    },
+				    email: "请输入一个正确的邮箱",
+				    agree: "请接受我们的声明",
+				    topic: "请选择两个主题"
+			    }
+			});
+			//自定义的验证方式
+			$.validator.addMethod('checkUserName',function(value,element,params){
+				var cCheckUserName=/^\d{5,9}$/;
+				return this.optional(element)||cCheckUserName.test(value);
+			},'用户名必需五位数字以上组成');
+//			jQuery.validator.addMethod("<span style="color:#FF0000;"><strong>isChar</strong></span>",function(value,element) {  
+//			    var length = value.length;  
+//			    var regName = /[^\u4e00-\u9fa5]/g;  
+//			    return this.optional(element) || !regName.test( value );    
+//			}, "请正确格式的姓名(暂支持汉字)");  
+		});
+</script>
+</body>
+</html>

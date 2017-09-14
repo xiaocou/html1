@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	var arr=['小明','小刚','小强','小红'];
+	// each()规定每个匹配的元素规定运行函数
+	// index选择器的位置
+	// element当前的元素 this选择器
+	$.each(arr,function(i,e){
+		console.log(i+'-'+e);
+	});
+	// 过滤
+	var arr2=[{sname:'小朱',score:80},{sname:'小王',score:80},{sname:'老王',score:58},{sname:'唐唐',score:61}];
+	// grep()数组过滤、筛选
+	var arr3=$.grep(arr2,function(item,index){
+		return item.score>=60;
+	});
+	console.log(arr3);
+	// 映射：对所有的元素做相同操作
+	$.map(arr2,function(item,index){
+		item.age=20;
+	});
+	console.log(arr2);
+	// 合并数组
+	var arr4=$.merge([1,2,3],[3,4,5]);
+	console.log(arr4);
+	// 合并且去除相同的
+	console.log($.unique(arr4));
+	var CEOfang=arr2[2];
+	// inArray()返回在数组中的索引值，返回-1，则不存在
+	console.log($.inArray(CEOfang,arr2))
+	</script>
+</body>
+</html>

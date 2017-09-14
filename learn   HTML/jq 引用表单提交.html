@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="../lib/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
+	<script type="text/javascript" src="../lib/jquery-validation-1.16.0/dist/localization/messages_zh.min.js"></script>
+	<style type="text/css">
+		input.error , textarea.error{
+			border: 1px solid red;
+		}
+		label.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<form id="commentForm">
+<fieldset>
+
+	<legend>输入名字\邮箱\URL和备注</legend>
+	<p>
+		<label for="cname">Name(必填,2最少2个字符)</label>
+		<!-- H5 属性minlength -->
+		<input type="text" name="cname" id="cname" minlength="2" required>
+	</p>
+	<p>
+		<label for="cemail">Email(必填)</label>
+		<!-- h5 属性email -->
+		<input type="email" name="cemail" id="cemail" required>
+	</p>
+	<p>
+		<label for="curl">URL(可选)</label>
+		<input type="url" name="curl" id="curl" >
+	</p>
+	<p>
+		<label for="comment">备注(必填)</label>
+		<textarea name="comment" id="comment" cols="30" rows="10" required></textarea>
+	</p>
+	<p><input type="submit" ></p>
+</fieldset>
+
+</form>
+<script type="text/javascript">
+	$('#commentForm').validate();
+</script>
+</body>
+</html>

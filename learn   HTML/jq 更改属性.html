@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<style type="text/css">
+		div{
+			float: left;
+			border: 1px solid #000;
+			width: 140px;
+			height: 140px;
+			background: skyblue;
+			margin: 5px;
+			font-size: 18px;
+			}
+			div.mini{
+				width: 55px;
+				height: 55px;
+				font-size: 12px;
+			}
+			div.none{
+				display: none;
+			}
+	</style>
+</head>
+<body>
+	<h2>选择器</h2>
+  <hr />
+  <div id="one" class="one">
+	id为one，class为one的div
+	<div class="mini">class为mini</div>
+  </div>
+  <div id="two" class="one" title="test">
+	id为two，class为one，title是test的div
+	<div class="mini" title="other">class为mini,title为other</div>
+	<div class="mini" title="test">class为mini,title为test</div>
+  </div>
+  <div class="one">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini"></div>
+  </div>
+  <div class="none"></div>
+  <div>
+	包含type为hidden的input的div
+	<input type="hidden" name="userid"/>
+  </div>
+  <script type="text/javascript">
+  // id为onediv背景颜色#bfa
+  // 通过jq对象修改选择器样式
+  	// $('#one').css('background','#f00');
+  	// 修改所有div #bfa
+  	// $('div').css('background','#f00');
+  	// 改变所有元素
+  	// $('*').css('background','#f00');
+  	// 取id为one和class为mini所有背景
+  	// $('#one,.mini').css('background','#f00');
+  	// 取后代选择器
+  	$('#one .mini').css('background','#f00');
+  </script>
+</body>
+</html>

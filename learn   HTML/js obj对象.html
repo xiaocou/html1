@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 字面量
+	var obj1={};
+	// new语法
+	var obj2=new Object();
+	// 给对象赋值,声明成员变量
+	var obj3={
+		x:1,//x坐标
+		y:0,//y坐标
+		name:'object3',//name
+		distance:function(x,y){
+			return Math.sqrt(x*x+y*y);
+		}
+	}
+	// 访问,通过‘.’获取
+	console.log(obj3.x);
+	var emp1={ename:'Tom',salary:3500};
+	var book1={
+		'book name':'JS书籍',
+		'sub-title':'JS不放弃',
+		'for':'想学html',
+		author:{
+			firstname:'David',
+			lastname:'朕智'
+		}
+	}
+	// 访问属性,通过‘.’获取
+	console.log(emp1.ename);
+	// 通过索引方法访问,要求索引必须是字符串
+	console.log(book1['sub-title']);
+	// 嵌套方法
+	console.log(book1.author.firstname);
+	// 访问不存在属性不报错，返回undefined
+	console.log(book1.length);
+
+	var liLei={
+		sname:'LiLei',
+		age:18,
+		introself:function(){
+			alert('I am '+this.sname+'.I\'m'+this.age);
+		}
+	}
+	// 访问对象的方法
+	liLei.introself();
+	</script>
+</body>
+</html>

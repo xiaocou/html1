@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<style type="text/css">
+	#data{
+		border: 1px solid #000;
+	}
+    tr,td{
+        border: 1px solid #000;
+    }
+	/* 1.设置样式 */
+	.blue{
+		background-color: blue;
+	}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){
+	// 2.找table对象
+	var tableObj = document.getElementById('data');
+	//3.找tbody对象
+	var tbodyObj = tableObj.lastElementChild;
+	// 获取tr
+	var trObj = tbodyObj.children;
+	// //4.在tbody中,处理偶数行
+	for (var i = 0; i < trObj.length; i++) {
+	//判断偶数行
+	if (i%2==1) {
+		trObj[i].setAttribute("class", "blue");
+	}
+	}
+	}
+</script>
+	<!-- 隔行变颜色 -->
+<table id="data">
+    <thead>
+       <tr>
+          <th>姓名</th>
+          <th>工资</th>
+          <th>入职时间</th>
+          <th>职务</th>
+       </tr>
+    </thead>
+    <tbody>
+         <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+        <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+          <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>
+            <tr>
+         	<td>TOM</td>
+         	<td>$2000</td>
+         	<td>2010-10-10</td>
+         	<td>CEO</td>
+         </tr>	
+    </tbody>
+</table>
+</body>
+</html>

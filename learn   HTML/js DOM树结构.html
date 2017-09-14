@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM教程</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			// // 通过id获取元素
+			// var mynode1=document.getElementById('myfirst');
+			// alert(mynode1.innerHTML);
+
+			// // 获取标签名的元素集合
+			// var mynode2=document.getElementsByTagName('p');
+			// for(var i=0;i<mynode2.length;i++){
+			// 	alert(mynode2[i].innerHTML);
+			// }
+
+			// // 通过class获取元素
+			// var mynode3=document.getElementsByClassName('myclass');
+			// for(var j=0;j<mynode3.length;j++){
+			// 	alert(mynode3[j].innerHTML)
+			// }
+
+			// 创建子节点
+			var myli=document.createElement('li');
+			// 设置节点内容
+			myli.innerHTML='香蕉';
+			// 获取添加节点的父节点
+			var myul=document.getElementById('myli0');
+			// 下一行添加元素
+			myul.appendChild(myli);
+
+			// // 替换元素
+			// var myli2=document.createElement('li');
+			// // 新元素内容
+			// myli2.innerHTML='鸭梨';
+			// // 替换元素
+			// myul.replaceChild(myli2,myli);
+			// // 删除元素
+			// // myul.removeChild(myli2);
+			// 之前添加
+			var firstchild=myul.firstChild;
+			myul.insertBefore(myli,firstchild);
+
+			// var mynode4=document.createTextNode('div节点');
+			// var mynodediv1=document.getElementById('mydiv1');
+			// mynodediv1.appendChild(mynode4);
+
+			//9.创建元素节点
+			// var myspan = document.createElement("span");
+			// myspan.appendChild(mynode4);
+			// mynodediv1.appendChild(myspan);
+			// // 创建属性和属性值
+			// var mynodediv2 = document.getElementById("mydiv2");
+			// mynodediv2.setAttribute("class","testClass");
+			// alert(mynodediv2.getAttribute("class"));
+			
+			// // 文档节点
+			// console.log(document.nodeType+''+document.nodeName+'---'+document.nodeValue);
+			// // 注释节点
+			// var comment1=document.body.firstChild;
+			// console.log(comment1.nodeType+''+comment1.nodeName+'---'+comment1.nodeValue);
+			// // 元素节点
+			// var span1=document.getElementById('cnt');
+			// console.log(span1.nodeType+''+span1.nodeName+'---'+span1.nodeValue);
+			// // 文本节点
+			// var txt1=span1.firstChild;
+			// console.log(txt1.nodeType+''+txt1.nodeName+'---'+txt1.nodeValue);
+			// // 属性节点
+			// var attr1=span1.getAttributeNode('class');
+			// console.log(attr1.nodeType+''+attr1.nodeName+'---'+attr1.nodeValue);
+			
+			// // 节点数中节点的层级关系
+			// // parenNode父节点
+			// // childNodes子节点
+			// // firstChild第一个子节点
+			// // lastChild最后一个子节点
+			// // previousSibing上一个兄弟节点
+			// // nextSibling下一个兄弟节点
+			// console.log(document.body.childNodes);
+			// console.log(document.body.childNodes[1]);
+			// var div1=document.getElementById('mydiv');
+			// console.log(div1);
+			// console.log(div1.nextSibling.nextSibling);
+			
+			// parenElementNode父亲元素节点
+			// children获取子元素集合
+			// firstElementChild获取第一个子元素
+			// lasrElementChild获取最后一个子元素
+			// previousElementSibling上一个兄弟元素
+			// nextElementSibling下一个兄弟节点
+			// console.log(document.body.children);
+			// console.log(document.body.firstElementChild);
+			// console.log(document.body.lastElementChild);
+			// var div1=document.getElementById('mydiv');
+			// console.log(div1.nextElementSibling);
+		}
+	</script>
+</head>
+<body>
+	<!-- <div id="mydiv">
+		<h1>h1</h1>
+	</div>
+	<span>span</span> -->
+
+<!-- 这是注释 获取节点 -->
+	<!-- <span id="cnt" class="mycls">文本内容</span> -->
+
+	<p id="myfirst">test1</p>
+	<p id="mysecond" class="myclass">test2</p>
+	<p id="mythird" class="myclass">test3</p>
+	<ul id="myfruit">
+		<li id="myli0">苹果</li>
+	</ul>
+	<div id="mydiv1"></div>
+	<div id="mydiv2">2</div>
+
+	
+</body>
+</html>

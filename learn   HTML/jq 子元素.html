@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+	<script type="text/javascript">
+	// window.onload()
+	$(function(){
+		console.log($('body').chidren().length);
+		console.log($('body').chidren('div').length);
+		$('div:nth-child(2)').next().css({
+			background:'blue'
+		});
+		$('div:nth-child(2)').prev().css({
+			background:'blue'
+		});
+	})
+	</script>
+</head>
+<body>
+	aaa
+	<h2>h2</h2>
+	<div>div
+		<div>child div</div>
+	</div>
+	<p></p>
+</body>
+</html>

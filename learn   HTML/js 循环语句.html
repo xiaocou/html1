@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// while循环
+		// var i=1;
+		// while(i<=100){
+		// 	console.log(i);
+		// 	i++;
+		// 	if (i==55)break;
+		// }
+		
+		// do..while循环
+		// do{
+		// 	console.log(i);
+		// 	i++;
+		// }
+		// while(i<=100);
+		
+		// for(i=1;i<4;i++){
+		// 	var psw=prompt('请输入密码:');
+		// 	if(Number(psw)==123){
+		// 		console.log('输入正确');
+		// 		break;
+		// 	}
+		// 	else{
+		// 		console.log('错误');
+		// 	}
+		// }
+		
+		// for循环
+		// for (var i = 1; i <=100; i++) {
+		// 	console.log(i);
+		// }
+		
+		// var k=1;
+		// var sum=0;
+		// var sum1=0;
+		// for(k=1;k<=100;k++){
+		// 	sum=sum+k;			
+		// }
+		// document.write(sum+'<br>');
+		// for(k=0;k<=100;k+=2){
+		// 	sum1=sum1+k;			
+		// }
+		// document.write(sum1);
+		
+		// var i=1;
+		// var sum=0;
+		// for(;i<=999;){
+		// 	sum=sum+1/i;
+		// 	i+=2;
+		// }		
+		// document.write(sum);
+
+		// var sum=0;
+		// for(var i=1;i<=100;i++){
+		// 	if(sum<=4000){
+		// 		document.write(sum+'<br>');
+		// 	}
+		// 	sum=sum+i;
+		// }
+		
+		// for(var j=1;j<=100;j++){
+		// 	if(j%3==0){
+		// 		continue;
+		// 	}
+		// 	console.log(j);
+		// }
+		
+		var year=prompt('请输入年份：');
+		for(var count=0;;){
+			year++;
+			if((year%4==0&&year%100!=0)||year%400==0){
+				console.log(year);
+				if (++count==5) {
+					break;
+				}
+			}
+			else{
+				continue;
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/jquery-3.2.0.js"></script>	
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<script type="text/javascript">
+	// 传递css选择器，查询jq对象
+	// $("#d1").html('我是d1');
+	$(d2).click(function(){
+		console.log('jq不存在兼容问题');
+	})
+	var $span=$('<span style="color:#f00">span</span>');
+	$(d2).html($span);
+	// jq转为DOM对象
+	// get(index)方法。得到相应的dom对象
+	var $obj=$('#d1');
+	var obj=$obj.get(0);
+	// d1放hello jquery
+	obj.innerHTML='hello jquery';
+	// 传递方法给$(),window.onload=function(){}
+	$(function(){
+		alert('有意思')
+	})
+	</script>
+</body>
+</html>

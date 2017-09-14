@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+		// TreeWalker()方法
+		// 四个参数：root起始点；nodesToShow节点类型；
+		// filter（or null）用来过滤返回结果的自定义函数，null比使用自定义过滤函数；
+		// entityExpanBol是否展开实体；
+		// NodeFilter：NodeFilter.SHOW_ALL、NodeFilter.SHOW_ENTITY_REFERENCE实体节点、SHOW_TEXT文本节点、SHOW_ELEMENT、SHOW_ATTRIBUTE特性节点、SHOW_COMMENT住释节点、SHOW_CDATA、SHOW_DOCUMENT文档节点
+		// var rootnode=document.getElementById('col');
+		// var wlake=document.createTreeWalker(rootnode,NodeFilter.SHOW_ELEMENT,null,false);
+		// alert(wlake.currentNode.tagName);
+		// while(wlake.nextNode()){
+		// 	alert(wlake.currentNode.tagName);
+		// }
+		
+
+	}
+	</script>
+</head>
+<body>
+	<!-- <p id="fang">CEO<span>loves</span><b>js!</b></p>
+	<script type="text/javascript">
+		var rootnode=document.getElementById('fang');
+		var walker=document.createTreeWalker(rootnode,NodeFilter.SHOW_TEXT,null,false);
+		walker.firstChild();
+		console.log(walker.currentNode.nodeValue);
+		var paratext=walker.currentNode.nodeValue;
+		while(walker.nextNode()){
+			console.log(walker.currentNode.nodeValue);
+		}
+	</script>
+
+	<hr>
+	<div id="col">
+		<p>some<span>text</span></p>
+		<b>B text</b>
+	</div> -->
+
+	<hr>
+	<div id="fang1">
+		<h3>标题</h3>
+		<div>
+			<b>bbb</b>
+		</div>
+	</div>
+	<p>段落</p>
+	<script type="text/javascript">
+		var rootnode=document.getElementById('fang1');
+		var myfun=function(node){
+			if (node.tagName=='DIV') {
+				return NodeFilter.FILTER_ACCEPT;
+			}else{
+				return NodeFilter.FILTER_SKIP;//跳过（REJECT）：拒绝
+			}
+		}
+		var walker=document.createTreeWalker(rootnode,NodeFilter.SHOW_ELEMENT,myfun,false);
+		while(walker.nextNode()){
+			console.log(walker.currentNode.tagName);
+			// walker.currentNode.style.display='none';
+		}
+	</script>
+</body>
+</html>

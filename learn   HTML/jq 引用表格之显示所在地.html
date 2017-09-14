@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="../lib/jquery-tmpl/jquery.tmpl.js"></script>
+	<style type="text/css">
+		#peopleTable{
+			width: 50%;
+			border-collapse: collapse;
+		}
+		#peopleTable td{
+			border: 1px solid #ddd;
+		}
+		.peopleName{
+			background-color: skyblue;
+		}
+		.person{
+			background-color: #0f0;
+		}
+		.personAll{
+			background-color: #0ff;
+		}
+	</style>
+</head>
+<body>
+	<table id="peopleTable"></table>
+	<!-- 创建格式模板 -->
+	<script id="tmplPeople" type="text/x-jquery-tmpl">
+		<tr class="peopleName">
+			<td colspan="2"><a href="${url}">${getName()}</a></td>
+		</tr>
+		<!-- 所在城市 -->
+		{%each cities%}
+		<!-- $data指的是当前行数据 -->
+		<tr class="${alternate($data,people)}">
+			<td colspan="2">
+				<!-- $index当前行的索引值 -->
+				<b><i>所在城市${$index+1}</b></i>
+			</td>
+		</tr>
+		<tr class="${alternate($data,people)}">
+			<td><b>${name}</b></td>
+			<td>${state}</td>
+		</tr>
+		{%/each%}
+	</script>
+	<script type="text/javascript">
+		var people = [
+		{
+			firstName:'John',
+			lastName:'Resig',
+			url:'http://ejohn.org',
+			cities:[
+				{name:'Boston',state:'MA'},
+				{name:'San Francisco',state:'CA'},
+			]
+		},
+		{
+			firstName:'Dave',
+			lastName:'Reed',
+			url:'http://dave.org',
+			cities:[
+				{name:'Seattle',state:'WA'},
+				{name:'Los Angeles',state:'CA'}
+			]
+		}
+	];
+	// 使用模板
+	$('#tmplPeople').tmpl(people).appendTo('#peopleTable');
+	// 获取全名
+	function getName(){
+		return this.data.firstName+' '+this.data.lastName;
+	}
+	function alternate(item,arr){
+	return ($.inArray(item,arr)%2)?'personAll':'person'
+	}
+	</script>
+</body>
+</html>

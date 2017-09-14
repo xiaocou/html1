@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="中兴财富/plugins/jquery-3.1.1.js"></script>
+	<style>
+		div{
+			overflow: hidden;
+		}
+		a.sort{
+			float: left;
+			border: 1px solid #000;
+			margin-left: -1px;
+			color: #666;
+			text-decoration: none;
+			line-height: 24px;
+			display: block;
+			padding: 0px 10px;
+			font-size: 14px;
+		}
+		.selected{
+			background: #f00;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	单选：
+	<div class="single">
+		<a class="sort" href="#">销量</a>
+		<a class="sort" href="#">价格</a>
+		<a class="sort" href="#">评论数</a>
+		<a class="sort" href="#">销量上架时间</a>
+	</div>
+	<script type="text/javascript">
+	// 拿到a标签
+	var $btns=$('.single>.sort');
+	// 监听点击事件
+	$btns.click(function(){
+		$btns.removeClass('selected');
+		// 给点击事件添加类
+		$(this).addClass('selected');
+		// $(this).toggleClass('selected');
+	})
+	</script>
+</body>
+</html>

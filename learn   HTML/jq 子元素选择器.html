@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>子元素过滤器</title>
+   <script type="text/javascript" src="../js/jquery-3.2.0.js"></script>
+  <style type="text/css">
+	div{
+		float:left;
+		border:1px solid black;
+		width:140px;
+		height:140px;
+		background:skyblue;
+		margin:5px;
+		font-size:18px;
+	}
+	div.mini{
+		width:55px;
+		height:55px;
+		font-size:12px;
+	}
+	div.none{
+		display:none;
+	}
+  </style>
+ </head>
+ <body>
+  
+  <h2>子元素选择器</h2>
+  <hr />
+
+  <div id="one" class="one">
+	id为one，class为one的div
+	<div class="mini">class为mini</div>
+  </div>
+
+  <div id="two" class="one" title="test">
+	id为two，class为one，title是test的div
+	<div class="mini" title="other">class为mini,title为other</div>
+	<div class="mini" title="test">class为mini,title为test</div>
+  </div>
+
+  <div class="one">
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini">class为mini</div>
+	<div class="mini"></div>
+  </div>
+
+  <div class="none"></div>
+
+  <div>
+	包含type为hidden的input的div
+	<input type="hidden" name="userid"/>
+  </div>
+	<script type="text/javascript">
+	// 选出时首个子元素的mini
+	// $('.mini:first-child').css('background','red');
+	// 第一个孩子
+	// $('#two+div>div:first-child').css('background','red');
+	// 仅有的孩子
+	// $('#two+div>div:only-child').css('background','red');
+	// 最后的孩子
+	// $('#two+div>div:last-child').css('background','red');
+	// index从1开始
+	$('#two>div:nth-child(1)').css('background','red');
+	</script>
+  
+ </body>
+</html>
