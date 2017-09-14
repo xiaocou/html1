@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折线图</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        #box{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="echarts.min.js"></script>
+<script>
+    var myCharts = new echarts.init(document.getElementById('box'));
+    myCharts.setOption({
+        title: {
+            text: '折线图'
+        },
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["a","b","c","d","e","f","g","h","i","g","k","l"],
+        },
+        yAxis: {},
+        series: [{
+//            系列名称
+            name: '销量',
+//            折线
+            type: 'line',
+//            使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
+//            xAxisIndex: 0,
+//            使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
+//            yAxisIndex: 0,
+//            使用的极坐标系的 index，在单个图表实例中存在多个极坐标系的时候有用。
+//            polarIndex: 0,
+//            标记的图形。 ECharts 提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow','emptyCircle'
+            symbol: 'emptyCircle',
+//            折线标记点的图形大小，，可以用数组，分别设置不同的点的大小
+            symbolSize: 5,
+//            标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
+            symbolRotate: '45',
+//            标记相对于原本位置的偏移。
+            symbolOffset: [0, 0],
+//            是否显示 symbol.
+            showSymbol: true,
+//            是否开启 hover 在拐点标志上的提示动画效果。
+            hoverAnimation: true,
+//            是否启用图例 移入 时的联动高亮。
+            legendHoverLink: true,
+//            是否连接空数据。 默认false
+            connectNulls: true,
+//            是否对超出部分裁剪，默认裁剪。
+            clipOverflow: false,
+//            是否是阶梯线图。可以设置为 true 显示成阶梯线图。
+            step: false,
+//            图形上的文本标签，
+            label: {
+//                默认样式
+                normal: {
+//                    是否显示
+                    show: true,
+//                    标签的位置。'top' 'left' 'right' 'bottom' 'inside' 'insideLeft' 'insideRight' 'insideTop' 'insideBottom' 'insideTopLeft' 'insideBottomLeft'
+                    position: 'top',
+//                    是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
+//                    offset: [...],
+//                    标签内容格式器，支持字符串模板和回调函数两种形式，字符串模板与回调函数返回的字符串均支持用 \n 换行。模板变量有 {a}、{b}、{c}，分别表示系列名，数据名，数据值。
+                    formatter: '{a}+{b}+{c}',
+//                    标签的字体样式。
+//                  textStyle: {
+//                        color: '#fff',
+//                        fontStyle: 'normal',
+//                        fontWeight: normal,
+//                        fontFamily: 'sans-serif',
+//                        fontSize: 12,
+//                    },
+                },
+//                鼠标移入样式
+//                emphasis: {...},
+            },
+//            折线拐点标志的样式。
+            itemStyle: {
+//                默认样式
+                normal: {
+//                    颜色
+//                    color: 自适应,
+//                    borderColor: '#000',
+//                    borderWidth: 0,
+//                    borderType: 'solid',
+//                    shadowBlur: ...,
+//                    shadowColor: ...,
+//                    shadowOffsetX: 0,
+//                    shadowOffsetY: 0,
+//                    opacity: ...,
+                },
+//                emphasis: {...},
+            },
+//            线条样式。
+            lineStyle: {
+//                normal: {
+//                    color: 自适应,
+//                    width: 2,
+//                    type: solid,
+//                    shadowBlur: ...,
+//                    shadowColor: ...,
+//                    shadowOffsetX: 0,
+//                    shadowOffsetY: 0,
+//                    opacity: ...,
+//                },
+            },
+//            区域填充样式。
+            areaStyle: {
+                normal: {
+                    color : '#fff',
+                    // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，如果 globalCoord 为 `true`，则该四个值是绝对的像素位置
+//                    color:  {
+//                        type: 'linear',
+//                        x: 0,
+//                        y: 0,
+//                        x2: 0,
+//                        y2: 1,
+//                        colorStops: [{
+//                            offset: 0, color: 'red' // 0% 处的颜色
+//                        }, {
+//                            offset: 1, color: 'blue' // 100% 处的颜色
+//                        }],
+//                        globalCoord: false // 缺省为 false
+//                    },
+//                    径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
+//                    color: {
+//                        type: 'radial',
+//                        x: 0.5,
+//                        y: 0.5,
+//                        r: 0.5,
+//                        colorStops: [{
+//                            offset: 0, color: 'red' // 0% 处的颜色
+//                        }, {
+//                            offset: 1, color: 'blue' // 100% 处的颜色
+//                        }],
+//                        globalCoord: false // 缺省为 false
+//                    },
+//                    shadowBlur: ...,
+//                    shadowColor: ...,
+//                    shadowOffsetX: 0,
+//                    shadowOffsetY: 0,
+//                    opacity: 0.1,
+                },
+            },
+//                是否平滑曲线显示。
+            smooth: false,
+//                折线图在数据量远大于像素点时候的降采样策略，开启后可以有效的优化图表的绘制效率，默认关闭，也就是全部绘制不过滤数据点。
+//                可选：  'average' 取过滤点的平均值 'max' 取过滤点的最大值 'min' 取过滤点的最小值 'sum' 取过滤点的和
+            sampling: 'average',
+//            数据，可以单独给每一个设置不同的样式
+            data: [{
+                    name: 'ddd',
+                    value: 15,
+//                    symbol: 'circle',
+//                    symbolSize: 4,
+//                    symbolRotate: ...,
+//                    symbolOffset: [0, 0],
+//                    label: {...},
+//                    itemStyle: {...},
+//                    tooltip: {...},
+            }, 27, 32, 18,  , 21,5, 20, 36, 10, 10, 20],
+//            图表标注。
+            markPoint: {
+//                       标记的图形。标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+    //                   也可以通过 'image://url' 设置为图片，其中 url 为图片的链接。
+                        symbol: 'rect',
+//                        标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
+                        symbolSize: 20,
+//                        标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
+//                        symbolRotate: '90deg',
+//                        标记相对于原本位置的偏移
+                        symbolOffset: [0, 0],
+//                        图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+                        silent: true,
+//                        标注里的标题文本样式
+                        label: {
+                            normal: {
+                                show: true,
+//                                标签的位置。
+                                position: 'top',
+//                                offset: [...],
+//                                模板变量有 {a}、{b}、{c}，分别表示系列名，数据名，数据值。
+                                formatter: '{a}、{b}',
+//                                textStyle: {...},
+                            },
+        //                  emphasis: {...},
+                        },
+//                        标注框的样式。
+                        itemStyle: {
+                            normal: {
+//                                color: 自适应,
+                                borderColor: '#000',
+                                borderWidth: 1,
+//                                borderType: 'solid',
+//                                shadowBlur: ...,
+//                                shadowColor: ...,
+//                                shadowOffsetX: 0,
+//                                shadowOffsetY: 0,
+                                opacity: 0.5,
+                            },
+//                            emphasis: {...},
+                        },
+                        data: [
+                            {
+//                                标注名称。
+                                name: '我是标注',
+//                                特殊的标注类型，用于标注最大值最小值等。
+//                                'min' 最大值。 'max' 最大值。 'average' 平均值
+                                type: 'average',
+//                                标注的坐标。
+//                                coord: [100,200],
+//                                相对容器的屏幕 x 坐标，单位像素。
+                                x: 100,
+//                                相对容器的屏幕 x 坐标，单位像素
+                                y: 200,
+//                                symbol: ...,
+//                                symbolSize: ...,
+//                                symbolRotate: ...,
+//                                symbolOffset: [0, 0],
+//                                itemStyle: {...},
+//                                label: {...},
+                            },
+                            {
+                                name: '最大值',
+                                type: 'max'
+                            }
+                        ],
+
+            },
+            markLine: {
+//                图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+                silent: false,
+//                标线两端的标记类型
+//                symbol: ...,
+//                标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
+//                symbolSize: 8,
+//                    标线的文本。
+//                label: {...},
+//                    标线的样式
+//                lineStyle: {...},
+                data :[
+                    [
+                        {
+                            name: '我是c的标注',
+                            x: 100,
+                            y: 200
+                        },
+                        {
+                            x: 500,
+                            y: 230
+                        }
+                    ]
+                ],
+            },
+//            位置
+//            zlevel: 0,
+//            z: 2,
+//            图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+            silent: false,
+//            动画相关
+//            本图的特定提示框
+//            tooltip: {...},
+        }],
+    });
+</script>
+</body>
+</html>

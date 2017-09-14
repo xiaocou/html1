@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="echarts.min.js"></script>
+		<style>
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+			div{
+				width: 33%;
+				height: 50%;
+				float: left;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		<div id="box4"></div>
+		<div id="box5"></div>
+		<div id="box6"></div>
+		<script>
+			var arr = function(){
+				var a=1;
+				console.log(a)
+				var arr2 = function(){
+					return a
+				}
+				return arr2()
+			}
+			console.log(arr())
+			var b = a+2;
+			console.log(b)
+			function $(id){
+				return document.getElementById(id);
+			}
+//			柱状图
+			var myEchartt1 = echarts.init($('box1'));
+			myEchartt1.setOption({
+				title:{
+					text:'柱形图'
+				},
+				legend:{
+					data:['销量'],
+				},
+				xAxis:{
+					data:['寸衫','羊毛衫','雪绒衫','裤子','高跟鞋'],
+				},
+				tooltip:{},
+				yAxis:{},
+				series:[{
+					name:'销量',
+					type:'bar',
+					data:[52,62,71,15,55]
+				}]
+			})
+			
+//			折线图
+			var myEchartt2 = echarts.init($('box2'));
+			myEchartt2.setOption({
+				title:{
+					text:'折线图'
+				},
+				legend:{
+					data:['销量'],
+				},
+				xAxis:{
+					data:['寸衫','羊毛衫','雪绒衫','裤子','高跟鞋'],
+				},
+				tooltip:{},
+				yAxis:{},
+				series:[{
+					name:'销量',
+					type:'line',
+					data:[52,62,71,15,55]
+				}]
+			})
+			
+//			平滑折线图
+			var myEchartt3 = echarts.init($('box3'));
+			myEchartt3.setOption({
+				title:{
+					text:'平滑折线图'
+				},
+				legend:{
+					data:['销量'],
+				},
+				xAxis:{
+					data:['寸衫','羊毛衫','雪绒衫','裤子','高跟鞋'],
+				},
+				tooltip:{},
+				yAxis:{},
+				series:[{
+					name:'销量',
+					type:'line',
+					smooth:true,
+					data:[52,62,71,15,55]
+				}]
+			})
+			
+//			饼状图
+			var myEchartt4 = echarts.init($('box4'));
+			myEchartt4.setOption({
+				title:{
+					text:'饼状图'
+				},
+				legend:{
+					data:['销量'],
+				},
+				tooltip:{},
+				series:[{
+					name:'销量',
+					type:'pie',
+					data:[{value:52,name:'寸衫'},
+					{value:62,name:'羊毛衫'},
+					{value:71,name:'雪绒衫'},
+					{value:15,name:'裤子'},
+					{value:55,name:'高跟鞋'}]
+				}]
+			})
+			
+			
+//			空心饼状图
+			var myEchartt5 = echarts.init($('box5'));
+			myEchartt5.setOption({
+				title:{
+					text:'空心饼状图'
+				},
+				legend:{
+					data:['销量'],
+				},
+				tooltip:{},
+				series:[{
+					name:'销量',
+					type:'pie',
+					radius:['40%','75%'],
+					data:[{value:52,name:'寸衫'},
+					{value:62,name:'羊毛衫'},
+					{value:71,name:'雪绒衫'},
+					{value:15,name:'裤子'},
+					{value:55,name:'高跟鞋'}]
+				}]
+			})
+			
+			
+			var myEchartt6 = echarts.init($('box6'));
+			myEchartt6.setOption({
+				title:{
+					text:'柱形图'
+				},
+				legend:{
+					data:['销量'],
+				},
+				xAxis:{
+					data:['寸衫','羊毛衫','雪绒衫','裤子','高跟鞋'],
+				},
+				tooltip:{},
+				yAxis:{},
+				series:[{
+					name:'销量',
+					type:'bar',
+					data:[52,62,71,15,55]
+				},
+				{
+					name:'销量',
+					type:'line',
+					data:[52,62,71,15,55]
+				}],
+			})
+			
+		</script>
+	</body>
+</html>

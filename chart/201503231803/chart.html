@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas1" width="600" height="400"></canvas>
+		<script type="text/javascript" src="js/Chart.js" ></script>
+		<!--折线图-->
+		<script>
+			var line = document.getElementById('myCanvas1').getContext('2d');
+//			1.创建一个chart对象
+var lineChart = new Chart(line);
+	var data = {
+//		1.1x轴上的值
+		labels:['1','2','3','4','5','6','7'],
+		datasets:[
+			{
+				//背景色
+				fileColor:'rgba(220,220,220,0.05)',
+				//路径颜色
+				strokeColor:'rgba(220,220,220,)',
+				//数据点边框的颜色
+				pointStrokeColor:'rgba(255,255,255,.1)',
+				//数据点颜色
+				pointColor:'rgba(220,220,220,.1)',
+				//数据对象
+				data:[62,56,25,98,100,21,120]
+			},
+			{
+				//背景色
+				fileColor:'rgba(250,0,0,0.5)',
+				//路径颜色
+				strokeColor:'rgba(220,220,220,0.8)',
+				//数据点边框的颜色
+				pointStrokeColor:'rgba(255,255,255,.5)',
+				//数据点颜色
+				pointColor:'rgba(220,220,220,.1)',
+				//数据对象
+				data:[75,52,28,72,150,33,80]
+			}
+		]
+		
+	}
+	lineChart.Line(data,{
+		//xy轴的颜色
+		scaleLineColor:'rgba(255,0,0,1)',
+		//xy轴的宽
+		scaleLineWidth:3,
+		//是否显示y轴刻度,默认true
+		scaleShowLabels:true,
+		//设置单位
+		scaleLabel:"<%=value%>cm",
+		scaleFontFamily:"Arial",
+		scaleFontSize:12,
+		scaleFontStyle:'normal',
+		//设置背景表格是否显示
+		scaleShowGridLines:true,
+		scaleGridLineColor:'rgba(250,0,0,0.05)',
+		scaleGridLineWidth:5,
+		
+		bezierCurve:true,
+		pointDot:true,
+		//点的半径
+		pointDotRadius:3,
+		//曲线是否显示
+		datasetStroke:true,
+		//曲线的宽度
+		datasetStrokeWidth:12,
+		//是否有填充色
+		datasetFill:true,
+		//是否执行动画
+		animation:true,
+		//60比较平滑,<60快   >60漫
+		animationSteps:60,
+		//出现特效
+		animationEasing:"easeOutQuart",
+		//动画执行完毕后的回调函数
+		onAnimationComplete:function(){
+			alert('hello')
+		}
+	});
+		</script>
+	</body>
+</html>
+

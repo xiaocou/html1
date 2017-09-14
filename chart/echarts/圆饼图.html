@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+    </style>
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+<div id="box" style="width: 100%; height: 100%;"></div>
+<script type="text/javascript">
+    var myCharts = new echarts.init(document.getElementById('box'));
+    myCharts.setOption({
+        title : {
+            text : '我是饼图',
+            left : 'left'
+        },
+//				图列
+        legend : {
+            data : ['数据来源']
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        series : [{
+//				    饼图名称
+            name : '数据来源',
+            //声明图标类型
+            type : 'pie',
+//                    是否启用图例 hover 时的联动高亮。 默认true
+            legendHoverLink: true,
+//                    是否开启 hover 在扇区上的放大动画效果。 默认true
+            hoverAnimation: true,
+//                    饼图的扇区是否是顺时针排布。
+            clockwise: true,
+//                    起始角度，支持范围[0, 360]。  第一个扇区的开始位置
+            startAngle: 90,
+//                    最小的扇区角度（0 ~ 360），用于防止某个值过小导致扇区太小影响交互。
+            minAngle: 0,
+
+//                    南丁格尔图:
+//                    长得和饼图类似，长得像堆积簇状图又非簇状图，这种有着极坐标的怪异统计图，有着一个美丽的名字—南丁格尔玫瑰图。
+//                    http://www.sohu.com/a/124549337_468636
+
+//                      是否展示成南丁格尔图，通过半径区分数据大小。可选择两种模式：
+//						'radius' 面积展现数据的百分比，半径展现数据的大小。
+//						'area' 所有扇区面积相同，仅通过半径展现数据大小。
+            roseType: false,
+//                    是否在数据和为0（一般情况下所有数据为0） 的时候不显示扇区。
+            stillShowZeroSum: true,
+//                    饼图图形上的文本标签，可用于说明图形的一些数据信息
+            label: {
+//				        默认样式
+                normal: {
+//                            是否开启提示
+                    show : true,
+//                            标签的位置。
+//                            'outside' 饼图扇区外侧，通过视觉引导线连到相应的扇区。
+//							'inside' 饼图扇区内部。
+//							'inner' 同 'inside'。
+//							在饼图中心位置  'center'
+                    position: 'outside',
+//                            标签内容格式器，支持字符串模板和回调函数两种形式，字符串模板与回调函数返回的字符串均支持用 \n 换行。
+//                            模板变量有 {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。
+                    formatter: '{b}\n{c}\n{d}%',
+//                            标签的字体样式。
+//                            textStyle: {
+//                                color: '#fff',
+//                                fontStyle: 'normal',
+//                                fontWeight: normal,
+//                                fontFamily: 'sans-serif',
+//                                fontSize: 12,
+//                            },
+                },
+//						鼠标移入样式，和上面的设置项一毛一样
+                emphasis: {
+                    show : true,
+                    formatter: '{b}',
+                },
+            },
+//                    标签的视觉引导线样式，在 label 位置 设置为'outside'的时候会显示视觉引导线。
+            labelLine: {
+                normal: {
+                    show: true,
+//                            视觉引导线第一段的长度。
+//            				length: 100,
+//                        	视觉引导项第二段的长度。
+//							length2: 20,
+//                            是否平滑视觉引导线，默认不平滑，可以设置成 true 平滑显示，也可以设置为 0 到 1 的值，表示平滑程度。
+                    smooth: false,
+//                            引导线样式
+//                            lineStyle: {
+//                                color: '#000',
+//                                width: 1,
+//                                type: solid,
+//                                shadowBlur: ...,
+//								shadowColor: ...,
+//								shadowOffsetX: 0,
+//								shadowOffsetY: 0,
+//								opacity: ...,
+//							},
+                },
+//                        鼠标移入样式，
+                emphasis: {
+//                            是否显示
+                    show: true,
+//							样式
+//                        	lineStyle: {...},
+                },
+            },
+//                    图形样式
+            itemStyle: {
+//				        默认样式
+//                        normal: {
+//                          color: 自适应,
+//                          borderColor: '#000',
+//                          borderWidth: 0,
+//                          borderType: 'solid',
+//                          shadowBlur: ...,
+//							shadowColor: ...,
+//							shadowOffsetX: 0,
+//							shadowOffsetY: 0,
+//							opacity: ...,
+//						},
+//						鼠标移入样式 和上面一样
+//						emphasis: {...},
+            },
+
+//                    组件的所有图形的z值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
+//                    zlevel: 0,
+//                    z: 2,
+//                    饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标。
+            center: ['50%', '50%'],
+//                    饼图的半径，数组的第一项是内半径，第二项是外半径。  基于容器的宽高  内半径设置值时就会变为圆环
+            radius: [0, '75%'],
+//					展示数据  数组
+            data : [
+                {
+                    value:335,
+                    name:'直接访问'
+//                                该数据项是否被选中。
+//                              selected: false,
+//                            	  单个扇区的标签配置。
+//                              label: {...},
+//                                单个扇区的视觉引导线的样式
+//								labelLine: {...},
+//                                单个扇区的图形样式
+//								itemStyle: {...},
+//                                单个扇区的提示框
+//								tooltip: {...},
+                },
+                {value:310, name:'邮件营销'},
+                {value:274, name:'联盟广告'},
+                {value:235, name:'视频广告'},
+                {value:400, name:'搜索引擎'}
+            ],
+//                    图表标注。
+            markPoint: {
+//                        标记的图形。标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+//                        也可以通过 'image://url' 设置为图片，其中 url 为图片的链接。
+                symbol: 'rect',
+//                        标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
+                symbolSize: 100,
+//                        标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
+//                        symbolRotate: '90deg',
+//                        标记相对于原本位置的偏移
+                symbolOffset: [0, 0],
+//                        图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+                silent: false,
+                label: {
+                    normal: {
+                        show: true,
+//                                标签的位置。通过相对的百分比或者绝对像素值表示标签相对于图形包围盒左上角的位置
+                        position: 'inside',
+//                                是否对文字进行偏移。默认不偏移例如：[10, 20] 表示文字在横向上偏移 10，纵向上偏移 20。
+                        offset: [0,0],
+//                                标签内容格式器,模板变量有 {a}、{b}、{c}，分别表示系列名，数据名，数据值。
+                        formatter: '{b}: {c}',
+//                                标签的字体样式。
+                        textStyle: {
+                            color: '#000',
+                        },
+                    },
+//							emphasis: {...},
+                },
+//                        标注的样式。
+                itemStyle: {
+                    normal: {
+//                                color: 自适应,
+//                                图形的描边颜色。
+                        borderColor: '#000',
+//                                borderWidth: 0,
+//                                borderType: 'solid',
+//                                shadowBlur: ...,
+//								shadowColor: ...,
+//								shadowOffsetX: 0,
+//								shadowOffsetY: 0,
+//								opacity: ...,
+                    },
+//							emphasis: {...},
+                },
+                data: [
+                    {
+//                                标注名称。
+                        name: '搜索引擎',
+//                                相对容器的屏幕 x 坐标，单位像素。
+                        x: 100,
+                        y: 100,
+//                                标注值，可以不设。
+                        value : 500,
+//								下面几个属性和上面的一样，是单独给每个标注设置的样式
+//                              symbol: ...,
+//								symbolSize: ...,
+//								symbolRotate: ...,
+//								symbolOffset: [0, 0],
+//								itemStyle: {...},
+//								label: {...},
+                    },
+                    {
+                        name: '搜索引擎2',
+                        x: 100,
+                        y: 500,
+                        value : 500,
+                    }
+                ],
+//						动画相关属性
+//                        animation: true,
+//                        animationThreshold: 2000,
+//                        animationDuration: 1000,
+//                        animationEasing: cubicOut,
+//                        animationDelay: 0,
+//                        animationDurationUpdate: 300,
+//                        animationEasingUpdate: cubicOut,
+//                        animationDelayUpdate: 0,
+            },
+//                    图表标线。
+            markLine: {
+//                        图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+                silent: false,
+//                        标线两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定，具体格式见 data.symbol。
+//                      标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+                symbol: ['diamond','arrow'],
+//                        标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
+                symbolSize: 10,
+//                        标线的文本。 样式
+                label: {
+//                            默认样式
+                    normal: {
+//                                是否显示标签。
+                        show: true,
+//                                标签位置，可选：'start' 线的起始点。  'middle' 线的中点。 'end' 线的结束点。
+                        position: 'end',
+//                                标签内容格式器，模板变量有 {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。  冒失没用
+                        formatter: '{b}: {d}',
+                    },
+//							鼠标移入时
+//                            emphasis: {...},
+                },
+//                        标线的样式
+                lineStyle: {
+//                            默认样式
+                    normal: {
+//                                颜色
+//                                color: 自适应,
+                        width: 1,
+//								样式 'solid'  'dashed' 'dotted'
+                        type: 'solid',
+//                                shadowBlur: ...,
+//								shadowColor: ...,
+//								shadowOffsetX: 0,
+//								shadowOffsetY: 0,
+//								opacity: ...,
+//                                边的曲度，支持从 0 到 1 的值，值越大曲度越大。 好像不对
+                        curveness: 0.5,
+                    },
+//							emphasis: {...},
+                },
+//                        标线的数据数组。每个数组项可以是一个两个值的数组，分别表示线的起点和终点，每一项是一个对象，有下面几种方式指定起点或终点的位置。
+                data: [
+                    [
+                        {
+                            name: '我是标线',
+                            y: 100,
+                            x: 100,
+                        },
+                        {
+                            x: 550,
+                            y: 250,
+                        }
+                    ],
+                    [
+                        {
+                            name: '我是标线2',
+                            x: 100,
+                            y: 500,
+                        },
+                        {
+                            x: 500,
+                            y: 650,
+                        }
+                    ]
+                ]
+            },
+//                    图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
+            silent: false,
+//					动画相关
+//                    animationType: 'expansion',
+//                    animation: true,
+//                    animationThreshold: 2000,
+//                    animationDuration: 1000,
+//                    animationEasing: cubicOut,
+//                    animationDelay: 0,
+//                    animationDurationUpdate: 300,
+//                    animationEasingUpdate: cubicOut,
+//                    animationDelayUpdate: 0,
+//                    本系列特定的 tooltip 设定。 鼠标提示框单独设定
+            tooltip: {
+//                        提示框浮层的位置，默认不设置时位置会跟随鼠标的位置。
+//            			position: ['10%','20%'],
+//                        提示框浮层内容格式器 饼图、仪表盘、漏斗图: {a}（系列名称），{b}（数据项名称），{c}（数值）, {d}（百分比）
+//						formatter: '{a}-{b}-{c}-{d}',
+//						其他样式
+//						backgroundColor: 'rgba(50,50,50,0.7)',
+//						borderColor: '#333',
+//						borderWidth: 0,
+//						padding: 5,
+//						textStyle: {...},
+//						extraCssText: ...,
+            },
+        }
+        ]
+    });
+</script>
+</body>
+</html>

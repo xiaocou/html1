@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--图像绘制的容器-->
+		<!--折线图容器-->
+		<canvas id="myCanvas1" width="600" height="400"></canvas>
+		<!--饼状图容器-->
+		<canvas id="myCanvas2"width="600" height="400"></canvas>
+		<!--柱状图容器-->
+		<canvas id="myCanvas3"width="600" height="400"></canvas>
+		<!--雷达图-->
+		<canvas id="myCanvas4"width="600" height="400"></canvas>
+		<!--环状图-->
+		<canvas id="myCanvas5"width="600" height="400"></canvas>
+		<script src="js/Chart.js"></script>
+		<script type="text/javascript">
+			//折现图
+			//拿到画布标签,告诉他是二维图像
+			//getContext() 方法返回一个用于在画布上绘图的环境。
+			var line = document.getElementById('myCanvas1').getContext('2d');
+			//创建chart对象
+			var lineChart = new Chart(line);
+			//绘制图表使用的数据
+			var data = {
+				//显示在X轴上的数据
+				labels : ["January","February","March","April","May","June","July"],
+				//数据集
+				datasets : [
+					{
+						//背景填充色
+						fillColor : "rgba(220,220,220,0.5)",
+						//路径颜色
+						strokeColor : "rgba(220,220,220,1)",
+						//数据点颜色
+						pointColor : "rgba(220,220,220,1)",
+						//数据点边框颜色
+						pointStrokeColor : "#fff",
+						//对象数据
+						data : [65,59,90,81,56,55,40]
+					},
+					{
+						//背景填充色
+						fillColor : "rgba(151,187,205,0.5)",
+						//路径颜色
+						strokeColor : "rgba(151,187,205,1)",
+						//数据点颜色
+						pointColor : "rgba(151,187,205,1)",
+						//数据点边框颜色
+						pointStrokeColor : "#fff",
+						//对象数据
+						data : [28,48,40,19,96,27,100]
+					},
+					{
+						//背景填充色
+						fillColor : "rgba(0,187,205,0.5)",
+						//路径颜色
+						strokeColor : "rgba(0,187,205,1)",
+						//数据点颜色
+						pointColor : "rgba(151,187,205,1)",
+						//数据点边框颜色
+						pointStrokeColor : "#fff",
+						//对象数据
+						data : [38,98,410,12,56,67,90]
+					}
+				]
+			}
+			//调用Line方法
+			lineChart.Line(data,{
+				//设置xy轴的边框颜色
+				scaleLineColor:'rgba(255,0,0,1)',
+				//xy轴的宽度
+				scaleLineWidth : 3,
+				//是否显示y轴刻度,默认为true
+				scaleShowLabels : true,
+				// "<%=value%>"设置单位    @注！里面的值不能乱改！
+				scaleLabel : "<%=value%>px",
+				//字体样式
+				scaleFontFamily : "'Arial'",
+				//字体大小
+				scaleFontSize : 12,
+				//字体风格
+				scaleFontStyle : "normal",
+				//背景表格是否显示 true为显示 false为不显示
+				scaleShowGridLines : true,
+				//背景表格的颜色
+				scaleGridLineColor : "rgba(0,0,0,.05)",
+				//背景表格线的宽度
+				scaleGridLineWidth : 1,
+				//是否以平滑曲线连接,true曲线false直线
+				bezierCurve : true,
+				//点是否显示 true为显示 false为不显示
+				pointDot : true,
+				//点的半径大小
+				pointDotRadius : 3,
+				//点的半径
+				pointDotStrokeWidth : 1,
+				//设置曲线是否显示 false为不显示，true为显示
+				datasetStroke : false,
+				//曲线的宽度
+				datasetStrokeWidth : 2,
+				//是否有填充色 true为填充 false为不填充
+				datasetFill : true,
+				//是否执行动画 true为执行 false为不执行
+				animation : true,
+				//动画执行的时间@注!60比较平滑,小于60很快,大于60很慢!
+				animationSteps : 60,
+				//动画执行的特效
+				animationEasing : "easeOutQuart",
+				//动画执行完成之后执行的函数
+				onAnimationComplete : null
+			});
+		</script>
+		<!--饼图-->
+		<script type="text/javascript">
+	//1.获取绘制容器,并且告诉他是二维图像
+	var pie = document.getElementById('myCanvas2').getContext('2d');
+	//2,创建Chart对象
+	var PieChart = new Chart(pie);
+	//3,绘制图表所需要的数据
+	var data = [
+	{
+		value: 30,
+		color:"#F38630"
+	},
+	{
+		value: 30,
+		color:"#F30000"
+	},
+	{
+		value : 50,
+		color : "#E0E4CC"
+	},
+	{
+		value : 100,
+		color : "#69D2E7"
+	}			
+]
+	//调用
+	PieChart.Pie(data,{
+		//是否显示每段行程(扇形区,不为true就看不到后面设置的边框颜色)  
+		segmentShowStroke : true,
+		//设置每段行程的边框颜色
+		segmentStrokeColor : "#fff",
+		//设置每段行程的边框的宽度
+		segmentStrokeWidth : 2, 
+		//设置是否执行动画
+		animation : true,
+		//设置动画执行的时间
+		animationSteps : 100,
+		//设置动画的效果
+		animationEasing : "easeOutBounce",
+		//设置是否旋转动画
+		animateRotate : true,
+		//是否动画缩放饼图中心
+		animateScale : true,
+		//动画执行完毕之后执行的函数
+		onAnimationComplete : null
+		})
+</script>
+<!--柱状图-->
+<script>
+	//获取画布
+	var bar = document.getElementById('myCanvas3').getContext('2d');
+	
+	//创建chart对象
+	var BarChart = new Chart(bar);
+	
+	//绘制图形所需要的数据
+	var data = {
+		//x轴
+		labels:["January","February","March","April","May","June","July"],
+		datasets:[
+		{
+			fileColor:"rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			data : [65,59,90,81,56,55,40]
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			data : [28,48,40,19,96,27,100]
+		},
+		{
+			fillColor : "rgba(0,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			data : [28,48,40,19,96,27,100]
+		}
+		]
+	}
+	BarChart.Bar(data,{
+		 // Y/X轴的颜色
+		scaleLineColor : "rgba(0,0,0,.1)",
+		// X,Y轴的宽度
+		scaleLineWidth : 1,
+	// 刻度是否显示标签, 即Y轴上是否显示文字 
+		scaleShowLabels : false,
+		 // Y轴上的刻度的单位 
+		scaleLabel : "<%=value%>",
+		 // 字体
+		scaleFontFamily : "'Arial'",
+		 // 文字大小    
+		scaleFontSize : 12,
+		// 文字样式  
+		scaleFontStyle : "normal",
+		 // 文字颜色
+		scaleFontColor : "#666",	
+		 // 是否显示网格   
+		scaleShowGridLines : true,
+		//网格颜色
+		scaleGridLineColor : "rgba(0,0,0,.05)",
+		// 网格宽度
+		scaleGridLineWidth : 1,	
+		//是否绘制柱状条的边框 
+		barShowStroke : true,
+		 //柱状条边框的宽度
+		barStrokeWidth : 2,
+		//柱状条组之间的间距(过大或过小会出现重叠偏移错位的效果，请控制合理数值)
+		barValueSpacing : 5,
+		 //每组柱状条组中柱状条之间的间距 
+		barDatasetSpacing : 1,
+		 // 是否执行动画 
+		animation : true,
+	 	// 执行动画的时间
+		animationSteps : 60,
+		//动画特效
+		animationEasing : "easeOutQuart",
+		//回调
+		onAnimationComplete : null
+	});
+</script>
+<!--雷达图-->
+<script>
+	var radar = document.getElementById('myCanvas4').getContext('2d');
+	var RadarChart = new Chart(radar);
+	var data = {
+		labels:["Eating","Drinking","Sleeping","Designing","Coding","Partying","Running"],
+		datasets:[
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,1)",
+				pointColor : "rgba(220,220,220,1)",
+				pointStrokeColor : "#fff",
+				data : [65,59,90,81,56,55,40]
+			},
+			{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [28,48,40,19,96,27,100]
+		}
+		]
+	}
+	RadarChart.Radar(data,{
+	scaleSteps : null,
+	scaleStepWidth : null,
+	scaleStartValue : null,
+	//设置背景线是否显示
+	scaleShowLine : true,
+	//背景色的颜色
+	scaleLineColor : "rgba(255,0,0,.1)",
+	//背景线的宽度
+	scaleLineWidth : 1,
+	//是否显示刻度值
+	scaleShowLabels : true,
+	//是否显示单位
+	scaleLabel : "<%=value%>",
+	//字体类型
+	scaleFontFamily : "'Arial'",
+	//字体大小
+	scaleFontSize : 12,
+	//字体风格
+	scaleFontStyle : "normal",
+	//字体颜色
+	scaleFontColor : "#666",
+
+	scaleShowLabelBackdrop : false,
+	//刻度值背景
+	scaleBackdropColor : "rgba(255,255,255,0.75)",
+	
+	scaleBackdropPaddingY : 2,
+	
+	scaleBackdropPaddingX : 2,
+	//轴线是否显示
+	angleShowLineOut : true,
+	//轴线颜色
+	angleLineColor : "rgba(0,0,0,.1)",
+	//轴线宽度
+	angleLineWidth : 1,			
+	//坐标字体类型
+	pointLabelFontFamily : "'Arial'",
+	//坐标字体风格
+	pointLabelFontStyle : "normal",
+	//坐标字体大小
+	pointLabelFontSize : 12,
+	//坐标字体颜色
+	pointLabelFontColor : "#666",
+	//是否显示点
+	pointDot : true,
+	//设置点的大小
+	pointDotRadius : 3,
+	//设置点的半径
+	pointDotStrokeWidth : 1,
+	//是否显示边框线
+	datasetStroke : false,
+	//边框线的宽度
+	datasetStrokeWidth : 2,
+	//是否有填充色
+	datasetFill : true,
+	//是否执行动画
+	animation : true,
+//执行动画的时间
+	animationSteps : 60,
+	//动画效果
+	animationEasing : "easeOutQuart",
+	//动画完成后的回调函数
+	onAnimationComplete : null
+	});
+</script>
+<script>
+	var doughnut = document.getElementById('myCanvas5').getContext('2d');
+	var DoughnutChart = new Chart(doughnut);
+	var data=[
+		{
+		value: 30,
+		color:"#F7464A"
+		},
+		{
+			value : 50,
+			color : "#E2EAE9"
+		},
+		{
+			value : 100,
+			color : "#D4CCC5"
+		},
+		{
+			value : 40,
+			color : "#949FB1"
+		},
+		{
+			value : 120,
+			color : "#4D5360"
+		}
+	]
+	DoughnutChart.Doughnut(data,{
+		//是否显示每段行程（即环形区，不为true则无法看到后面设置的边框颜色）
+		segmentShowStroke : true,
+		//是否显示每段行程（即环形区，不为true则无法看到后面设置的边框颜色）
+		segmentStrokeColor : "#fff",
+		//设置每段环形的边框宽度  
+		segmentStrokeWidth : 2,
+		//图标中心剪切圆的比例（0为饼图，接近100则环形宽度越小）
+		percentageInnerCutout : 50,
+		//是否执行动画
+		animation : true,
+		//执行动画的时间
+		animationSteps : 100,
+		 //动画特效
+		animationEasing : "easeOutBounce",
+		 //是否旋转动画 
+		animateRotate : true,
+		//是否缩放图表中心 
+		animateScale : false,
+		//动画完成时的回调函数
+		onAnimationComplete : null
+	});
+</script>
+</body>
+</html>
