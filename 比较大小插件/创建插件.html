@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.i{
+			font-style: italic;
+		}
+		.b{
+			font-weight: bold;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="compareZize.js"></script>
+</head>
+<body>
+	<p class="i">这是段落</p>
+	<p class="b">aaaa</p>
+	<p class="i">这是段落</p>
+	<p class="b">bbbb</p>
+	<button>交换</button>
+	<script type="text/javascript">
+	// 数组求最大
+	// 写方法，调用
+	console.log('最大'+$.maxFunc([1,2,3,4]));
+	console.log('最小'+$.minFunc([12,2,3,4]));
+	var add=function(a,b){
+		return a+b;
+	}
+	var arr=[1,2];
+	console.log('求和'+add.apply(this,arr));
+	// $('p').changeBgColor('#f00');
+	$('button').click(function(){
+		// 交换类
+		$('p').swapClass('i','b');
+	})
+	</script>
+</body>
+</html>
