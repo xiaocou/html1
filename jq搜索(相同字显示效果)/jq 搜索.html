@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-3.2.0.js"></script>
+	<style type="text/css">
+		li{
+			float: left;
+			list-style: none;
+			font-size: 12px;
+			width: 150px;
+		}
+		img{
+			margin: 0 auto;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" /><button>搜索</button>
+  <ul>
+	<li><img src="1.jpg"/><br /><a href="#">罗蒙男士纯棉短袖衬衫</a><br /><span>￥159.00</span></li>
+	<li><img src="2.jpg"/><br /><a href="#">罗思莱德SELECTED含亚麻修身男士衬衫</a><br /><span>￥159.00</span></li>
+	<li><img src="3.jpg"/><br /><a href="#">TOMMY HILFIGER 品牌简约经典款短袖POLO衫</a><br /><span>￥159.00</span></li>
+	<li><img src="4.jpg"/><br /><a href="#">唐狮 男基本牛仔双袋休闲长袖衬衫</a><br /><span>￥159.00</span></li>
+  </ul>
+	<script type="text/javascript">
+	// 添加按钮的点击事件
+	$('button').click(function(){
+		// 拿到搜索框内容
+		var txt=$('input').val();
+		// 拿到所有a标签的内容
+		var $links=$('a');
+		for(var i=0;i<$links.length;i++){
+			console.log($($links[i]).html())}
+			console.log($links[i].innerHTML)
+			// indexOf()返回某个指定的字符串值在字符串中首次出现的位置
+			// strongObj.indexOf（searchValue）
+			// strongObj字符串中从头到尾检索是否含有子字符串（searchValue），如果有返回index，没有返回-1
+			$($links[i]).parent().css('background','#fff');
+			if($($links[i]).text().toLowerCase().indexOf(txt.toLowerCase())!=-1){
+				$($links[i]).parent().css('background','red')
+			}
+			if (txt.toLowerCase()=='') {
+				$($links[i]).parent().css('background','#fff');
+			
+		}
+	})
+	</script>
+</body>
+</html>
