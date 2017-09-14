@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="swiper.css"/>
+		<style type="text/css">
+			body{
+			background: #eee;
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			color: #000;
+
+		}
+		.swiper-container{
+			height: 400px;
+			width: 600px;
+			background: #F0FFF0;
+			margin: 40px auto; 
+		}
+		
+		.swiper-slide{
+			 margin: 100px auto; 
+			 height: 200px;  
+			background:#FFF0F5;
+			text-align: center; 
+			line-height: 200px; 
+		}
+
+		</style>
+		<script src="swiper.js"></script>
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">slide1</div>
+				<div class="swiper-slide">slide2</div>
+				<div class="swiper-slide">slide3</div>
+				<div class="swiper-slide">slide4</div>
+				<div class="swiper-slide">slide5</div>
+				<div class="swiper-slide">slide6</div>
+			</div>
+			<!--分页器-->
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-scrollbar"></div>
+		</div>
+		<script>
+			var swiper = new Swiper('.swiper-container',{
+				pagination:'.swiper-pagination',
+				nextButton:'.swiper-button-next',
+				prevButton:'.swiper-button-prev',
+				paginationClick:true,
+//				设置是否自动轮播
+				autoplay:1000,
+				speed:1000,
+				scrollbar:'.swiper-scrollbar',
+				grabCursor:true,
+//				出事索引值
+				initialSlide:2,
+//				上下滑动
+				direction:'vertical',
+				spaceBetween:30,
+//				autoplayDisableOnInterraction:false,
+				loop:true
+			})
+		</script>
+	</body>
+</html>
