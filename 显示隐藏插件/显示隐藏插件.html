@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- 引入css -->
+	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.structure.css">
+	<!-- 引入js -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery-ui/jquery-ui.js"></script>
+</head>
+<body>
+	<select id="eff">
+	<option value="blind">blind</option>
+	<option value="bounce">bounce</option>
+	<option value="clip">clip</option>
+	<option value="drop">drop</option>
+	<option value="explode">explode</option>
+	<option value="fold">fold</option>
+	<option value="highlight">highlight</option>
+	<option value="puff">puff</option>
+	<option value="pulsate">pulsate</option>
+	<option value="scale">scale</option>
+	<option value="shake">shake</option>
+	<option value="size">size</option>
+	<option value="slide">slide</option>
+  </select>
+  <button>show</button>
+  <button>hide</button>
+  
+  <div id="d1" style="width:100px;height:100px;">aaa</div>
+  
+  <div id="d2" style="width:150px;height:150px;border:1px solid black;">
+	<p>Drop here!</p>
+  </div>
+  
+  <div id="d3" style="width:150px;height:150px;border:1px solid black;">
+	I can resize！
+  </div>
+  <script type="text/javascript">
+  $('#d1').css('backgroundColor','red');
+  // 给d1添加移动的方法
+  $('#d1').draggable();
+  // 给d3添加方法
+  $('#d3').resizable();
+  $('button').click(function(){
+  	var eff=$('#eff').val()
+  	if (this.innerHTML=='show') {
+  		// 所有div显示
+  		$('div').show(eff);
+  	}else{
+  		$('div').hide(eff);
+  	}
+  })
+  </script>
+</body>
+</html>
