@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="city" onchange="getCity()"></select>
+		<script>
+			function getXHR(){
+//				判断pc是否有XMLHttpRequest对象
+				if (window.XMLHttpRequest) {
+//					XMLHttpRequest用于在后台与服务器交换数据
+					return new XMLHttpRequest();
+				} else{
+//					如果没有IE执行ActiveXObject
+//					IE老版本5或6
+					return new ActiveXObject("Microsoft.XMLHTTP")
+				}
+			}
+//			创建对象
+			function getCity(){
+//				创建对象
+				var request = getXHR();
+//				创建请求
+//city.php里面的标点符号为英文状态
+				request.open('GET','city.php',true);
+//				设置回调函数
+				request.onreadystatechange=function(){
+//					根据状态处理
+					if (request.readyState==4&&request.status==200) {
+//						处理响应
+//						输出调用city.php文件里面的值
+						console.log(request.responseText);
+						var citys = request.responseText.split(',');
+						for (var i=0;i<citys.length;i++) {
+							var city=citys[i];
+//							var opt=document.createElement('option');
+//							opt.innerHTML=city;
+//				Option(lable,value,true,true)两个true默认选中和有效
+//同等上面注释掉的两行
+							var opt = new Option(city,city);
+							document.getElementById('city').appendChild(opt);
+						}
+					}
+				}
+//				发送请求
+				request.send(null);
+			}
+			getCity();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" onclick="send1()"/>
+		<div id="msg">我想改个文字</div>
+		<script>
+			function send1(){
+//	1、创建ajax对象
+				var request;
+//				判断pc是否有XMLHttpRequest对象
+				if (window.XMLHttpRequest) {
+//					XMLHttpRequest用于在后台与服务器交换数据
+					request=new XMLHttpRequest();
+				} else{
+//					如果没有IE执行ActiveXObject
+//					IE老版本5或6
+					request=new ActiveXObject("Microsoft.XMLHTTP")
+				}
+//	2、创建请求
+//request.open(type,url,isasync)
+//type:GET/POST
+//url:请求地址
+//isAsync:是否异步执行请求（true/false）
+				request.open('GET','gyxy.txt',true);
+//	3、设置回调函数
+				request.onreadystatechange = function(){
+//					根据状态处理XMLHTTP请求的当前状态，只读	
+//					request.readyState=XMLHttpRequest.readyState
+//					0~4
+//					0 尚未初始化
+//					1 建立服务器,正在发送请求
+//					3 服务器接收数据成功
+//					4 客户端接收数据
+				    if (request.readyState==4&&request.status==200) {
+//				    	request.status状态码
+//						4xx客户端出错
+//						5xx服务器出错
+//						200成功
+//				    	处理成功时的相应
+//responseText获得的是字符串形式
+//responseTxT获得的是文本形式
+//			    		alert(request.responseText);
+						document.getElementById('msg').innerHTML=request.responseText;
+				    }
+				}
+//	4、发送请求
+				request.send(null);
+			}
+		</script>
+	</body>
+</html>
