@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.min.js"></script>
+	</head>
+	<body>
+		<h1>fjkssssklf</h1>
+		<ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+
+		<script> 
+//			数组去重
+			Array.prototype.unique = function(){
+				var a=[];//建立临时数组
+				var b = {};//建立对象
+				for(var i=0;i<this.length;i++) {//遍历当前数组
+					if (!b[this[i]]) {//判断对象中是否有当前项
+						a.push(this[i]);//没有，将当前项放入临时数组
+						b[this[i]] = 1;
+					}
+				}
+				return a;
+			}
+			var arr = [1,4,2,5,7,3,2,9,1,5];
+			arr.sort();
+			console.log(arr.unique());
+			
+//			返回当前索引
+		   var ul = document.getElementById("list");
+           var ul_child = ul.getElementsByTagName('li');
+           for (var i = 0; i < ul_child.length; i++) {
+               ul_child[i].index = i+1;
+               ul_child[i].onclick = function(){
+                   var j = this.index;
+                   alert("元素索引为" +j);
+               }
+           }
+		</script>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>
