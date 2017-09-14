@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// function add(a,b){
+	// 	alert(a+b);
+	// }
+	// function minutes(a,b){
+	// 	alert(a-b);
+	// }
+	// add.call(minutes,9,5);
+	// function class1(){
+	// 	this.name = "class1";
+	// 	this.showNam = function(){
+	// 		alert(this.name);
+	// 	}
+	// }
+	// function class2(){
+	// 	this.name = "class2"
+	// }
+	// var c1 = new class1();
+	// var c2 = new class2();
+	// c1.showNam.call(c2);//c1的方法放到c2上执行
+	// c2没有showNam方法
+	// 但由于c1的方法放到c2随想上执行
+	
+
+	var num = 100;
+	function Foo() {
+	    this.num = 200;
+	}
+	Foo.prototype = {
+	    method: function() {
+	    	return function() {
+	    		console.log(this.num);
+	    	};
+	    }
+	};
+	var tem = new Foo();
+	tem.method()();
+	</script>
+</body>
+</html>

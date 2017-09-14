@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象的方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 直接量
+	var lilei = {
+		sname: "lilei",
+		age:18,
+		intrself:function(){
+			alert("I'm"+this.sname+";I'm"+this.age);
+		}
+	}
+	var hanmeimei = {
+		sname: "hanmeimei",
+		age:20,
+		intrself:function(){
+			alert("I'm"+this.sname+";I'm"+this.age);
+		}
+	}
+	// 使用new关键字
+	// var lily = new object();
+	// lily.name = "lily";
+	// lily.age = 20;
+	// lily.intrself=function(){
+	// 	alert("I'm"+this.name+";I'm"+this.age);
+	// }
+	// 构造函数创建对象
+	// 创建构造函数
+	// 利用构造函数创建对象
+	//    创建空对象 new obj={}
+	//    用空对象调用构造函数
+	//    新的对象的__proto__只想构造函数的prototype对象
+	//    返回新对象地址
+	//    
+	// js中，函数本身包含了方法和属性
+	// 每个函数中都有一个叫prototype属性，而这个属性就是原型
+	// 
+	function Student(sname,age){
+		this.sname=sname;
+		this.age=age;
+		this.intrself=function(){
+			alert("I'm"+this.sname+";I'm"+this.age);
+		}		
+	}
+	// student类，zhangsan是实例对象
+	// 实例化对象有一个__proto__的属性
+	var zhangsan = new Student('zhangsan',18);
+	var lisi = new Student('lisi',18);
+	console.log(zhangsan.__proto__);
+	console.log(Student.prototype);
+	// 构造函数的原型对象：负责保护所有子对象共享的成员变量
+	// 建议：所有子对象共享的成员变量方法，都应该定义在构造函数的原型对象中，避免重复定义方法对象，浪费内存
+	// js中继承都是使用原型对象实现的
+	Student.prototype.money = 1000;
+	console.log(zhangsan.money);
+	console.log(lisi.money);
+
+	</script>
+	<button onclick="lilei.intrself()">lilei</button>
+	<button onclick="hanmeimei.intrself()">hanmeimei</button>
+	<button onclick="lily.intrself()">lily</button>
+	<button onclick="zhangsan.intrself()">lily</button>
+	<button onclick="lisi.intrself()">lily</button>
+</body>
+</html>

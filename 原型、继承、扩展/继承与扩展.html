@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Fly类型构造函数
+		function Flyer(fname, speed) {
+			this.fname=fname;
+			this.speed=speed;
+		}
+		Flyer.prototype.fly=function(){
+			console.log(this.fname+' 以时速：' + this.speed+"飞行...");
+		}
+		var bird=new Flyer("小麻雀",40)
+		function Plane(fname,speed,capacity){
+			// 将一个指定的对象的原型设置为另一个对象
+			Object.setPrototypeOf(this,new Flyer(fname,speed));
+			this.capacity = capacity;
+		}
+		var a380 = new Plane("A380",1800,555);
+		a380.fly();
+		// 通过getPrototypeOf静态方法获取对象a380de prototype
+		Object.getPrototypeOf(a380).fly = function(){
+			console.log(this.fname+"搭乘 "+this.capacity+" 名乘客"+' 以时速 '+this.speed+" 飞行...");
+			};
+		a380.fly();
+		var boyin747 = new Plane("B747",1800,555);
+		boyin747.fly();
+	</script>
+</body>
+</html>
