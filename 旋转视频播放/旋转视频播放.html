@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转木马</title>
+	<style type="text/css">
+		/* 加入样式 */
+		div{
+			position: relative;
+			width: 350px;
+			height: 260px;
+			margin: 200px auto;
+			animation: roll 30s linear infinite;
+			transform-style: preserve-3d;
+		}
+		video{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 250px;
+			height: 260px;
+			opacity: 0.8;
+			transform-style: preserve-3d;
+		}
+		@keyframes roll{
+			from {transform:  rotateY(0deg);}
+			to {
+				transform: rotateY(360deg);
+			}
+		}
+		video:nth-child(1) {
+			transform: rotateY(30deg) translateZ(700px);
+		}
+		video:nth-child(2) {
+			transform: rotateY(60deg)translateZ(700px);
+		}
+		video:nth-child(3) {
+			transform: rotateY(90deg)translateZ(700px);
+		}
+		video:nth-child(4) {
+			transform: rotateY(120deg)translateZ(700px);
+		}
+			video:nth-child(5) {
+			transform: rotateY(150deg)translateZ(700px);
+		}
+		video:nth-child(6) {
+			transform: rotateY(180deg)translateZ(700px);
+		}
+			video:nth-child(7) {
+			transform: rotateY(210deg)translateZ(700px);
+		}
+			video:nth-child(8) {
+			transform: rotateY(240deg)translateZ(700px);
+		}
+			video:nth-child(9) {
+			transform: rotateY(270deg)translateZ(700px);
+		}
+			video:nth-child(10) {
+			transform: rotateY(300deg)translateZ(700px);
+		}
+			video:nth-child(11) {
+			transform: rotateY(330deg)translateZ(700px);
+		}
+			video:nth-child(12) {
+			transform: rotateY(360deg)translateZ(700px);
+		}
+		body{
+			transform-style: preserve-3d;
+			perspective: 4000;
+		}
+	</style>
+</head>
+<body onload="test()">
+	<div>
+		<video src="video/test1.mp4"></video>
+		<video src="video/test2.mp4"></video>
+		<video src="video/test3.mp4"></video>
+		<video src="video/test4.mp4"></video>
+		<video src="video/test5.mp4"></video>
+		<video src="video/test6.mp4"></video>
+		<video src="video/test7.mp4"></video>
+		<video src="video/test8.mp4"></video>
+		<video src="video/test9.mp4"></video>
+		<video src="video/test1.mp4"></video>
+		<video src="video/test5.mp4"></video>
+		<video src="video/test8.mp4"></video>
+	</div>
+	<script type="text/javascript">
+	function test(){
+		// 获取所有video
+		var videos=document.querySelectorAll('video');
+		for(var i=0;i<videos.length;i++){
+			// 获取到具体video
+			// video添加鼠标移入移除时间
+			videos[i].addEventListener('click',stopIt);
+			videos[i].addEventListener('mouseout',runIt);
+
+		}
+	}
+	function stopIt(){
+		// 停止播放(状态)
+		document.querySelectorAll('div')[0].style.animationPlayState='paused';
+		// 播放视频
+		this.play();
+	}
+	function runIt(){
+		// 旋转跑起来
+		document.querySelectorAll('div')[0].style.animationPlayState='running';
+		// 停止播放
+		this.pause();
+	}
+	</script>
+</body>
+</html>
