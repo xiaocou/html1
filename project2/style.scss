@@ -1,0 +1,152 @@
+body{
+    background: #ccc;
+}
+
+
+.div{
+    width:150px;
+    height:150px;
+    text-align:center;
+    line-height:200px;
+    background:#f00;
+    color:#fff;
+}
+
+
+//变量
+$blue:#0f0;
+$side:left;
+.d1{
+    width: 100px;
+    height: 100px;
+    border: 1px solid $blue;
+    margin-#{$side}: 100px;
+}
+
+
+//算法
+.d2{
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border:{
+        width: 1px;
+        style:solid;
+        color: #0f0;
+    };
+    margin-#{$side}: (400px/2);
+}
+
+
+.d2 span{
+    display: block;
+    color: #f00;
+    &:hover{
+        cursor: pointer;
+        color: #0f0;
+    }
+//background:{
+//  color: #ccc;
+//}
+}
+
+
+
+.d3{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f00;
+}
+.d4{
+    height: 30px;
+    border: 1px solid #0f0;
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+}
+//@extend继承
+.d5{
+    @extend .d4;
+    font-size: 18px;
+}
+
+
+//@mixin diao yong dai ma kuai
+@mixin left($a){
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ff0;
+    float: left;
+    margin-left: $a;
+}
+.d6{
+    @include left(20px);
+    color:complement(#fff);
+}
+//lighten
+//darken
+//grayscale
+//complement
+
+
+//插入文件@import "path/filename.scss";
+//@import "foo.css";
+@import "style1.scss";
+@import "style1.css";
+
+//@if @else
+.d7{
+    @if 1 + 1 == 3 {
+        width: 100px;
+        height: 100px;
+        background-color: #0ff;
+        margin-top: 100px;
+    }@else{
+        width: 100px;
+        height: 100px;
+        background-color: #ff0;
+        margin-top: 100px;
+    }
+}
+
+
+
+//@for $i from 1 to 4{
+//  .a#{$i}{
+//      list-style: none;
+//      width: 50px;
+//      height: 20px;
+//      border: #{$i}px solid blue;
+//  }
+//}
+$i : 6;
+@while $i>0{
+    .a-#{$i}{
+        list-style: none;
+        width: 50px;
+        height: 20px;
+        border: #{$i}px solid blue;
+    }
+    $i: $i - 1;
+}
+
+@each $number in a1,a2,a3,a4{
+    .#{$number}{
+        list-style: none;
+        width: 100px;
+        height: 100px;
+        background-image: url(img/#{$number}.jpg);
+        background-size:100px 100px;
+    }
+}
+
+//函数
+@function name($n){
+    @return $n*2;
+}
+.d8{
+    width: name(100px);
+    height: name(50px);
+    border: name(1px) solid #000;
+}
+

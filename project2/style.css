@@ -1,0 +1,136 @@
+@import url(style1.css);
+body {
+  background: #ccc; }
+
+.div {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 200px;
+  background: #f00;
+  color: #fff; }
+
+.d1 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #0f0;
+  margin-left: 100px; }
+
+.d2 {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #0f0;
+  margin-left: 200px; }
+
+.d2 span {
+  display: block;
+  color: #f00; }
+  .d2 span:hover {
+    cursor: pointer;
+    color: #0f0; }
+
+.d3 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #f00; }
+
+.d4, .d5 {
+  height: 30px;
+  border: 1px solid #0f0;
+  list-style: none;
+  text-align: center;
+  margin: 0 auto; }
+
+.d5 {
+  font-size: 18px; }
+
+.d6 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ff0;
+  float: left;
+  margin-left: 20px;
+  color: white; }
+
+p {
+  color: #00f; }
+
+.d7 {
+  width: 100px;
+  height: 100px;
+  background-color: #ff0;
+  margin-top: 100px; }
+
+.a-6 {
+  list-style: none;
+  width: 50px;
+  height: 20px;
+  border: 6px solid blue; }
+
+.a-5 {
+  list-style: none;
+  width: 50px;
+  height: 20px;
+  border: 5px solid blue; }
+
+.a-4 {
+  list-style: none;
+  width: 50px;
+  height: 20px;
+  border: 4px solid blue; }
+
+.a-3 {
+  list-style: none;
+  width: 50px;
+  height: 20px;
+  border: 3px solid blue; }
+
+.a-2 {
+  list-style: none;
+  width: 50px;
+  height: 20px;
+  border: 2px solid blue; }
+
+.a-1 {
+  list-style: none;
+  width: 50px;
+  height: 20px;
+  border: 1px solid blue; }
+
+.a1 {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  background-image: url(img/a1.jpg);
+  background-size: 100px 100px; }
+
+.a2 {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  background-image: url(img/a2.jpg);
+  background-size: 100px 100px; }
+
+.a3 {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  background-image: url(img/a3.jpg);
+  background-size: 100px 100px; }
+
+.a4 {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  background-image: url(img/a4.jpg);
+  background-size: 100px 100px; }
+
+.d8 {
+  width: 200px;
+  height: 100px;
+  border: 2px solid #000; }
+
+/*# sourceMappingURL=style.css.map */
