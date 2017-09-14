@@ -1,0 +1,792 @@
+div {
+  margin : 5px;
+}
+
+/* 类型一 */
+/* 动画 */
+
+/* 第一和第二的case1动画 */
+@-webkit-keyframes case1 {
+  0% {width : 0%;}
+  50% {width : 90px;}
+  100% {width : 0%;}
+}
+
+@keyframes case1 {
+  0% {width : 0%;}
+  50% {width : 90px;}
+  100% {width : 0%;}
+}
+
+/* 第一和第二的case2动画 */
+@-webkit-keyframes case2 {
+  0% {width : 0%;}
+  50% {width : 100px;}
+  100% {width : 0%;}
+}
+
+@keyframes case2 {
+  0% {width : 0%;}
+  50% {width : 100px;}
+  100% {width : 0%;}
+}
+
+/* 第一和第二的case3动画 */
+@-webkit-keyframes case3 {
+  0% {width : 0%;}
+  50% {width : 95px;}
+  100% {width : 0%;}
+}
+
+@keyframes case3 {
+  0% {width : 0%;}
+  50% {width : 95px;}
+  100% {width : 0%;}
+}
+
+/* 第一和第二的case4动画 */
+@-webkit-keyframes case4 {
+  0% {width : 0%;}
+  50% {width : 80px;}
+  100% {width : 0%;}
+}
+
+@keyframes case4 {
+  0% {width : 0%;}
+  50% {width : 80px;}
+  100% {width : 0%;}
+}
+/* 第一和第二的case5动画 */
+@-webkit-keyframes case5 {
+  0% {width : 0%;}
+  50% {width : 105px;}
+  100% {width : 0%;}
+}
+
+@keyframes case5 {
+  0% {width : 0%;}
+  50% {width : 105px;}
+  100% {width : 0%;}
+}
+/* 第一和第二的case6动画 */
+@-webkit-keyframes case6 {
+  0% {width : 0%;}
+  50% {width : 75px;}
+  100% {width : 0%;}
+}
+@keyframes case6 {
+  0% {width : 0%;}
+  50% {width : 75px;}
+  100% {width : 0%;}
+}
+
+/* 第一个效果的容器 */
+#caseVerte {
+  background-color : #DEFCF9;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float :left;
+}
+#caseVerte #load {
+  color : #C3BEF0;
+  font-family : calibri;
+  text-align : center;
+}
+
+#caseVerte #case1 {
+  height  : 10px;
+  width : 100px;
+  background-color : #CCA8E9;
+  animation : case1 2.25s infinite;
+  -webkit-animation : case1 2.25s infinite;
+}
+#caseVerte #case2 {
+  height : 10px;
+  width : 10px;
+  background-color : #CCA8E9;
+  animation : case2 2s infinite;
+  -webkit-animation : case2 2s infinite;
+}
+#caseVerte #case3 {
+  height : 10px;
+  width : 10px;
+  background-color : #CCA8E9;
+  animation : case3 1.75s infinite;
+  -webkit-animation : case3 1.75s infinite;
+}
+#caseVerte #case4 {
+  height : 10px;
+  width : 10px;
+  background-color : #CCA8E9;
+  animation : case3 2.5s infinite;
+  -webkit-animation : case3 2.5s infinite;
+}
+#caseVerte #case5 {
+  height : 10px;
+  width : 10px;
+  background-color : #CCA8E9;
+  animation : case3 1.5s infinite;
+  -webkit-animation : case3 1.5s infinite;
+}
+#caseVerte #case6 {
+  height : 10px;
+  width : 10px;
+  background-color : #CCA8E9;
+  animation : case3 5s infinite;
+  -webkit-animation : case3 5s infinite;
+}
+
+
+
+/* 第二个效果的容器 */
+#caseBleu {
+  background-color : #40dbff;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+}
+#caseBleu #load {
+  color : #F7E590;
+  font-family : calibri;
+  text-align : center;
+}
+#caseBleu #case1 {
+  height  : 10px;
+  width : 100px;
+  background-color : #F5CD6D;
+  animation : case1 2.25s infinite;
+  -webkit-animation : case1 2.25s infinite;
+}
+#caseBleu #case2 {
+  height : 10px;
+  width : 10px;
+  background-color : #F5CD6D;
+  animation : case2 2s infinite;
+  -webkit-animation : case2 2s infinite;
+}
+#caseBleu #case3 {
+  height : 10px;
+  width : 10px;
+  background-color : #F5CD6D;
+  animation : case3 1.75s infinite;
+  -webkit-animation : case3 1.75s infinite;
+}
+#caseBleu #case4 {
+  height : 10px;
+  width : 10px;
+  background-color : #F5CD6D;
+  animation : case3 2.5s infinite;
+  -webkit-animation : case3 2.5s infinite;
+}
+#caseBleu #case5 {
+  height : 10px;
+  width : 10px;
+  background-color : #F5CD6D;
+  animation : case3 1.5s infinite;
+  -webkit-animation : case3 1.5s infinite;
+}
+#caseBleu #case6 {
+  height : 10px;
+  width : 10px;
+  background-color : #F5CD6D;
+  animation : case3 5s infinite;
+  -webkit-animation : case3 5s infinite;
+}
+
+
+/* 第三个效果的容器 */
+#caseRouge {
+  background-color : #FACBF8;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#caseRouge #load {
+  color : #9E3668;
+  font-family : calibri;
+  text-align : center;
+  margin-top : 50px; 
+}
+/* 上面的小圆 */
+#top {
+  height : 10px;
+  width : 10px;
+  border-radius : 50%;
+  background-color : #F677F7;
+  position : absolute;
+  top : 10px;
+  left : 65px;
+  animation : turnTop 2s infinite;
+  -webkit-animation : turnTop 2s infinite;
+}
+/* 动画 */
+@keyframes turnTop {
+  0% {top : 10px;}
+  50% {top : 40px;}
+  100% {top : 10px;}
+}
+
+@-webkit-keyframes turnTop {
+  0% {top : 10px;}
+  50% {top : 40px;}
+  100% {top : 10px;}
+}
+/* 左侧的小圆 */
+#left {
+  height : 10px;
+  width : 10px;
+  border-radius : 50%;
+  background-color : #ff737a;
+  position : absolute;
+  bottom : 10px;
+  left : 10px;
+  animation : turnLeft 2s infinite;
+  -webkit-animation : turnLeft 2s infinite;
+}
+/* 动画 */
+@keyframes turnLeft {
+  0% {bottom : 10px; left : 10px;}
+  50% {bottom : 50px; left : 40px;}
+  100% {bottom : 10px; left : 10px;}
+}
+
+@-webkit-keyframes turnLeft {
+  0% {bottom : 10px; left : 10px;}
+  50% {bottom : 50px; left : 40px;}
+  100% {bottom : 10px; left : 10px;}
+}
+/* 右侧的小圆 */
+#right {
+  height : 10px;
+  width : 10px;
+  border-radius : 50%;
+  background-color : #ff737a;
+  position : absolute;
+  bottom : 10px;
+  right : 10px;
+  animation : turnRight 2s infinite;
+  -webkit-animation : turnRight 2s infinite;
+}
+/* 动画 */
+@keyframes turnRight {
+  0% {bottom : 10px; right : 10px;}
+  50% {bottom : 50px; right : 40px;}
+  100% {bottom : 10px; right : 10px;}
+}
+
+@-webkit-keyframes turnRight {
+  0% {bottom : 10px; right : 10px;}
+  50% {bottom : 50px; right : 40px;}
+  100% {bottom : 10px; right : 10px;}
+}
+/* 第四个效果的容器 */
+#caseMarron {
+  background-color : #F8FDC3;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#caseMarron #load {
+  color : #bf6530;
+  font-family : calibri;
+  text-align : center;
+  margin-top : 50px; 
+}
+/* 滚动圆的样式 */
+#boule {
+  height : 10px;
+  width : 10px;
+  position : absolute;
+  top : 80px;
+  left : 10px;
+  background-color : #F677F7;
+  border-radius : 50%;
+  animation : boule 2s infinite;
+  -webkit-animation : boule 2s infinite;
+}
+/* 动画 */
+/* 从开始到50%的时候宽高变大，透明度为1；结束时变为开始的样式 */
+@keyframes boule {
+  0% {left : 10px;opacity : 0;}
+  50% {height : 20px; width : 20px; opacity : 1;}
+  100% {left : 120px; opacity : 0; height : 10px; width : 10px;}
+}
+
+@-webkit-keyframes boule {
+  0% {left : 10px;opacity : 0;}
+  50% {height : 20px; width : 20px; opacity : 1;}
+  100% {left : 120px; opacity : 0; height : 10px; width : 10px;}
+}
+/* 第五个效果的容器 */
+#caseViolette {
+  background-color : #7EFFDB;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#caseViolette #load {
+  color : #8C82FC;
+  font-family : calibri;
+  text-align : center;
+  margin-top : 100px;
+}
+#cercle {
+  height : 50px;
+  width : 50px;
+  position : absolute;
+  top : 45px;
+  left : 45px;
+  border-radius : 50%;
+  background : linear-gradient(#D8A6FF,#FFECEE);
+  animation : turnCercle 2s infinite;
+  -webkit-animation : turnCercle 5s infinite;
+  animation-timing-function : ease-in-out;
+  -webkit-animation-timing-function : ease-in-out;
+}
+
+@-webkit-keyframes turnCercle {
+  0% {-webkit-transform : rotate(0deg);}
+  /* 旋转10080度，共28圈 */
+  100% {-webkit-transform : rotate(10080deg);}
+}
+
+@keyframes turnCercle {
+  0% {transform : rotate(0deg);}
+  100% {transform : rotate(10080deg);}
+}
+
+#cercleCache {
+  height : 40px;
+  width : 40px;
+  position : absolute;
+  border-radius : 50%;
+  /* 进度条中间圆的背景颜色 */
+  background-color :#8C82FC;
+  z-index : 5;
+}
+
+/* 第六个效果的容器 */
+#caseBlanche {
+  background-color : #C2C2C2;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#caseBlanche #load {
+  color : #fff;
+  font-family : calibri;
+  text-align : center;
+  position : absolute;
+  top : 42px;
+  left :42px;
+}
+#test {
+  height : 10px;
+  width : 10px;
+  position : absolute;
+  background-color : #fff;
+  border-radius : 50%;
+  top : 0px;
+  left : 10px;
+}
+
+#rond {
+  height  : 100px;
+  width : 100px;
+  border : 1px solid #fff;
+  border-radius : 50%;
+  position :absolute;
+  top : 20px;
+  left : 15px;
+  animation : rond 2s infinite;
+  -webkit-animation : rond 2s infinite;
+}
+/* 动画：小圆在大圆的边框上旋转360度 */
+@keyframes rond {
+  0% {transform : rotate(0deg);}
+  100% {transform : rotate(360deg);}
+}
+
+@-webkit-keyframes rond {
+  0% {-webkit-transform : rotate(0deg);}
+  100% {-webkit-transform : rotate(360deg);}
+}
+
+/* 第七个效果的容器 */
+#casePourpre {
+  background-color : #B693FE;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#casePourpre #load {
+  color : #FF9DE2;
+  font-family : calibri;
+  text-align : center;
+  position : absolute;
+  top : 42px;
+  left :42px;
+}
+#vague {
+  position : absolute;
+  top : 72px;
+  left : 20px;
+}
+/* vague1到vague6没延迟0.5秒进行动画 */
+#vague1 {
+  height : 5px;
+  width : 5px;
+  background-color : #FF9DE2;
+  float : left;
+  animation : vague1 2.5s infinite;
+  -webkit-animation : vague1 2.5s infinite;
+}
+
+@-webkit-keyframes vague1 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+@-webkit-keyframes vague1 {
+  0% {height : -5px;}
+  50% {height : -30px;}
+  100% {height : -5px;}
+}
+
+@keyframes vague1 {
+  0% {height : -5px;}
+  50% {height : -30px;}
+  100% {height : -5px;}
+}
+
+#vague2 {
+  height : 5px;
+  width : 5px;
+  background-color : #FF9DE2;
+  float : left;
+  animation : vague2 2.5s infinite;
+  -webkit-animation : vague2 2.5s infinite;
+  animation-delay : 0.5s;
+  -webkit-animation-delay : 0.5s;
+}
+
+@-webkit-keyframes vague2 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+@keyframes vague2 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+#vague3 {
+  height : 5px;
+  width : 5px;
+  background-color : #FF9DE2;
+  float : left;
+  animation : vague3 2.5s infinite;
+  -webkit-animation : vague3 2.5s infinite;
+  animation-delay : 1s;
+  -webkit-animation-delay : 1s;
+}
+
+@-webkit-keyframes vague3 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+@keyframes vague3 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+#vague4 {
+  height : 5px;
+  width : 5px;
+  background-color : #FF9DE2;
+  float : left;
+  animation : vague4 2.5s infinite;
+  -webkit-animation : vague4 2.5s infinite;
+  /* 延时1.5s后动画开始 */
+  animation-delay : 1.5s;
+  -webkit-animation-delay : 1.5s;
+}
+
+@-webkit-keyframes vague4 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+@keyframes vague4 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+#vague5 {
+  height : 5px;
+  width : 5px;
+  background-color : #FF9DE2;
+  float : left;
+  animation : vague5 2.5s infinite;
+  -webkit-animation : vague5 2.5s infinite;
+  animation-delay : 2s;
+  -webkit-animation-delay : 2s;
+}
+
+@-webkit-keyframes vague5 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+@keyframes vague5 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+#vague6 {
+  height : 5px;
+  width : 5px;
+  background-color : #FF9DE2;
+  float : left;
+  animation : vague6 2.5s infinite;
+  -webkit-animation : vague6 2.5s infinite;
+  animation-delay : 2.5s;
+  -webkit-animation-delay : 2.5s;
+}
+
+@-webkit-keyframes vague6 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+@keyframes vague6 {
+  0% {height : 5px;}
+  50% {height : 30px;}
+  100% {height : 5px;}
+}
+
+/* 第八个效果的容器 */
+#caseVerteClaire {
+  background-color : #BFF4ED;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#caseVerteClaire #load {
+  color : #2F1B41;
+  font-family : calibri;
+  text-align : center;
+  position : absolute;
+  top : 42px;
+  left :42px;
+}
+#tranform {
+  position : absolute;
+  top : 85px;
+  left : 30px;
+}
+
+#transform1 {
+  height : 30px;
+  width : 30px;
+  /* 自定义一个圆形 */
+  border-radius : 50%; 
+  background-color : #BB5A5A;
+  position : absolute;
+  top : 85px;
+  left : 15px;
+  /* opacity设置图形的透明度 */
+  opacity : 0;
+  animation : transform 4s infinite;
+  -webkit-animation : transform 4s infinite;
+}
+
+#transform2 {
+  height : 30px;
+  width : 30px;
+  /* 自定义一个圆形 */
+  border-radius : 50%; 
+  background-color : #E79E85;
+  position : absolute;
+  top : 85px;
+  left : 54px;
+  /* opacity设置图形的透明度 */
+  opacity : 0;
+  animation : transform 4s infinite;
+  -webkit-animation : transform 4s infinite;
+  /* 延迟0.5秒动画开始 */
+  animation-delay : 0.5s;
+  -webkit-animation-delay : 0.5s;
+}
+
+#transform3 {
+  height : 30px;
+  width : 30px;
+  /* 自定义一个圆形 */
+  border-radius : 50%; 
+  background-color : #BB5A5A;
+  position : absolute;
+  top : 85px;
+  left : 94px;
+  /* opacity设置图形的透明度 */
+  opacity : 0;
+  animation : transform 4s infinite;
+  -webkit-animation : transform 4s infinite;
+  /* 规定动画1秒后开始 */
+  animation-delay : 1s;
+  -webkit-animation-delay : 1s;
+}
+/* 动画思路还不是很清晰 */
+@-webkit-keyframes transform {
+  0% {opacity : 0;}
+  25% {opacity : 1;}
+  50% {opacity : 0;}
+  75% {opacity : 1;}
+  100% {opacity : 0;}
+}
+
+@keyframes transform {
+  0% {border-radius : 0px; opacity : 0;}
+  20% {border-radius : 0px; opacity : 1;}
+  40% {border-radius : 0px; opacity : 0;}
+  60% {border-radius : 50%; opacity : 0;}
+  80% {border-radius : 50%; opacity : 1;}
+  100% {border-radius : 50%; opacity : 0;}
+}
+/* 第九个效果的容器 */
+#caseGrise {
+  /* 容器的背景颜色 */
+  background-color :#EEEEEE;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+/* “login”字体的样式及定位 */
+#caseGrise #load {
+  /* “login”字体颜色 */
+  color : #222;
+  font-family : calibri;
+  text-align : center;
+  position : relative;
+  top : 42px;
+  font-size : 11px;
+}
+/* 进度条容器的样式 */
+#progress {
+  height : 10px;
+  width : 120px;
+  position : absolute;
+  top : 60px;
+  left : 10px;
+  /* box-shadow：x y 阴影模糊半径 扩展半径 颜色 投射方式 */
+  /* inset（阴影效果向内） */
+  /* box-shadow : 0px 0px 10px #111111 ; */
+  box-shadow : 0px 0px 10px #111111 inset;
+}
+
+#charge {
+  height : 10px;
+  width : 120px;
+  position : absolute;
+  top : 0px;
+  left : 0px;
+  /* 动态进度条的颜色 */
+  background-color : #FEA096;
+  margin : 0px;
+  animation : charge 7s infinite;
+  -webkit-animation : charge 7s infinite;
+  box-shadow : 0px 0px 5px #222 inset;
+}
+/* 0%(动画的开始)和100%(动画的结束)相当于from和to */
+@-webkit-keyframes charge {
+  0% {width : 0px;}
+  100% {width : 100%;}
+}
+/* @-webkit-keyframes charge {
+  from{width : 0px;}
+  to {width : 100%;}
+} */
+/* @keyframes charge {
+  0% {width : 0px;}
+  100% {width : 100%;}
+} */
+
+/* 第十个效果的容器 */
+#caseMarronFonce {
+  background-color : #B2EBF9;
+  height : 140px;
+  width : 150px;
+  padding-top : 10px;
+  float : left;
+  position : relative;
+}
+#spinner {
+  height : 40px;
+  width : 40px;
+  /* 自定义旋转的图形及样式 */
+  /* 样式一 */
+  /* 圆的背景 */
+  background-color : #B2EBF9;
+  /* 圆的边框 */
+  border : 2px solid #B2EBF9;
+  /* 左侧边框的颜色 */
+  border-left-color :#f00;
+  /* 右侧边框的颜色 */
+  border-right-color :#f00;
+  /* 样式二 */
+  /* border : 10px solid #aea1ea; */
+  /* 圆的背景颜色 */
+  background-color : #AEA1EA;
+   /* 圆的边框及颜色 */
+   /* 注：边框的不同大小可得到不同的类似图形，可根据需要来是定不同的图形 */
+  border : 10px solid #B2EBF9;
+  /* 左侧边框的颜色 */
+  /* transparent：完全透明 */
+  border-left-color : transparent;
+  /* 右侧边框的颜色 */
+  border-right-color : transparent;
+  border-radius : 50%;
+  animation : spin 2s infinite;
+  -webkit-animation : spin 2s infinite;
+  /* -webkit-解决浏览器的兼容问题 */
+}
+
+/* 自定义动画 */
+/* 沿着z轴做旋转360度 */
+@-webkit-keyframes spin {
+  0% {-webkit-transform : rotate(0deg);}
+  50% {-webkit-transform : rotate(360deg);}
+  100% {-webkit-transform : rotate(0deg);}
+}
+@keyframes spin {
+  0% {transform : rotate(0deg);}
+  50% {transform : rotate(360deg);}
+  100% {transform : rotate(0deg);}
+}
